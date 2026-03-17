@@ -8,7 +8,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <style>
@@ -36,22 +36,46 @@
         nav.scrolled{background:rgba(255,255,255,0.98);box-shadow:var(--shadow-md)}
         .nav-content{display:flex;justify-content:space-between;align-items:center;padding:var(--space-sm) 0}
         
-        /* LOGO - PLACEHOLDER PARA LOGO REAL */
-        .logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;transition:transform var(--transition-base)}
-        .logo:hover{transform:scale(1.05)}
-        .logo img{height:40px;width:auto}
+        /* LOGO CSS PURO - TEXTO NEGRO CON GROSOR EXTRA */
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--black);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+            transition: all var(--transition-base);
+        }
         
+        .logo-text:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo-text .q-highlight {
+            color: var(--blue-light);
+            position: relative;
+        }
+        
+        .logo-text::after {
+            content: '.';
+            color: var(--blue-light);
+            font-weight: 900;
+            margin-left: -0.1rem;
+        }
+
         .nav-links{display:flex;gap:var(--space-lg);align-items:center;list-style:none}
         .nav-links a{color:var(--gray-dark);text-decoration:none;font-weight:600;font-size:0.95rem;position:relative;transition:color var(--transition-fast)}
         .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--blue-light);transition:width var(--transition-base)}
         .nav-links a:hover{color:var(--blue)}.nav-links a:hover::after{width:100%}
         
-        /* BOTÓN CONTACTANOS - CORREGIDO */
         .nav-cta{background:var(--navy);color:var(--white);padding:0.75rem 1.5rem;border-radius:var(--radius-sm);text-decoration:none;font-weight:700;font-size:0.9rem;transition:all var(--transition-base);border:2px solid transparent;position:relative;overflow:hidden}
         .nav-cta:hover{background:var(--blue);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
         .mobile-menu{display:none;background:none;border:none;cursor:pointer;padding:var(--space-xs)}
 
-        /* HERO CON ANIMACIÓN ESPACIAL */
+        /* HERO CON ANIMACIÓN ESPACIAL MEJORADA */
         .hero{
             background:linear-gradient(135deg,#0a0a1a 0%,#0f172a 50%,#1e1b4b 100%);
             color:var(--white);
@@ -63,27 +87,71 @@
             align-items:center
         }
         
-        /* ESTRELLAS ANIMADAS */
+        /* ESTRELLAS ANIMADAS - MÁS DENSAS Y VARIADAS */
         .stars-container{
             position:absolute;
             inset:0;
             overflow:hidden;
             pointer-events:none;
         }
+        
         .star{
             position:absolute;
-            width:2px;
-            height:2px;
             background:white;
             border-radius:50%;
-            animation:twinkle 3s infinite;
-        }
-        @keyframes twinkle{
-            0%,100%{opacity:0.2;transform:scale(1)}
-            50%{opacity:1;transform:scale(1.5)}
+            animation:twinkle var(--duration, 3s) infinite ease-in-out;
+            opacity: var(--opacity, 0.3);
         }
         
-        /* NEBULOSA */
+        .star.small {
+            width: 1px;
+            height: 1px;
+            box-shadow: 0 0 2px rgba(255,255,255,0.8);
+        }
+        
+        .star.medium {
+            width: 2px;
+            height: 2px;
+            box-shadow: 0 0 4px rgba(255,255,255,0.9);
+        }
+        
+        .star.large {
+            width: 3px;
+            height: 3px;
+            box-shadow: 0 0 6px rgba(255,255,255,1), 0 0 10px rgba(99,102,241,0.5);
+        }
+        
+        .star.shooting {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, white, transparent);
+            animation: shoot 3s linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes twinkle{
+            0%,100%{opacity:var(--opacity, 0.3);transform:scale(1)}
+            50%{opacity:1;transform:scale(1.2)}
+        }
+        
+        @keyframes shoot {
+            0% {
+                transform: translateX(-100px) translateY(100px) rotate(-45deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(300px) translateY(-300px) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+        
+        /* NEBULOSAS */
         .nebula{
             position:absolute;
             width:800px;
@@ -104,6 +172,15 @@
             left:-20%;
             background:radial-gradient(circle,rgba(139,92,246,0.3),transparent 70%);
             animation-delay:10s;
+        }
+        .nebula-3{
+            top:40%;
+            left:30%;
+            width:600px;
+            height:600px;
+            background:radial-gradient(circle,rgba(59,130,246,0.2),transparent 70%);
+            animation-delay:5s;
+            animation-duration:25s;
         }
         @keyframes nebula-float{
             0%,100%{transform:translate(0,0) scale(1)}
@@ -162,7 +239,6 @@
         .hero-stat-number{font-size:clamp(2.2rem,3.5vw,3rem);font-weight:800;background:linear-gradient(135deg,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
         .hero-stat-label{font-size:0.95rem;color:var(--gray-light);margin-top:0.4rem;font-weight:500}
 
-        /* Hero Visual */
         .hero-visual{position:relative;animation:fade-in-up 0.8s ease-out 0.3s both}
         .hero-mockup{position:relative;border-radius:var(--radius-xl);overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,0.4),0 0 40px rgba(99,102,241,0.2);transform:perspective(1000px) rotateY(-5deg) rotateX(5deg);transition:transform 0.6s ease;background:var(--navy-light)}
         .hero-mockup:hover{transform:perspective(1000px) rotateY(0deg) rotateX(0deg)}
@@ -178,7 +254,7 @@
         .floating-text{font-size:0.9rem;font-weight:700;color:var(--navy);line-height:1.2}
         .floating-text span{display:block;font-size:0.8rem;font-weight:500;color:var(--gray);margin-top:0.2rem}
 
-        /* SISTEMA DE APROBACIONES - COLOR AZUL MARINO (NO CYAN) */
+        /* SISTEMA DE APROBACIONES */
         .approval-system{
             padding:var(--space-3xl) 0;
             background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);
@@ -308,11 +384,10 @@
         .process-card h3{font-size:1.2rem;font-weight:700;margin-bottom:var(--space-xs);color:var(--navy)}
         .process-card p{color:var(--gray);font-size:0.95rem;line-height:1.6}
 
-        /* PORTFOLIO - CARRUSEL PARA MOBILE */
+        /* PORTFOLIO */
         .portfolio{padding:var(--space-3xl) 0;background:var(--white)}
         .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-xl);margin-top:var(--space-xl)}
         
-        /* Carrusel para mobile */
         @media(max-width:768px){
             .portfolio-grid{
                 display:flex;
@@ -387,8 +462,30 @@
         /* FOOTER */
         footer{padding:var(--space-xl) 0;background:var(--navy);color:var(--white);border-top:1px solid rgba(255,255,255,0.05)}
         .footer-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-md)}
-        .footer-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none}
-        .footer-logo img{height:36px;width:auto}
+        
+        /* LOGO EN FOOTER - BLANCO PARA CONTRASTE */
+        .footer-logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+        
+        .footer-logo .q-highlight {
+            color: var(--blue-light);
+        }
+        
+        .footer-logo::after {
+            content: '.';
+            color: var(--blue-light);
+            font-weight: 900;
+            margin-left: -0.1rem;
+        }
+        
         .footer-socials{display:flex;gap:var(--space-md)}
         .footer-socials a{color:var(--gray-light);text-decoration:none;font-weight:600;transition:all var(--transition-base);display:flex;align-items:center;gap:0.5rem;padding:0.5rem}
         .footer-socials a:hover{color:var(--white);transform:translateY(-2px)}
@@ -451,6 +548,7 @@
             .stats-grid{grid-template-columns:1fr;gap:var(--space-xl)}
             .whatsapp-chat{width:calc(100vw - 2rem);right:-1rem}
             .footer-content{flex-direction:column;text-align:center}
+            .logo-text {font-size: 1.5rem;}
         }
         @media(prefers-reduced-motion:reduce){
             *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
@@ -461,9 +559,9 @@
     <nav id="navbar">
         <div class="container">
             <div class="nav-content">
-                <!-- LOGO - REEMPLAZAR CON TU LOGO REAL -->
-                <a href="#" class="logo">
-                    <img src="https://via.placeholder.com/120x40/3b82f6/ffffff?text=eQuantum" alt="eQuantum" id="logo-img">
+                <!-- LOGO CSS PURO - TEXTO NEGRO CON GROSOR -->
+                <a href="#" class="logo-text">
+                    e<span class="q-highlight">Q</span>uantum
                 </a>
                 
                 <ul class="nav-links">
@@ -480,10 +578,11 @@
     </nav>
 
     <section class="hero">
-        <!-- ANIMACIÓN ESPACIAL -->
+        <!-- ANIMACIÓN ESPACIAL MEJORADA -->
         <div class="stars-container" id="starsContainer"></div>
         <div class="nebula nebula-1"></div>
         <div class="nebula nebula-2"></div>
+        <div class="nebula nebula-3"></div>
         <div class="cosmic-grid"></div>
         
         <div class="container">
@@ -523,7 +622,6 @@
         </div>
     </section>
 
-    <!-- SISTEMA DE APROBACIONES - SIN "PRODUCTO ESTRELLA", COLOR AZUL MARINO -->
     <section class="approval-system" id="sistema-aprobaciones">
         <div class="container">
             <div class="approval-grid">
@@ -642,11 +740,10 @@
                 <p class="section-subtitle">Algunos de los negocios que hemos transformado.</p>
             </div>
             <div class="portfolio-grid" id="portfolioGrid">
-                <!-- Marmolería Pietra - IMAGEN REAL DEL SITIO -->
                 <article class="portfolio-card reveal">
                     <div class="portfolio-image">
                         <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" 
-                             alt="Marmolería Pietra - Cocina premium con granito" 
+                             alt="Marmolería Pietra" 
                              loading="lazy" 
                              width="600" 
                              height="280">
@@ -660,17 +757,16 @@
                     </div>
                     <div class="portfolio-content">
                         <h3>Marmolería Pietra</h3>
-                        <p>Diseño y desarrollo de sitio corporativo para empresa líder en mármol y granito. Catálogo de productos, galería de proyectos y sistema de cotizaciones.</p>
+                        <p>Diseño y desarrollo de sitio corporativo para empresa líder en mármol y granito.</p>
                         <div class="tech-stack"><span class="tech-item">React</span><span class="tech-item">Node.js</span><span class="tech-item">PostgreSQL</span></div>
-                        <a href="https://marmoleriapietra.com" target="_blank" rel="noopener" class="portfolio-link">Visitar sitio <i data-lucide="external-link" style="width:18px;height:18px"></i></a>
+                        <a href="#" class="portfolio-link">Visitar sitio <i data-lucide="external-link" style="width:18px;height:18px"></i></a>
                     </div>
                 </article>
                 
-                <!-- Corpi & Cía - IMAGEN REAL DEL SITIO -->
                 <article class="portfolio-card reveal">
                     <div class="portfolio-image">
                         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" 
-                             alt="Corpi & Cía - E-commerce de jardinería" 
+                             alt="Corpi & Cía" 
                              loading="lazy" 
                              width="600" 
                              height="280">
@@ -684,17 +780,16 @@
                     </div>
                     <div class="portfolio-content">
                         <h3>Corpi & Cía</h3>
-                        <p>Primer e-commerce especializado en jardinería del país. Plataforma Shopify con +300% crecimiento anual, pasarela de pagos y logística automatizada.</p>
+                        <p>Primer e-commerce especializado en jardinería del país. Plataforma Shopify con +300% crecimiento.</p>
                         <div class="tech-stack"><span class="tech-item">Shopify Plus</span><span class="tech-item">Liquid</span><span class="tech-item">APIs</span></div>
-                        <a href="https://corpicia.com" target="_blank" rel="noopener" class="portfolio-link">Visitar tienda <i data-lucide="external-link" style="width:18px;height:18px"></i></a>
+                        <a href="#" class="portfolio-link">Visitar tienda <i data-lucide="external-link" style="width:18px;height:18px"></i></a>
                     </div>
                 </article>
                 
-                <!-- Federico Cabañas -->
                 <article class="portfolio-card reveal">
                     <div class="portfolio-image">
                         <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80" 
-                             alt="Federico Cabañas - Academia de Básquetbol" 
+                             alt="Federico Cabañas" 
                              loading="lazy" 
                              width="600" 
                              height="280">
@@ -708,9 +803,9 @@
                     </div>
                     <div class="portfolio-content">
                         <h3>Federico Cabañas</h3>
-                        <p>Academia de Básquetbol. Referente del básquet en Limpio, fundador de Limpio Source Básquetbol y la FDLB. Landing page profesional para captación de alumnos.</p>
+                        <p>Academia de Básquetbol. Landing page profesional para captación de alumnos.</p>
                         <div class="tech-stack"><span class="tech-item">HTML5</span><span class="tech-item">CSS3</span><span class="tech-item">JavaScript</span></div>
-                        <a href="#" target="_blank" rel="noopener" class="portfolio-link">Ver proyecto <i data-lucide="arrow-right" style="width:18px;height:18px"></i></a>
+                        <a href="#" class="portfolio-link">Ver proyecto <i data-lucide="arrow-right" style="width:18px;height:18px"></i></a>
                     </div>
                 </article>
             </div>
@@ -765,13 +860,13 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <!-- LOGO EN FOOTER -->
+                <!-- LOGO EN FOOTER - BLANCO -->
                 <a href="#" class="footer-logo">
-                    <img src="https://via.placeholder.com/100x36/3b82f6/ffffff?text=eQuantum" alt="eQuantum">
+                    e<span class="q-highlight">Q</span>uantum
                 </a>
                 <div class="footer-socials">
-                    <a href="https://instagram.com/equantum_group" target="_blank" rel="noopener"><i data-lucide="instagram" style="width:20px;height:20px"></i>Instagram</a>
-                    <a href="https://linkedin.com/company/equantum-group" target="_blank" rel="noopener"><i data-lucide="linkedin" style="width:20px;height:20px"></i>LinkedIn</a>
+                    <a href="#" target="_blank" rel="noopener"><i data-lucide="instagram" style="width:20px;height:20px"></i>Instagram</a>
+                    <a href="#" target="_blank" rel="noopener"><i data-lucide="linkedin" style="width:20px;height:20px"></i>LinkedIn</a>
                 </div>
                 <div class="footer-copy">© 2024 eQuantum. Todos los derechos reservados.</div>
             </div>
@@ -810,18 +905,40 @@
     </div>
 
     <script>
-        // Generar estrellas aleatorias
+        // Generar estrellas aleatorias mejoradas
         function generateStars() {
             const container = document.getElementById('starsContainer');
-            for(let i = 0; i < 50; i++) {
+            const starCount = 100; // Más estrellas
+            
+            for(let i = 0; i < starCount; i++) {
                 const star = document.createElement('div');
-                star.className = 'star';
+                
+                // Determinar tamaño aleatorio
+                const size = Math.random();
+                let sizeClass = 'small';
+                if (size > 0.7) sizeClass = 'medium';
+                if (size > 0.9) sizeClass = 'large';
+                
+                star.className = `star ${sizeClass}`;
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 3 + 's';
-                star.style.animationDuration = (2 + Math.random() * 2) + 's';
+                star.style.setProperty('--duration', (2 + Math.random() * 3) + 's');
+                star.style.setProperty('--opacity', (0.2 + Math.random() * 0.5));
+                star.style.animationDelay = Math.random() * 5 + 's';
+                
                 container.appendChild(star);
             }
+            
+            // Agregar estrellas fugaces ocasionales
+            setInterval(() => {
+                const shootingStar = document.createElement('div');
+                shootingStar.className = 'star shooting';
+                shootingStar.style.top = Math.random() * 50 + '%';
+                shootingStar.style.left = Math.random() * 50 + '%';
+                container.appendChild(shootingStar);
+                
+                setTimeout(() => shootingStar.remove(), 3000);
+            }, 8000);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -970,7 +1087,6 @@
             }, 3000);
         }
 
-        // Carrusel touch para mobile
         function initPortfolioCarousel() {
             const grid = document.getElementById('portfolioGrid');
             let isDown = false;
