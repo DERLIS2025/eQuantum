@@ -3,124 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eQuantum | Growth Partner Digital</title>
+    <title>eQuantum | Transformamos tu negocio con soluciones digitales</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        :root{--black:#0a0a0a;--dark:#111111;--gray:#6b7280;--light-gray:#9ca3af;--white:#ffffff;--accent:#059669;--accent-light:#10b981}
-        body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden}
-        .font-serif{font-family:'Playfair Display',serif}
-        .container{max-width:1280px;margin:0 auto;padding:0 2rem}
+        :root{
+            --black:#0a0a0f;
+            --navy:#0f172a;
+            --navy-light:#1e293b;
+            --blue:#1e40af;
+            --blue-light:#3b82f6;
+            --white:#ffffff;
+            --gray:#64748b;
+            --gray-light:#94a3b8;
+            --gray-dark:#334155;
+        }
+        body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:var(--navy);line-height:1.6;overflow-x:hidden}
+        .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
         
         /* Nav */
-        nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--black);border-bottom:1px solid rgba(255,255,255,0.05)}
-        .nav-content{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0}
-        .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;letter-spacing:-0.02em}
-        .nav-links{display:flex;gap:3rem}
-        .nav-links a{color:var(--light-gray);text-decoration:none;font-size:0.875rem;transition:color 0.3s}
-        .nav-links a:hover{color:var(--white)}
-        .nav-cta{padding:0.75rem 1.5rem;background:var(--white);color:var(--black);border-radius:0;border:none;font-size:0.875rem;font-weight:500;cursor:pointer;transition:all 0.3s}
-        .nav-cta:hover{background:var(--accent);color:var(--white)}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.05)}
+        .nav-content{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+        .logo{height:40px}
+        .nav-links{display:flex;gap:2.5rem;align-items:center}
+        .nav-links a{color:var(--gray-dark);text-decoration:none;font-weight:500;font-size:0.95rem;transition:color 0.3s}
+        .nav-links a:hover{color:var(--blue)}
+        .nav-cta{background:var(--navy);color:var(--white);padding:0.75rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:all 0.3s}
+        .nav-cta:hover{background:var(--blue);transform:translateY(-2px)}
+        .mobile-menu{display:none;background:none;border:none;cursor:pointer}
         
         /* Hero */
-        .hero{min-height:100vh;display:flex;align-items:center;padding-top:6rem}
-        .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-        .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;border:1px solid rgba(255,255,255,0.1);font-size:0.75rem;color:var(--light-gray);margin-bottom:2rem}
-        .hero-badge::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%}
-        .hero h1{font-size:3.5rem;line-height:1.1;font-weight:500;margin-bottom:1.5rem}
-        .hero h1 span{color:var(--accent-light);font-style:italic}
-        .hero p{color:var(--gray);font-size:1.125rem;margin-bottom:2.5rem;max-width:90%}
-        .hero-buttons{display:flex;gap:1rem}
-        .btn-primary{padding:1rem 2rem;background:var(--white);color:var(--black);border:none;font-size:0.875rem;font-weight:500;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem}
-        .btn-primary:hover{background:var(--accent);color:var(--white)}
-        .btn-secondary{padding:1rem 2rem;background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.2);font-size:0.875rem;font-weight:500;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem}
-        .btn-secondary:hover{border-color:var(--white)}
+        .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--black) 100%);color:var(--white);padding:8rem 0 4rem;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:radial-gradient(circle at 70% 50%,rgba(30,64,175,0.15) 0%,transparent 70%)}
+        .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+        .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.1);padding:0.5rem 1rem;border-radius:50px;font-size:0.85rem;margin-bottom:1.5rem;color:var(--gray-light)}
+        .hero-badge span{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite}
+        .hero h1{font-size:3.5rem;font-weight:800;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-0.02em}
+        .hero h1 span{color:var(--blue-light)}
+        .hero p{font-size:1.25rem;color:var(--gray-light);margin-bottom:2.5rem;max-width:90%;line-height:1.7}
+        .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap}
+        .btn-primary{background:var(--blue-light);color:var(--white);padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.3s;display:inline-flex;align-items:center;gap:0.5rem;border:none;cursor:pointer;font-size:1rem}
+        .btn-primary:hover{background:var(--blue);transform:translateY(-2px);box-shadow:0 10px 30px rgba(30,64,175,0.3)}
+        .btn-secondary{background:transparent;color:var(--white);padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.3s;display:inline-flex;align-items:center;gap:0.5rem;border:2px solid rgba(255,255,255,0.2)}
+        .btn-secondary:hover{border-color:var(--white);background:rgba(255,255,255,0.05)}
+        .hero-stats{display:flex;gap:3rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1)}
+        .hero-stat{text-align:center}
+        .hero-stat-number{font-size:2.5rem;font-weight:800;color:var(--blue-light)}
+        .hero-stat-label{font-size:0.9rem;color:var(--gray-light)}
         .hero-image{position:relative}
-        .hero-image img{width:100%;height:500px;object-fit:cover;opacity:0.9}
-        .hero-image::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--black),transparent 50%)}
+        .hero-image img{width:100%;border-radius:16px;box-shadow:0 25px 50px -12px rgba(0,0,0,0.5)}
         
-        /* Partners */
-        .partners{padding:4rem 0;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)}
-        .partners p{color:var(--gray);font-size:0.875rem;margin-bottom:2rem}
-        .partners-grid{display:flex;gap:4rem;opacity:0.5}
-        .partner-logo{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--light-gray)}
+        /* Services */
+        .services{padding:6rem 0;background:var(--white)}
+        .section-header{text-align:center;max-width:700px;margin:0 auto 4rem}
+        .section-tag{color:var(--blue);font-weight:600;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:1rem}
+        .section-title{font-size:2.5rem;font-weight:800;color:var(--navy);margin-bottom:1rem;line-height:1.2}
+        .section-subtitle{color:var(--gray);font-size:1.1rem}
+        .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+        .service-card{background:var(--white);border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:2rem;transition:all 0.3s}
+        .service-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,0.1);border-color:var(--blue-light)}
+        .service-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--blue-light),var(--blue));border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;color:var(--white)}
+        .service-card h3{font-size:1.25rem;font-weight:700;margin-bottom:0.75rem;color:var(--navy)}
+        .service-card p{color:var(--gray);font-size:0.95rem;line-height:1.6}
         
-        /* Growth Partner */
-        .growth{padding:6rem 0}
-        .growth-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4rem}
-        .growth h2{font-size:2.5rem;font-weight:400;line-height:1.3}
-        .growth h2 span{color:var(--accent-light);font-style:italic}
-        .growth-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
-        .growth-left h3{font-size:1.25rem;font-weight:400;margin-bottom:1rem}
-        .growth-left p{color:var(--gray);margin-bottom:2rem}
-        .growth-cta{color:var(--white);text-decoration:none;font-size:0.875rem;display:inline-flex;align-items:center;gap:0.5rem;border-bottom:1px solid var(--white);padding-bottom:0.25rem}
-        .accordion{border-top:1px solid rgba(255,255,255,0.1)}
-        .accordion-item{border-bottom:1px solid rgba(255,255,255,0.1)}
-        .accordion-header{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;cursor:pointer;background:none;border:none;color:var(--white);width:100%;font-size:1rem;text-align:left}
-        .accordion-header:hover{color:var(--accent-light)}
-        .accordion-icon{transition:transform 0.3s}
-        .accordion-item.active .accordion-icon{transform:rotate(45deg)}
-        .accordion-content{max-height:0;overflow:hidden;transition:max-height 0.3s}
-        .accordion-item.active .accordion-content{max-height:200px}
-        .accordion-body{padding-bottom:1.5rem;color:var(--gray);font-size:0.875rem}
+        /* Process */
+        .process{padding:6rem 0;background:#f8fafc}
+        .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
+        .process-card{text-align:center;padding:2rem;position:relative}
+        .process-card:not(:last-child)::after{content:'';position:absolute;top:3rem;right:-1rem;width:2rem;height:2px;background:var(--blue-light);opacity:0.3}
+        .process-number{width:60px;height:60px;background:var(--navy);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;margin:0 auto 1.5rem}
+        .process-card h3{font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;color:var(--navy)}
+        .process-card p{color:var(--gray);font-size:0.9rem}
         
-        /* Work */
-        .work{padding:6rem 0;background:var(--dark)}
-        .work-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem}
-        .work h2{font-size:2rem;font-weight:400;margin-bottom:1rem}
-        .work>p{color:var(--gray);font-size:0.875rem;max-width:600px}
-        .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
-        .work-card{position:relative;overflow:hidden;cursor:pointer;group}
-        .work-card img{width:100%;height:400px;object-fit:cover;transition:transform 0.5s}
-        .work-card:hover img{transform:scale(1.05)}
-        .work-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);display:flex;flex-direction:column;justify-content:flex-end;padding:2rem}
-        .work-card-tag{display:inline-block;padding:0.25rem 0.75rem;background:var(--accent);color:var(--white);font-size:0.75rem;margin-bottom:1rem;width:fit-content}
-        .work-card h3{font-size:1.5rem;margin-bottom:0.5rem}
-        .work-card p{color:var(--light-gray);font-size:0.875rem}
+        /* Portfolio */
+        .portfolio{padding:6rem 0;background:var(--white)}
+        .portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3rem;margin-top:3rem}
+        .portfolio-card{background:var(--white);border-radius:20px;overflow:hidden;border:1px solid rgba(0,0,0,0.08);transition:all 0.3s}
+        .portfolio-card:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(0,0,0,0.12)}
+        .portfolio-image{position:relative;overflow:hidden;height:300px}
+        .portfolio-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
+        .portfolio-card:hover .portfolio-image img{transform:scale(1.05)}
+        .portfolio-tag{position:absolute;top:1rem;left:1rem;background:var(--blue-light);color:var(--white);padding:0.5rem 1rem;border-radius:50px;font-size:0.8rem;font-weight:600}
+        .portfolio-content{padding:2rem}
+        .portfolio-content h3{font-size:1.5rem;font-weight:700;margin-bottom:0.75rem;color:var(--navy)}
+        .portfolio-content p{color:var(--gray);margin-bottom:1.5rem;line-height:1.6}
+        .portfolio-link{color:var(--blue);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem;transition:gap 0.3s}
+        .portfolio-link:hover{gap:0.75rem}
         
-        /* Testimonials */
-        .testimonials{padding:6rem 0}
-        .testimonials h2{font-size:2rem;font-weight:400;text-align:center;margin-bottom:4rem}
-        .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-        .testimonial{padding:2rem;border:1px solid rgba(255,255,255,0.05)}
-        .testimonial-text{font-size:1.125rem;margin-bottom:2rem;line-height:1.6}
-        .testimonial-author{display:flex;align-items:center;gap:1rem}
-        .testimonial-avatar{width:48px;height:48px;border-radius:50%;background:var(--dark);display:flex;align-items:center;justify:center;font-weight:500}
-        .testimonial-name{font-weight:500}
-        .testimonial-role{color:var(--gray);font-size:0.875rem}
+        /* Stats */
+        .stats{padding:5rem 0;background:var(--navy);color:var(--white)}
+        .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+        .stat-number{font-size:3rem;font-weight:800;color:var(--blue-light);margin-bottom:0.5rem}
+        .stat-label{color:var(--gray-light);font-size:1rem}
         
         /* Contact */
-        .contact{padding:6rem 0;text-align:center}
-        .contact h2{font-size:3rem;font-weight:400;margin-bottom:1rem}
-        .contact h2 span{color:var(--accent-light);font-style:italic}
-        .contact>p{color:var(--gray);margin-bottom:3rem}
-        .contact-form{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:1rem}
-        .contact-form input,.contact-form textarea{padding:1rem;background:var(--dark);border:1px solid rgba(255,255,255,0.1);color:var(--white);font-family:inherit}
-        .contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--gray)}
-        .contact-form textarea{min-height:120px;resize:none}
+        .contact{padding:6rem 0;background:#f8fafc}
+        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+        .contact-info h2{font-size:2.5rem;font-weight:800;margin-bottom:1rem;color:var(--navy)}
+        .contact-info>p{color:var(--gray);margin-bottom:2rem;font-size:1.1rem}
+        .contact-item{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+        .contact-icon{width:50px;height:50px;background:var(--navy);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--white)}
+        .contact-item div h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.25rem}
+        .contact-item div p{color:var(--gray);font-size:0.9rem}
+        .contact-form{background:var(--white);padding:2.5rem;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.08)}
+        .form-group{margin-bottom:1.5rem}
+        .form-group label{display:block;margin-bottom:0.5rem;font-weight:600;color:var(--navy);font-size:0.9rem}
+        .form-group input,.form-group textarea{width:100%;padding:1rem;border:2px solid rgba(0,0,0,0.08);border-radius:10px;font-family:inherit;font-size:1rem;transition:border-color 0.3s;background:var(--white)}
+        .form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--blue-light)}
+        .form-group textarea{min-height:120px;resize:vertical}
         
         /* Footer */
-        footer{padding:4rem 0;border-top:1px solid rgba(255,255,255,0.05)}
+        footer{padding:3rem 0;background:var(--navy);color:var(--white)}
         .footer-content{display:flex;justify-content:space-between;align-items:center}
-        .footer-logo{font-family:'Playfair Display',serif;font-size:1.5rem}
-        .footer-socials{display:flex;gap:2rem}
-        .footer-socials a{color:var(--gray);text-decoration:none;font-size:0.875rem;transition:color 0.3s}
+        .footer-logo{height:35px;opacity:0.9}
+        .footer-socials{display:flex;gap:1.5rem}
+        .footer-socials a{color:var(--gray-light);text-decoration:none;font-weight:500;transition:color 0.3s}
         .footer-socials a:hover{color:var(--white)}
-        .footer-copy{color:var(--gray);font-size:0.875rem}
+        .footer-copy{color:var(--gray);font-size:0.9rem}
         
         /* WhatsApp */
-        .whatsapp{position:fixed;bottom:2rem;right:2rem;width:60px;height:60px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:50;transition:transform 0.3s}
+        .whatsapp{position:fixed;bottom:2rem;right:2rem;width:60px;height:60px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);z-index:100;transition:transform 0.3s}
         .whatsapp:hover{transform:scale(1.1)}
         .whatsapp img{width:32px;height:32px}
         
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+        
         @media(max-width:768px){
-            .hero-grid,.growth-grid,.work-grid,.testimonials-grid{grid-template-columns:1fr}
             .nav-links{display:none}
+            .mobile-menu{display:block}
+            .hero-grid,.contact-grid{grid-template-columns:1fr}
+            .services-grid,.process-grid,.stats-grid{grid-template-columns:1fr}
+            .process-card::after{display:none}
+            .portfolio-grid{grid-template-columns:1fr}
             .hero h1{font-size:2.5rem}
-            .partners-grid{flex-wrap:wrap;gap:2rem}
+            .hero-stats{flex-direction:column;gap:1.5rem}
         }
     </style>
 </head>
@@ -129,15 +148,16 @@
     <nav>
         <div class="container">
             <div class="nav-content">
-                <div class="logo">eQuantum.</div>
+                <img src="imagenes/eQuantum-logo.png" alt="eQuantum" class="logo">
                 <div class="nav-links">
-                    <a href="#proceso">Proceso</a>
-                    <a href="#sistema">El Sistema</a>
-                    <a href="#proyectos">Proyectos</a>
                     <a href="#servicios">Servicios</a>
-                    <a href="#contacto">Nosotros</a>
+                    <a href="#proceso">Proceso</a>
+                    <a href="#portafolio">Portafolio</a>
+                    <a href="#contacto" class="nav-cta">Contáctanos</a>
                 </div>
-                <a href="#contacto" class="nav-cta">Contáctanos</a>
+                <button class="mobile-menu" onclick="document.getElementById('mobileNav').classList.toggle('active')">
+                    <i data-lucide="menu" style="width:24px;height:24px;color:var(--navy)"></i>
+                </button>
             </div>
         </div>
     </nav>
@@ -147,12 +167,26 @@
         <div class="container">
             <div class="hero-grid">
                 <div>
-                    <div class="hero-badge">Disponible para proyectos</div>
-                    <h1 class="font-serif">Escalamos tu negocio mediante <span>sistemas digitales</span> de alto rendimiento</h1>
-                    <p>Transformamos tu presencia online en resultados reales. Diseñamos e implementamos motores de venta automatizados para E-commerce y creadores que buscan previsibilidad.</p>
+                    <div class="hero-badge"><span></span>Disponible para proyectos</div>
+                    <h1>Transformamos tu negocio con <span>soluciones digitales</span></h1>
+                    <p>Diseñamos e implementamos experiencias digitales que generan resultados reales. Especialistas en desarrollo web, e-commerce y estrategias de crecimiento.</p>
                     <div class="hero-buttons">
-                        <a href="#contacto" class="btn-primary">CONTÁCTANOS <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
-                        <a href="#proyectos" class="btn-secondary">Ver proyectos</a>
+                        <a href="#contacto" class="btn-primary">Iniciar proyecto <i data-lucide="arrow-right" style="width:18px;height:18px"></i></a>
+                        <a href="#portafolio" class="btn-secondary">Ver portafolio</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">150+</div>
+                            <div class="hero-stat-label">Proyectos</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">5 años</div>
+                            <div class="hero-stat-label">Experiencia</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">98%</div>
+                            <div class="hero-stat-label">Satisfacción</div>
+                        </div>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -162,138 +196,136 @@
         </div>
     </section>
 
-    <!-- Partners -->
-    <section class="partners">
+    <!-- Services -->
+    <section class="services" id="servicios">
         <div class="container">
-            <p>Partners que respaldan nuestro trabajo</p>
-            <div class="partners-grid">
-                <span class="partner-logo">Shopify</span>
-                <span class="partner-logo">Tiendanube</span>
-                <span class="partner-logo">WordPress</span>
-                <span class="partner-logo">React</span>
+            <div class="section-header">
+                <div class="section-tag">Nuestros Servicios</div>
+                <h2 class="section-title">Soluciones integrales para tu negocio</h2>
+                <p class="section-subtitle">Combinamos estrategia, diseño y tecnología para crear experiencias digitales que venden.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Growth Partner -->
-    <section class="growth" id="servicios">
-        <div class="container">
-            <div class="growth-header">
-                <h2 class="font-serif">Impulsando el <span>crecimiento</span> de tu negocio digital</h2>
-            </div>
-            <div class="growth-grid">
-                <div class="growth-left">
-                    <h3 class="font-serif">Creamos soluciones digitales que conectan, escalan y evolucionan con su negocio.</h3>
-                    <p>Tomamos el control de tus activos: optimizamos tus cuentas, accionamos tu data y establecemos un acompañamiento semanal para escalar tu negocio con orden y previsibilidad.</p>
-                    <a href="#contacto" class="growth-cta">Ver todos los servicios <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="globe" style="width:28px;height:28px"></i></div>
+                    <h3>Desarrollo Web</h3>
+                    <p>Sitios web profesionales, landing pages optimizadas y aplicaciones web a medida con las últimas tecnologías.</p>
                 </div>
-                <div class="accordion">
-                    <div class="accordion-item active">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>Desarrollo Web</span>
-                            <i data-lucide="plus" class="accordion-icon" style="width:20px;height:20px"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="accordion-body">Desarrollo Web Personalizado, Aplicaciones Web Progresivas (PWA), Sistemas de Gestión Interna, APIs e Integraciones.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>Diseño UI/UX</span>
-                            <i data-lucide="plus" class="accordion-icon" style="width:20px;height:20px"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="accordion-body">Diseño de Interfaces, Experiencia de Usuario (UX), Prototipado Interactivo, Design Systems.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>E-commerce</span>
-                            <i data-lucide="plus" class="accordion-icon" style="width:20px;height:20px"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="accordion-body">Tiendas Shopify, Migraciones, Optimización de conversiones, Pasarelas de pago, Logística automatizada.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>Marketing Digital</span>
-                            <i data-lucide="plus" class="accordion-icon" style="width:20px;height:20px"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="accordion-body">Meta Ads, Google Ads, Email Marketing, Automatización de marketing, Análisis de datos.</div>
-                        </div>
-                    </div>
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="shopping-cart" style="width:28px;height:28px"></i></div>
+                    <h3>E-commerce</h3>
+                    <p>Tiendas online en Shopify y plataformas personalizadas. Integración de pagos, logística y automatización.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="smartphone" style="width:28px;height:28px"></i></div>
+                    <h3>WhatsApp Business</h3>
+                    <p>Automatización de ventas y atención al cliente con catálogos, chatbots y flujos personalizados.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="palette" style="width:28px;height:28px"></i></div>
+                    <h3>Diseño UI/UX</h3>
+                    <p>Interfaces intuitivas y experiencias de usuario que convierten visitantes en clientes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="trending-up" style="width:28px;height:28px"></i></div>
+                    <h3>Marketing Digital</h3>
+                    <p>Estrategias de crecimiento, Meta Ads, Google Ads y email marketing orientados a resultados.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="settings" style="width:28px;height:28px"></i></div>
+                    <h3>Sistemas Internos</h3>
+                    <p>Software de gestión, sistemas de aprobaciones y herramientas que optimizan tus procesos.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Work -->
-    <section class="work" id="proyectos">
+    <!-- Process -->
+    <section class="process" id="proceso">
         <div class="container">
-            <div class="work-header">
+            <div class="section-header">
+                <div class="section-tag">Nuestro Proceso</div>
+                <h2 class="section-title">Cómo trabajamos</h2>
+                <p class="section-subtitle">Un enfoque estructurado que garantiza resultados.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">01</div>
+                    <h3>Descubrimiento</h3>
+                    <p>Analizamos tu negocio, competencia y objetivos para crear una estrategia sólida.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">02</div>
+                    <h3>Diseño</h3>
+                    <p>Creamos prototipos y diseños que equilibran estética y funcionalidad.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">03</div>
+                    <h3>Desarrollo</h3>
+                    <p>Construimos tu solución con tecnologías modernas y mejores prácticas.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">04</div>
+                    <h3>Escalado</h3>
+                    <p>Lanzamos, medimos y optimizamos para maximizar resultados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="portfolio" id="portafolio">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Portafolio</div>
+                <h2 class="section-title">Proyectos destacados</h2>
+                <p class="section-subtitle">Algunos de los negocios que hemos transformado.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="imagenes/marmoleriapietra.jpg" alt="Marmolería Pietra">
+                        <span class="portfolio-tag">Web Corporativa</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Marmolería Pietra</h3>
+                        <p>Diseño y desarrollo de sitio corporativo para empresa líder en mármol y granito. Catálogo de productos, galería de proyectos y sistema de cotizaciones.</p>
+                        <a href="https://marmoleriapietra.com" target="_blank" class="portfolio-link">Visitar sitio <i data-lucide="external-link" style="width:16px;height:16px"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="imagenes/corpicia.jpg" alt="Corpi & Cía">
+                        <span class="portfolio-tag" style="background:#059669">E-commerce</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Corpi & Cía</h3>
+                        <p>Primer e-commerce especializado en jardinería del país. Plataforma Shopify con +300% crecimiento anual, pasarela de pagos y logística automatizada.</p>
+                        <a href="https://corpicia.com" target="_blank" class="portfolio-link">Visitar tienda <i data-lucide="external-link" style="width:16px;height:16px"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
                 <div>
-                    <h2 class="font-serif">Nuestro trabajo</h2>
-                    <p>eQuantum se destaca como una agencia líder en el ámbito de Shopify y desarrollo web, donde cada proyecto es una oportunidad para superar los límites de la creatividad y la excelencia.</p>
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Proyectos entregados</div>
                 </div>
-                <a href="#contacto" class="btn-secondary">Ver todos los proyectos</a>
-            </div>
-            <div class="work-grid">
-                <div class="work-card">
-                    <img src="imagenes/marmoleriapietra.jpg" alt="Marmolería Pietra">
-                    <div class="work-card-overlay">
-                        <span class="work-card-tag">Web Corporativa</span>
-                        <h3 class="font-serif">Marmolería Pietra</h3>
-                        <p>Diseño y desarrollo de sitio corporativo para empresa de mármol y granito con catálogo de productos y sistema de cotizaciones.</p>
-                    </div>
+                <div>
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Años de experiencia</div>
                 </div>
-                <div class="work-card">
-                    <img src="imagenes/corpicia.jpg" alt="Corpi & Cía">
-                    <div class="work-card-overlay">
-                        <span class="work-card-tag">E-commerce</span>
-                        <h3 class="font-serif">Corpi & Cía</h3>
-                        <p>Primer e-commerce especializado en jardinería del país. Plataforma Shopify con +300% crecimiento anual.</p>
-                    </div>
+                <div>
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Clientes satisfechos</div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="font-serif">Lo que dicen nuestros clientes</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <p class="testimonial-text font-serif">"eQuantum transformó completamente nuestra operación. El sistema de aprobaciones redujo nuestros tiempos de gestión en un 85%."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">RM</div>
-                        <div>
-                            <div class="testimonial-name">Roberto Méndez</div>
-                            <div class="testimonial-role">CEO, RM S.R.L.</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text font-serif">"Gracias a su expertise en Shopify, lanzamos Corpi & Cía en tiempo récord. Su acompañamiento fue clave para posicionarnos."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar" style="background:var(--accent);color:var(--white)">JC</div>
-                        <div>
-                            <div class="testimonial-name">Jose Coronel</div>
-                            <div class="testimonial-role">Fundador, Corpi & Cía</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text font-serif">"El equipo entiende perfectamente el balance entre tecnología y negocio. Proponen mejoras que impactan directamente en ventas."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar" style="background:#7c2d12;color:var(--white)">FC</div>
-                        <div>
-                            <div class="testimonial-name">Federico Cabañas</div>
-                            <div class="testimonial-role">Director, Academia de Básquet</div>
-                        </div>
-                    </div>
+                <div>
+                    <div class="stat-number">300%</div>
+                    <div class="stat-label">Crecimiento promedio</div>
                 </div>
             </div>
         </div>
@@ -302,17 +334,52 @@
     <!-- Contact -->
     <section class="contact" id="contacto">
         <div class="container">
-            <h2 class="font-serif">Llegamos & <span>Transformamos</span></h2>
-            <p>Tomamos el control de tus activos: optimizamos tus cuentas, accionamos tu data y establecemos un acompañamiento semanal.</p>
-            <form class="contact-form" onsubmit="event.preventDefault();alert('¡Mensaje enviado!');this.reset()">
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
-                    <input type="text" placeholder="Tu nombre *" required>
-                    <input type="email" placeholder="Tu email *" required>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>¿Listo para transformar tu negocio?</h2>
+                    <p>Contanos sobre tu proyecto y te ayudamos a hacerlo realidad.</p>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i data-lucide="mail" style="width:24px;height:24px"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>hola@equantum.com.py</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i data-lucide="phone" style="width:24px;height:24px"></i></div>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+595 981 234 567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i data-lucide="map-pin" style="width:24px;height:24px"></i></div>
+                        <div>
+                            <h4>Ubicación</h4>
+                            <p>Asunción, Paraguay</p>
+                        </div>
+                    </div>
                 </div>
-                <input type="text" placeholder="Nombre de tu empresa">
-                <textarea placeholder="Cuéntanos sobre tu proyecto... *" required></textarea>
-                <button type="submit" class="btn-primary" style="justify-content:center">Enviar Mensaje <i data-lucide="send" style="width:16px;height:16px"></i></button>
-            </form>
+                <form class="contact-form" onsubmit="event.preventDefault();alert('¡Mensaje enviado! Te contactaremos pronto.');this.reset()">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Empresa</label>
+                        <input type="text" placeholder="Nombre de tu empresa">
+                    </div>
+                    <div class="form-group">
+                        <label>Mensaje</label>
+                        <textarea placeholder="Contanos sobre tu proyecto..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width:100%">Enviar mensaje <i data-lucide="send" style="width:18px;height:18px"></i></button>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -320,12 +387,12 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">eQuantum.</div>
+                <img src="imagenes/eQuantum-logo.png" alt="eQuantum" class="footer-logo">
                 <div class="footer-socials">
                     <a href="https://instagram.com/equantum_group" target="_blank">Instagram</a>
                     <a href="https://linkedin.com/company/equantum-group" target="_blank">LinkedIn</a>
                 </div>
-                <div class="footer-copy">© 2024 eQuantum Agency. Asunción, Paraguay.</div>
+                <div class="footer-copy">© 2024 eQuantum. Todos los derechos reservados.</div>
             </div>
         </div>
     </footer>
@@ -335,19 +402,6 @@
         <img src="imagenes/icono%20-%20WhatsApp.svg" alt="WhatsApp">
     </a>
 
-    <script>
-        lucide.createIcons();
-        
-        function toggleAccordion(btn) {
-            const item = btn.parentElement;
-            const wasActive = item.classList.contains('active');
-            
-            document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
-            
-            if (!wasActive) {
-                item.classList.add('active');
-            }
-        }
-    </script>
+    <script>lucide.createIcons()</script>
 </body>
 </html>
