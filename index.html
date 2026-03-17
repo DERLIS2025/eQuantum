@@ -3,404 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eQuantum | Sistemas Digitales de Alto Rendimiento</title>
+    <title>eQuantum | Growth Partner Digital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    },
-                    colors: {
-                        quantum: { black: '#0a0a0f', dark: '#12121a', cyan: '#00f0ff', purple: '#8b5cf6' }
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0a0a0f;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
-        .gradient-text{background:linear-gradient(135deg,#00f0ff,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-        .glass{background:rgba(255,255,255,0.03);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1)}
-        .glow{position:relative}.glow::before{content:'';position:absolute;inset:-2px;background:linear-gradient(45deg,#00f0ff,#8b5cf6);border-radius:inherit;z-index:-1;opacity:0;transition:0.3s}.glow:hover::before{opacity:1}
-        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
-        @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
-        @keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
-        @keyframes particle{0%{transform:translateY(100vh);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100vh);opacity:0}}
-        .typing::after{content:'|';animation:blink 1s infinite}
-        .animate-float{animation:float 6s ease-in-out infinite}
-        .particle{position:absolute;width:2px;height:2px;background:#00f0ff;border-radius:50%;animation:particle 15s linear infinite}
-        .scanline{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,transparent 50%,rgba(0,240,255,0.02) 50%);background-size:100% 4px;pointer-events:none;z-index:9999}
-        .accordion-content{max-height:0;overflow:hidden;transition:max-height 0.3s}.accordion-content.active{max-height:300px}
-        .counter{opacity:0;transform:translateY(20px);transition:all 0.6s}.counter.visible{opacity:1;transform:translateY(0)}
-        html{scroll-behavior:smooth}
+        :root{--black:#0a0a0a;--dark:#111111;--gray:#6b7280;--light-gray:#9ca3af;--white:#ffffff;--accent:#059669;--accent-light:#10b981}
+        body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden}
+        .font-serif{font-family:'Playfair Display',serif}
+        .container{max-width:1280px;margin:0 auto;padding:0 2rem}
+        
+        /* Nav */
+        nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--black);border-bottom:1px solid rgba(255,255,255,0.05)}
+        .nav-content{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0}
+        .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;letter-spacing:-0.02em}
+        .nav-links{display:flex;gap:3rem}
+        .nav-links a{color:var(--light-gray);text-decoration:none;font-size:0.875rem;transition:color 0.3s}
+        .nav-links a:hover{color:var(--white)}
+        .nav-cta{padding:0.75rem 1.5rem;background:var(--white);color:var(--black);border-radius:0;border:none;font-size:0.875rem;font-weight:500;cursor:pointer;transition:all 0.3s}
+        .nav-cta:hover{background:var(--accent);color:var(--white)}
+        
+        /* Hero */
+        .hero{min-height:100vh;display:flex;align-items:center;padding-top:6rem}
+        .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+        .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;border:1px solid rgba(255,255,255,0.1);font-size:0.75rem;color:var(--light-gray);margin-bottom:2rem}
+        .hero-badge::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%}
+        .hero h1{font-size:3.5rem;line-height:1.1;font-weight:500;margin-bottom:1.5rem}
+        .hero h1 span{color:var(--accent-light);font-style:italic}
+        .hero p{color:var(--gray);font-size:1.125rem;margin-bottom:2.5rem;max-width:90%}
+        .hero-buttons{display:flex;gap:1rem}
+        .btn-primary{padding:1rem 2rem;background:var(--white);color:var(--black);border:none;font-size:0.875rem;font-weight:500;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem}
+        .btn-primary:hover{background:var(--accent);color:var(--white)}
+        .btn-secondary{padding:1rem 2rem;background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.2);font-size:0.875rem;font-weight:500;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem}
+        .btn-secondary:hover{border-color:var(--white)}
+        .hero-image{position:relative}
+        .hero-image img{width:100%;height:500px;object-fit:cover;opacity:0.9}
+        .hero-image::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--black),transparent 50%)}
+        
+        /* Partners */
+        .partners{padding:4rem 0;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)}
+        .partners p{color:var(--gray);font-size:0.875rem;margin-bottom:2rem}
+        .partners-grid{display:flex;gap:4rem;opacity:0.5}
+        .partner-logo{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--light-gray)}
+        
+        /* Growth Partner */
+        .growth{padding:6rem 0}
+        .growth-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4rem}
+        .growth h2{font-size:2.5rem;font-weight:400;line-height:1.3}
+        .growth h2 span{color:var(--accent-light);font-style:italic}
+        .growth-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+        .growth-left h3{font-size:1.25rem;font-weight:400;margin-bottom:1rem}
+        .growth-left p{color:var(--gray);margin-bottom:2rem}
+        .growth-cta{color:var(--white);text-decoration:none;font-size:0.875rem;display:inline-flex;align-items:center;gap:0.5rem;border-bottom:1px solid var(--white);padding-bottom:0.25rem}
+        .accordion{border-top:1px solid rgba(255,255,255,0.1)}
+        .accordion-item{border-bottom:1px solid rgba(255,255,255,0.1)}
+        .accordion-header{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;cursor:pointer;background:none;border:none;color:var(--white);width:100%;font-size:1rem;text-align:left}
+        .accordion-header:hover{color:var(--accent-light)}
+        .accordion-icon{transition:transform 0.3s}
+        .accordion-item.active .accordion-icon{transform:rotate(45deg)}
+        .accordion-content{max-height:0;overflow:hidden;transition:max-height 0.3s}
+        .accordion-item.active .accordion-content{max-height:200px}
+        .accordion-body{padding-bottom:1.5rem;color:var(--gray);font-size:0.875rem}
+        
+        /* Work */
+        .work{padding:6rem 0;background:var(--dark)}
+        .work-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem}
+        .work h2{font-size:2rem;font-weight:400;margin-bottom:1rem}
+        .work>p{color:var(--gray);font-size:0.875rem;max-width:600px}
+        .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+        .work-card{position:relative;overflow:hidden;cursor:pointer;group}
+        .work-card img{width:100%;height:400px;object-fit:cover;transition:transform 0.5s}
+        .work-card:hover img{transform:scale(1.05)}
+        .work-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);display:flex;flex-direction:column;justify-content:flex-end;padding:2rem}
+        .work-card-tag{display:inline-block;padding:0.25rem 0.75rem;background:var(--accent);color:var(--white);font-size:0.75rem;margin-bottom:1rem;width:fit-content}
+        .work-card h3{font-size:1.5rem;margin-bottom:0.5rem}
+        .work-card p{color:var(--light-gray);font-size:0.875rem}
+        
+        /* Testimonials */
+        .testimonials{padding:6rem 0}
+        .testimonials h2{font-size:2rem;font-weight:400;text-align:center;margin-bottom:4rem}
+        .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+        .testimonial{padding:2rem;border:1px solid rgba(255,255,255,0.05)}
+        .testimonial-text{font-size:1.125rem;margin-bottom:2rem;line-height:1.6}
+        .testimonial-author{display:flex;align-items:center;gap:1rem}
+        .testimonial-avatar{width:48px;height:48px;border-radius:50%;background:var(--dark);display:flex;align-items:center;justify:center;font-weight:500}
+        .testimonial-name{font-weight:500}
+        .testimonial-role{color:var(--gray);font-size:0.875rem}
+        
+        /* Contact */
+        .contact{padding:6rem 0;text-align:center}
+        .contact h2{font-size:3rem;font-weight:400;margin-bottom:1rem}
+        .contact h2 span{color:var(--accent-light);font-style:italic}
+        .contact>p{color:var(--gray);margin-bottom:3rem}
+        .contact-form{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:1rem}
+        .contact-form input,.contact-form textarea{padding:1rem;background:var(--dark);border:1px solid rgba(255,255,255,0.1);color:var(--white);font-family:inherit}
+        .contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--gray)}
+        .contact-form textarea{min-height:120px;resize:none}
+        
+        /* Footer */
+        footer{padding:4rem 0;border-top:1px solid rgba(255,255,255,0.05)}
+        .footer-content{display:flex;justify-content:space-between;align-items:center}
+        .footer-logo{font-family:'Playfair Display',serif;font-size:1.5rem}
+        .footer-socials{display:flex;gap:2rem}
+        .footer-socials a{color:var(--gray);text-decoration:none;font-size:0.875rem;transition:color 0.3s}
+        .footer-socials a:hover{color:var(--white)}
+        .footer-copy{color:var(--gray);font-size:0.875rem}
+        
+        /* WhatsApp */
+        .whatsapp{position:fixed;bottom:2rem;right:2rem;width:60px;height:60px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:50;transition:transform 0.3s}
+        .whatsapp:hover{transform:scale(1.1)}
+        .whatsapp img{width:32px;height:32px}
+        
+        @media(max-width:768px){
+            .hero-grid,.growth-grid,.work-grid,.testimonials-grid{grid-template-columns:1fr}
+            .nav-links{display:none}
+            .hero h1{font-size:2.5rem}
+            .partners-grid{flex-wrap:wrap;gap:2rem}
+        }
     </style>
 </head>
 <body>
-    <div class="scanline"></div>
-    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
-
     <!-- Nav -->
-    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5 transition-all" id="nav">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-gradient-to-br from-quantum-cyan to-quantum-purple rounded-lg flex items-center justify-center font-display font-bold text-black">e</div>
-                <span class="font-display font-bold text-xl">eQuantum</span>
-            </div>
-            <div class="hidden md:flex gap-8 text-sm text-gray-300">
-                <a href="#proceso" class="hover:text-quantum-cyan transition">Proceso</a>
-                <a href="#sistema" class="hover:text-quantum-cyan transition">El Sistema</a>
-                <a href="#proyectos" class="hover:text-quantum-cyan transition">Proyectos</a>
-                <a href="#servicios" class="hover:text-quantum-cyan transition">Servicios</a>
-                <a href="#contacto" class="hover:text-quantum-cyan transition">Nosotros</a>
-            </div>
-            <a href="#contacto" class="hidden md:flex items-center gap-2 px-6 py-2.5 bg-white text-black rounded-full font-medium text-sm hover:bg-quantum-cyan transition">Contáctanos<i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-            <button class="md:hidden" onclick="document.getElementById('mobile').classList.toggle('hidden')"><i data-lucide="menu" class="w-6 h-6"></i></button>
-        </div>
-        <div id="mobile" class="hidden md:hidden glass border-t border-white/5">
-            <div class="px-6 py-4 flex flex-col gap-4">
-                <a href="#proceso" class="text-gray-300">Proceso</a>
-                <a href="#sistema" class="text-gray-300">El Sistema</a>
-                <a href="#proyectos" class="text-gray-300">Proyectos</a>
-                <a href="#servicios" class="text-gray-300">Servicios</a>
-                <a href="#contacto" class="text-gray-300">Nosotros</a>
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">eQuantum.</div>
+                <div class="nav-links">
+                    <a href="#proceso">Proceso</a>
+                    <a href="#sistema">El Sistema</a>
+                    <a href="#proyectos">Proyectos</a>
+                    <a href="#servicios">Servicios</a>
+                    <a href="#contacto">Nosotros</a>
+                </div>
+                <a href="#contacto" class="nav-cta">Contáctanos</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <section class="relative min-h-screen flex items-center justify-center pt-20">
-        <div class="absolute inset-0 bg-gradient-to-b from-quantum-cyan/5 to-transparent"></div>
-        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 animate-float">
-                <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                <span class="text-xs text-gray-300">Disponible para proyectos</span>
-            </div>
-            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6">
-                <span class="typing" id="type"></span><br>
-                <span class="gradient-text">sistemas digitales de alto rendimiento</span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10">Transformamos tu presencia online en resultados reales. Diseñamos e implementamos motores de venta automatizados para E-commerce.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#contacto" class="flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-semibold hover:bg-quantum-cyan transition hover:scale-105">CONTÁCTANOS<i data-lucide="arrow-right" class="w-5 h-5"></i></a>
-                <a href="#proyectos" class="flex items-center gap-3 px-8 py-4 glass rounded-full font-semibold hover:bg-white/5 transition">Ver proyectos<i data-lucide="play" class="w-5 h-5"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Proceso -->
-    <section id="proceso" class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Explora Nuestro Proceso de Trabajo en 3 Pasos</h2>
-                <p class="text-gray-400">Un enfoque estructurado y probado que transforma ideas en soluciones digitales exitosas.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass rounded-2xl p-8 hover:border-quantum-cyan/50 transition-all hover:-translate-y-2 cursor-pointer group">
-                    <div class="text-6xl font-display font-bold text-white/10 group-hover:text-quantum-cyan/20 transition mb-4">01</div>
-                    <h3 class="font-display text-xl font-semibold mb-3 text-quantum-cyan">Descubrimiento & Estrategia</h3>
-                    <p class="text-gray-400 text-sm">Analizamos tu negocio, audiencia y competencia para crear una estrategia sólida que conecte con tus objetivos.</p>
-                </div>
-                <div class="glass rounded-2xl p-8 hover:border-quantum-cyan/50 transition-all hover:-translate-y-2 cursor-pointer group">
-                    <div class="text-6xl font-display font-bold text-white/10 group-hover:text-quantum-cyan/20 transition mb-4">02</div>
-                    <h3 class="font-display text-xl font-semibold mb-3 text-quantum-cyan">Implementación Tecnológica</h3>
-                    <p class="text-gray-400 text-sm">Operamos sobre tus activos y data para configurar soluciones escalables, optimizando tus cuentas y procesos.</p>
-                </div>
-                <div class="glass rounded-2xl p-8 hover:border-quantum-cyan/50 transition-all hover:-translate-y-2 cursor-pointer group">
-                    <div class="text-6xl font-display font-bold text-white/10 group-hover:text-quantum-cyan/20 transition mb-4">03</div>
-                    <h3 class="font-display text-xl font-semibold mb-3 text-quantum-cyan">Seguimiento & Escalado</h3>
-                    <p class="text-gray-400 text-sm">Acompañamiento semanal para optimizar resultados y asegurar un crecimiento constante sin caos operativo.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sistema -->
-    <section id="sistema" class="py-24 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-quantum-cyan/10 to-quantum-purple/10"></div>
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
                 <div>
-                    <span class="inline-block px-3 py-1 rounded-full bg-quantum-cyan/10 text-quantum-cyan text-xs font-medium mb-6">PRODUCTO ESTRELLA</span>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Sistema de Aprobaciones y Gestión de Solicitudes Internas</h2>
-                    <p class="text-gray-400 mb-6">Control y trazabilidad de procesos internos. Digitaliza el flujo de trabajo de tu empresa con trazabilidad total.</p>
-                    <div class="space-y-3">
-                        <div class="flex items-center gap-3 text-gray-300 line-through opacity-50"><i data-lucide="x-circle" class="w-5 h-5 text-red-400"></i>Emails perdidos</div>
-                        <div class="flex items-center gap-3 text-gray-300 line-through opacity-50"><i data-lucide="x-circle" class="w-5 h-5 text-red-400"></i>Excels desactualizados</div>
-                        <div class="flex items-center gap-3 text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>Dashboard centralizado</div>
-                        <div class="flex items-center gap-3 text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>Flujos de aprobación automáticos</div>
+                    <div class="hero-badge">Disponible para proyectos</div>
+                    <h1 class="font-serif">Escalamos tu negocio mediante <span>sistemas digitales</span> de alto rendimiento</h1>
+                    <p>Transformamos tu presencia online en resultados reales. Diseñamos e implementamos motores de venta automatizados para E-commerce y creadores que buscan previsibilidad.</p>
+                    <div class="hero-buttons">
+                        <a href="#contacto" class="btn-primary">CONTÁCTANOS <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
+                        <a href="#proyectos" class="btn-secondary">Ver proyectos</a>
                     </div>
                 </div>
-                <div class="relative">
-                    <div class="glass rounded-3xl p-8 glow">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-quantum-cyan to-quantum-purple flex items-center justify-center"><i data-lucide="building-2" class="w-6 h-6"></i></div>
-                            <div><p class="font-semibold">RM S.R.L.</p><p class="text-xs text-gray-400">Caso de éxito implementado</p></div>
+                <div class="hero-image">
+                    <img src="imagenes/marmoleriapietra.jpg" alt="Proyecto eQuantum">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners -->
+    <section class="partners">
+        <div class="container">
+            <p>Partners que respaldan nuestro trabajo</p>
+            <div class="partners-grid">
+                <span class="partner-logo">Shopify</span>
+                <span class="partner-logo">Tiendanube</span>
+                <span class="partner-logo">WordPress</span>
+                <span class="partner-logo">React</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Growth Partner -->
+    <section class="growth" id="servicios">
+        <div class="container">
+            <div class="growth-header">
+                <h2 class="font-serif">Impulsando el <span>crecimiento</span> de tu negocio digital</h2>
+            </div>
+            <div class="growth-grid">
+                <div class="growth-left">
+                    <h3 class="font-serif">Creamos soluciones digitales que conectan, escalan y evolucionan con su negocio.</h3>
+                    <p>Tomamos el control de tus activos: optimizamos tus cuentas, accionamos tu data y establecemos un acompañamiento semanal para escalar tu negocio con orden y previsibilidad.</p>
+                    <a href="#contacto" class="growth-cta">Ver todos los servicios <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
+                </div>
+                <div class="accordion">
+                    <div class="accordion-item active">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Desarrollo Web</span>
+                            <i data-lucide="plus" class="accordion-icon" style="width:20px;height:20px"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">Desarrollo Web Personalizado, Aplicaciones Web Progresivas (PWA), Sistemas de Gestión Interna, APIs e Integraciones.</div>
                         </div>
-                        <div class="flex justify-between items-center p-4 rounded-xl bg-white/5 mb-2"><span class="text-sm text-gray-400">Reducción en tiempos</span><span class="text-3xl font-display font-bold text-quantum-cyan counter" data-target="85">0%</span></div>
-                        <div class="h-2 bg-white/10 rounded-full overflow-hidden mb-2"><div class="h-full w-[85%] bg-gradient-to-r from-quantum-cyan to-quantum-purple rounded-full"></div></div>
-                        <p class="text-xs text-gray-500 text-center">reducción en tiempos de aprobación</p>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Diseño UI/UX</span>
+                            <i data-lucide="plus" class="accordion-icon" style="width:20px;height:20px"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">Diseño de Interfaces, Experiencia de Usuario (UX), Prototipado Interactivo, Design Systems.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>E-commerce</span>
+                            <i data-lucide="plus" class="accordion-icon" style="width:20px;height:20px"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">Tiendas Shopify, Migraciones, Optimización de conversiones, Pasarelas de pago, Logística automatizada.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Marketing Digital</span>
+                            <i data-lucide="plus" class="accordion-icon" style="width:20px;height:20px"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">Meta Ads, Google Ads, Email Marketing, Automatización de marketing, Análisis de datos.</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Corpi & Cía -->
-    <section class="py-24 bg-white text-black">
-        <div class="max-w-7xl mx-auto px-6">
-            <span class="inline-block px-3 py-1 rounded-full bg-black/5 text-black/60 text-xs font-medium mb-6">CASO DE ÉXITO</span>
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <!-- Work -->
+    <section class="work" id="proyectos">
+        <div class="container">
+            <div class="work-header">
                 <div>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Pioneros en E-commerce de Jardinería</h2>
-                    <p class="text-gray-600 mb-6">Desarrollamos Corpi & Cía, el primer e-commerce especializado en jardinería del país.</p>
-                    <div class="grid grid-cols-3 gap-8 mb-8">
-                        <div><p class="text-3xl font-display font-bold">1°</p><p class="text-sm text-gray-500">En el rubro</p></div>
-                        <div><p class="text-3xl font-display font-bold">300%</p><p class="text-sm text-gray-500">Crecimiento</p></div>
-                        <div><p class="text-3xl font-display font-bold">50+</p><p class="text-sm text-gray-500">Productos</p></div>
-                    </div>
-                    <a href="https://corpicia.com" target="_blank" class="inline-flex items-center gap-2 font-semibold hover:text-quantum-cyan transition">Visitar tienda<i data-lucide="external-link" class="w-4 h-4"></i></a>
+                    <h2 class="font-serif">Nuestro trabajo</h2>
+                    <p>eQuantum se destaca como una agencia líder en el ámbito de Shopify y desarrollo web, donde cada proyecto es una oportunidad para superar los límites de la creatividad y la excelencia.</p>
                 </div>
-                <div class="bg-gradient-to-br from-green-400 to-emerald-600 rounded-3xl p-8 text-white relative overflow-hidden min-h-[300px] flex items-center justify-center">
-                    <div class="text-center relative z-10">
-                        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6"><i data-lucide="leaf" class="w-8 h-8"></i></div>
-                        <h3 class="font-display text-2xl font-bold mb-2">Corpi & Cía</h3>
-                        <p class="text-white/80 text-sm">www.corpicia.com</p>
-                    </div>
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                </div>
+                <a href="#contacto" class="btn-secondary">Ver todos los proyectos</a>
             </div>
-        </div>
-    </section>
-
-    <!-- Proyectos -->
-    <section id="proyectos" class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Proyectos Destacados</h2>
-                <p class="text-gray-400">Landing pages y sistemas desarrollados para nuestros clientes</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="glass rounded-2xl overflow-hidden hover:border-quantum-cyan/50 transition-all group cursor-pointer">
-                    <div class="aspect-video bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center relative">
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition"></div>
-                        <i data-lucide="box" class="w-16 h-16 text-orange-400 relative z-10 group-hover:scale-110 transition"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-2 group-hover:text-quantum-cyan transition">Federico Cabañas</h3>
-                        <p class="text-gray-400 text-sm mb-4">Academia de Basquetbol. Landing page profesional para captación de alumnos.</p>
-                        <span class="text-quantum-cyan text-sm flex items-center gap-2">Ver proyecto<i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            <div class="work-grid">
+                <div class="work-card">
+                    <img src="imagenes/marmoleriapietra.jpg" alt="Marmolería Pietra">
+                    <div class="work-card-overlay">
+                        <span class="work-card-tag">Web Corporativa</span>
+                        <h3 class="font-serif">Marmolería Pietra</h3>
+                        <p>Diseño y desarrollo de sitio corporativo para empresa de mármol y granito con catálogo de productos y sistema de cotizaciones.</p>
                     </div>
                 </div>
-                <div class="glass rounded-2xl overflow-hidden hover:border-quantum-cyan/50 transition-all group cursor-pointer">
-                    <div class="aspect-video bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center relative">
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition"></div>
-                        <i data-lucide="leaf" class="w-16 h-16 text-green-400 relative z-10 group-hover:scale-110 transition"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-2 group-hover:text-quantum-cyan transition">Corpi & Cía</h3>
-                        <p class="text-gray-400 text-sm mb-4">E-commerce completo de jardinería con sistema de inventario y pagos.</p>
-                        <a href="https://corpicia.com" target="_blank" class="text-quantum-cyan text-sm flex items-center gap-2">Visitar tienda<i data-lucide="external-link" class="w-4 h-4"></i></a>
+                <div class="work-card">
+                    <img src="imagenes/corpicia.jpg" alt="Corpi & Cía">
+                    <div class="work-card-overlay">
+                        <span class="work-card-tag">E-commerce</span>
+                        <h3 class="font-serif">Corpi & Cía</h3>
+                        <p>Primer e-commerce especializado en jardinería del país. Plataforma Shopify con +300% crecimiento anual.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonios -->
-    <section class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Lo que dicen nuestros clientes</h2>
-                <p class="text-gray-400">Historias reales de transformación digital</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass rounded-2xl p-8 relative">
-                    <i data-lucide="quote" class="w-8 h-8 text-quantum-cyan/30 absolute top-6 right-6"></i>
-                    <p class="text-gray-300 mb-6">"eQuantum transformó completamente nuestra operación. El sistema de aprobaciones redujo nuestros tiempos en un 85%."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-quantum-cyan to-quantum-purple flex items-center justify-center text-sm font-bold">RM</div>
-                        <div><p class="font-semibold text-sm">Roberto Méndez</p><p class="text-xs text-gray-500">CEO, RM S.R.L.</p></div>
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="font-serif">Lo que dicen nuestros clientes</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text font-serif">"eQuantum transformó completamente nuestra operación. El sistema de aprobaciones redujo nuestros tiempos de gestión en un 85%."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">RM</div>
+                        <div>
+                            <div class="testimonial-name">Roberto Méndez</div>
+                            <div class="testimonial-role">CEO, RM S.R.L.</div>
+                        </div>
                     </div>
                 </div>
-                <div class="glass rounded-2xl p-8 relative">
-                    <i data-lucide="quote" class="w-8 h-8 text-quantum-cyan/30 absolute top-6 right-6"></i>
-                    <p class="text-gray-300 mb-6">"Gracias a su expertise en Shopify, lanzamos Corpi & Cía en tiempo récord. Su acompañamiento fue clave."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-sm font-bold">JC</div>
-                        <div><p class="font-semibold text-sm">Jose Coronel</p><p class="text-xs text-gray-500">Fundador, Corpi & Cía</p></div>
+                <div class="testimonial">
+                    <p class="testimonial-text font-serif">"Gracias a su expertise en Shopify, lanzamos Corpi & Cía en tiempo récord. Su acompañamiento fue clave para posicionarnos."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background:var(--accent);color:var(--white)">JC</div>
+                        <div>
+                            <div class="testimonial-name">Jose Coronel</div>
+                            <div class="testimonial-role">Fundador, Corpi & Cía</div>
+                        </div>
                     </div>
                 </div>
-                <div class="glass rounded-2xl p-8 relative">
-                    <i data-lucide="quote" class="w-8 h-8 text-quantum-cyan/30 absolute top-6 right-6"></i>
-                    <p class="text-gray-300 mb-6">"El equipo entiende perfectamente el balance entre tecnología y negocio. Proponen mejoras que impactan en ventas."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-red-600 flex items-center justify-center text-sm font-bold">FC</div>
-                        <div><p class="font-semibold text-sm">Federico Cabañas</p><p class="text-xs text-gray-500">Director, Academia de Básquet</p></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Servicios -->
-    <section id="servicios" class="py-24 bg-black">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div>
-                    <p class="text-sm text-gray-500 mb-4">Introducción</p>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Creamos soluciones digitales que conectan, escalan y evolucionan con su negocio.</h2>
-                    <a href="#contacto" class="inline-flex items-center gap-3 px-6 py-3 border border-white/20 rounded-full hover:bg-white hover:text-black transition">Ver todos los servicios<i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-                </div>
-                <div>
-                    <div class="border-t border-white/20">
-                        <button class="w-full py-6 flex justify-between items-center text-left group" onclick="toggleAcc(this)">
-                            <span class="font-display text-xl font-medium group-hover:text-quantum-cyan transition">Desarrollo</span>
-                            <i data-lucide="plus" class="w-6 h-6 text-gray-500 group-hover:text-quantum-cyan transition acc-icon"></i>
-                        </button>
-                        <div class="accordion-content"><div class="pb-6 text-gray-400 text-sm space-y-2"><p>• Desarrollo Web Personalizado</p><p>• Aplicaciones Web Progresivas</p><p>• Sistemas de Gestión Interna</p><p>• APIs e Integraciones</p></div></div>
-                    </div>
-                    <div class="border-t border-white/20">
-                        <button class="w-full py-6 flex justify-between items-center text-left group" onclick="toggleAcc(this)">
-                            <span class="font-display text-xl font-medium group-hover:text-quantum-cyan transition">Diseño UI/UX</span>
-                            <i data-lucide="plus" class="w-6 h-6 text-gray-500 group-hover:text-quantum-cyan transition acc-icon"></i>
-                        </button>
-                        <div class="accordion-content"><div class="pb-6 text-gray-400 text-sm space-y-2"><p>• Diseño de Interfaces</p><p>• Experiencia de Usuario</p><p>• Prototipado Interactivo</p><p>• Design Systems</p></div></div>
-                    </div>
-                    <div class="border-t border-white/20">
-                        <button class="w-full py-6 flex justify-between items-center text-left group" onclick="toggleAcc(this)">
-                            <span class="font-display text-xl font-medium group-hover:text-quantum-cyan transition">Migración</span>
-                            <i data-lucide="plus" class="w-6 h-6 text-gray-500 group-hover:text-quantum-cyan transition acc-icon"></i>
-                        </button>
-                        <div class="accordion-content"><div class="pb-6 text-gray-400 text-sm space-y-2"><p>• Migración a Shopify</p><p>• Migración de Datos</p><p>• Rediseño sin pérdida de SEO</p><p>• Backup y Seguridad</p></div></div>
-                    </div>
-                    <div class="border-t border-white/20 border-b">
-                        <button class="w-full py-6 flex justify-between items-center text-left group" onclick="toggleAcc(this)">
-                            <span class="font-display text-xl font-medium group-hover:text-quantum-cyan transition">Integraciones</span>
-                            <i data-lucide="plus" class="w-6 h-6 text-gray-500 group-hover:text-quantum-cyan transition acc-icon"></i>
-                        </button>
-                        <div class="accordion-content"><div class="pb-6 text-gray-400 text-sm space-y-2"><p>• Pasarelas de Pago</p><p>• ERP y CRM</p><p>• Automatización de Marketing</p><p>• Inteligencia Artificial</p></div></div>
+                <div class="testimonial">
+                    <p class="testimonial-text font-serif">"El equipo entiende perfectamente el balance entre tecnología y negocio. Proponen mejoras que impactan directamente en ventas."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background:#7c2d12;color:var(--white)">FC</div>
+                        <div>
+                            <div class="testimonial-name">Federico Cabañas</div>
+                            <div class="testimonial-role">Director, Academia de Básquet</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto" class="py-24 relative">
-        <div class="absolute inset-0 bg-gradient-to-t from-quantum-cyan/5 to-transparent"></div>
-        <div class="max-w-3xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-12">
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Llegamos &<br>Transformamos</h2>
-                <p class="text-gray-400">Tomamos el control de tus activos: optimizamos tus cuentas, accionamos tu data y establecemos un acompañamiento semanal.</p>
-            </div>
-            <form class="space-y-4" onsubmit="event.preventDefault(); alert('¡Mensaje enviado!'); this.reset();">
-                <div class="grid md:grid-cols-2 gap-4">
-                    <input type="text" placeholder="Tu nombre *" required class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl focus:border-quantum-cyan focus:outline-none text-white placeholder-gray-500">
-                    <input type="email" placeholder="Tu email *" required class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl focus:border-quantum-cyan focus:outline-none text-white placeholder-gray-500">
+    <!-- Contact -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="font-serif">Llegamos & <span>Transformamos</span></h2>
+            <p>Tomamos el control de tus activos: optimizamos tus cuentas, accionamos tu data y establecemos un acompañamiento semanal.</p>
+            <form class="contact-form" onsubmit="event.preventDefault();alert('¡Mensaje enviado!');this.reset()">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+                    <input type="text" placeholder="Tu nombre *" required>
+                    <input type="email" placeholder="Tu email *" required>
                 </div>
-                <input type="text" placeholder="Nombre de tu empresa" class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl focus:border-quantum-cyan focus:outline-none text-white placeholder-gray-500">
-                <textarea placeholder="Cuéntanos sobre tu proyecto... *" required rows="4" class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl focus:border-quantum-cyan focus:outline-none text-white placeholder-gray-500 resize-none"></textarea>
-                <button type="submit" class="w-full py-4 bg-white text-black rounded-xl font-semibold hover:bg-quantum-cyan transition flex items-center justify-center gap-2">Enviar Mensaje<i data-lucide="send" class="w-4 h-4"></i></button>
+                <input type="text" placeholder="Nombre de tu empresa">
+                <textarea placeholder="Cuéntanos sobre tu proyecto... *" required></textarea>
+                <button type="submit" class="btn-primary" style="justify-content:center">Enviar Mensaje <i data-lucide="send" style="width:16px;height:16px"></i></button>
             </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-2">
-                <div class="w-6 h-6 bg-gradient-to-br from-quantum-cyan to-quantum-purple rounded flex items-center justify-center font-display font-bold text-black text-xs">e</div>
-                <span class="font-display font-bold">eQuantum.</span>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">eQuantum.</div>
+                <div class="footer-socials">
+                    <a href="https://instagram.com/equantum_group" target="_blank">Instagram</a>
+                    <a href="https://linkedin.com/company/equantum-group" target="_blank">LinkedIn</a>
+                </div>
+                <div class="footer-copy">© 2024 eQuantum Agency. Asunción, Paraguay.</div>
             </div>
-            <p class="text-xs text-gray-500">© 2024 eQuantum Agency. Asunción, Paraguay.</p>
         </div>
     </footer>
 
     <!-- WhatsApp -->
-    <a href="https://wa.me/595981234567" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition z-50">
-        <i data-lucide="message-circle" class="w-7 h-7 text-white"></i>
+    <a href="https://wa.me/595981234567" target="_blank" class="whatsapp">
+        <img src="imagenes/icono%20-%20WhatsApp.svg" alt="WhatsApp">
     </a>
 
     <script>
-        // Inicializar íconos
         lucide.createIcons();
         
-        // Typing effect
-        const text = 'Escalamos tu negocio mediante';
-        let i = 0;
-        function type() {
-            if (i < text.length) {
-                document.getElementById('type').textContent += text.charAt(i);
-                i++;
-                setTimeout(type, 50);
+        function toggleAccordion(btn) {
+            const item = btn.parentElement;
+            const wasActive = item.classList.contains('active');
+            
+            document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+            
+            if (!wasActive) {
+                item.classList.add('active');
             }
         }
-        setTimeout(type, 500);
-        
-        // Partículas
-        const particles = document.getElementById('particles');
-        for (let j = 0; j < 50; j++) {
-            const p = document.createElement('div');
-            p.className = 'particle';
-            p.style.left = Math.random() * 100 + '%';
-            p.style.animationDuration = (Math.random() * 10 + 10) + 's';
-            p.style.animationDelay = Math.random() * 10 + 's';
-            particles.appendChild(p);
-        }
-        
-        // Acordeón
-        function toggleAcc(btn) {
-            const content = btn.nextElementSibling;
-            const icon = btn.querySelector('.acc-icon');
-            const isOpen = content.classList.contains('active');
-            
-            document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('active'));
-            document.querySelectorAll('.acc-icon').forEach(i => i.style.transform = 'rotate(0deg)');
-            
-            if (!isOpen) {
-                content.classList.add('active');
-                icon.style.transform = 'rotate(45deg)';
-            }
-        }
-        
-        // Navbar scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('nav');
-            if (window.scrollY > 50) nav.classList.add('bg-black/80', 'backdrop-blur-md');
-            else nav.classList.remove('bg-black/80', 'backdrop-blur-md');
-        });
-        
-        // Contadores
-        const counters = document.querySelectorAll('.counter');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = parseInt(entry.target.dataset.target);
-                    let count = 0;
-                    const inc = target / 50;
-                    const update = () => {
-                        count += inc;
-                        if (count < target) {
-                            entry.target.textContent = Math.ceil(count) + '%';
-                            requestAnimationFrame(update);
-                        } else {
-                            entry.target.textContent = target + '%';
-                        }
-                    };
-                    update();
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
-        counters.forEach(c => observer.observe(c));
     </script>
 </body>
 </html>
