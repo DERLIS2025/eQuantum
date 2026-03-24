@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+ codex/redesign-equantum-institutional-website-n4g3lh
+
  codex/redesign-equantum-institutional-website-efbq6w
+ main
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>eQuantum | Infraestructura digital para empresas</title>
@@ -259,6 +262,8 @@
     .card-eq li { color: #e2e8f0; }
     .card-eq li::before { background: #93c5fd; }
 
+ codex/redesign-equantum-institutional-website-n4g3lh
+
     /* Autoridad */
     .authority {
       background: linear-gradient(160deg, #091124 0%, #0f1b35 100%);
@@ -277,6 +282,7 @@
     .quote { color: #e2e8f0; font-size: .9rem; margin-bottom: .42rem; }
     .quote-by { font-size: .8rem; color: #93c5fd; }
 
+ main
     /* Capacidades */
     .caps-grid { display: grid; gap: 1rem; }
     .cap {
@@ -523,7 +529,10 @@
       .container { width: min(1180px, 100% - 3rem); }
       .hero-actions { flex-direction: row; flex-wrap: wrap; }
       .diferencial-grid,
+ codex/redesign-equantum-institutional-website-n4g3lh
+
       .auth-grid,
+ main
       .caps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .project { flex-basis: 47%; }
       .footer-grid { grid-template-columns: 1.2fr 1fr 1fr 1fr; }
@@ -638,6 +647,8 @@
     </div>
   </section>
 
+ codex/redesign-equantum-institutional-website-n4g3lh
+
   <section class="authority" id="autoridad" aria-labelledby="autoridad-title">
     <div class="container">
       <div class="section-head">
@@ -666,6 +677,7 @@
     </div>
   </section>
 
+ main
   <section id="capacidades" aria-labelledby="capacidades-title">
     <div class="container">
       <div class="section-head">
@@ -1020,7 +1032,32 @@
       });
     }
 
+codex/redesign-equantum-institutional-website-n4g3lh
+    function removeInjectedArtifacts() {
+      const suspicious = [
+        /codex\/redesign-eqantum-institutional-website-ksfdzb/i,
+        /codex\/redesign-equantum-institutional-website-ksfdzb/i,
+        /^main$/i
+      ];
+
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+
+      nodes.forEach((node) => {
+        const value = node.textContent ? node.textContent.trim() : '';
+        if (!value) return;
+        if (suspicious.some((rx) => rx.test(value))) {
+          node.textContent = '';
+        }
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+      removeInjectedArtifacts();
+
+    document.addEventListener('DOMContentLoaded', () => {
+ main
       createStars();
       lucide.createIcons();
       initMenu();
@@ -1028,6 +1065,8 @@
       animateCounters();
     });
   </script>
+ codex/redesign-equantum-institutional-website-n4g3lh
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -2733,6 +2772,7 @@ main
             initCounters();
         });
     </script>
+ main
  main
 </body>
 </html>
