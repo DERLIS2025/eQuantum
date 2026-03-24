@@ -1,1079 +1,1031 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>eQuantum | Transformamos tu negocio con soluciones digitales</title>
-    <meta name="description" content="Diseñamos e implementamos experiencias digitales que generan resultados reales.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eQuantum | Infraestructura digital para empresas</title>
+  <meta name="description" content="eQuantum diseña y construye infraestructura digital de negocio: estrategia, desarrollo propio, e-commerce, automatización y operación con trazabilidad.">
+  <meta name="robots" content="index,follow">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest" defer></script>
 
-    <style>
-        :root{
-            --black:#0a0a0f;--navy:#0f172a;--navy-light:#1e293b;--blue:#1e40af;--blue-light:#3b82f6;
-            --white:#ffffff;--gray:#64748b;--gray-light:#94a3b8;--success:#22c55e;--whatsapp:#25d366;
-            --space-xs:0.5rem;--space-sm:1rem;--space-md:1.5rem;--space-lg:2rem;--space-xl:3rem;
-            --radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:20px;
-            --shadow-md:0 4px 6px rgba(0,0,0,0.1);--shadow-xl:0 20px 25px rgba(0,0,0,0.15);
-            --transition-base:300ms cubic-bezier(0.4,0,0.2,1);
-        }
-        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-        html{scroll-behavior:smooth}
-        body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--white);color:var(--navy);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-        img{max-width:100%;height:auto;display:block}
-        .container{width:100%;max-width:1200px;margin:0 auto;padding:0 1rem}
+  <style>
+    :root {
+      --bg: #f6f8fc;
+      --white: #fff;
+      --ink: #0f172a;
+      --ink-soft: #334155;
+      --ink-muted: #64748b;
+      --navy-900: #050b1a;
+      --navy-800: #0d1830;
+      --navy-700: #132a56;
+      --blue: #2a4b9f;
+      --blue-soft: #dbe8ff;
+      --line: rgba(100, 116, 139, 0.24);
+      --ok: #22c55e;
+      --radius-sm: 10px;
+      --radius-md: 14px;
+      --radius-lg: 18px;
+      --radius-xl: 22px;
+      --shadow-soft: 0 10px 24px rgba(15, 23, 42, 0.08);
+      --shadow-strong: 0 22px 46px rgba(2, 8, 23, 0.24);
+      --tr: 220ms cubic-bezier(.4,0,.2,1);
+    }
 
-        /* NAV - CORREGIDO PARA MOBILE */
-        nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.05)}
-        .nav-content{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;height:60px}
-        
-        /* LOGO - TAMAÑO FIJO PARA NO CORTARSE */
-        .logo-text {
-            font-size: 1.25rem;
-            font-weight: 900;
-            color: var(--black);
-            text-decoration: none;
-            letter-spacing: -0.01em;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    .container { width: min(1180px, 100% - 2rem); margin-inline: auto; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+    :focus-visible { outline: 3px solid rgba(59, 130, 246, .4); outline-offset: 2px; }
 
-        .nav-links{
-            position:fixed;
-            top:0;
-            right:-100%;
-            width:280px;
-            height:100vh;
-            background:var(--white);
-            flex-direction:column;
-            padding:5rem 1.5rem 2rem;
-            gap:1rem;
-            display:flex;
-            list-style:none;
-            transition:right 0.3s ease;
-            z-index:999;
-            box-shadow:-5px 0 30px rgba(0,0,0,0.1);
-        }
-        .nav-links.active{right:0}
-        
-        .nav-links a{
-            color:var(--gray-dark);
-            text-decoration:none;
-            font-weight:600;
-            font-size:1.1rem;
-            padding:0.75rem 0;
-            display:block;
-            border-bottom:1px solid rgba(0,0,0,0.05);
-        }
-        
-        .nav-cta{
-            background:var(--navy);
-            color:var(--white);
-            padding:1rem;
-            border-radius:var(--radius-sm);
-            text-decoration:none;
-            font-weight:700;
-            text-align:center;
-            margin-top:1rem;
-            display:block;
-        }
-        
-        .mobile-menu-toggle{
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            background:none;
-            border:none;
-            cursor:pointer;
-            padding:0.5rem;
-            color:var(--navy);
-            z-index:1001;
-            width:40px;
-            height:40px;
-        }
-        
-        .mobile-overlay{
-            position:fixed;
-            inset:0;
-            background:rgba(0,0,0,0.5);
-            z-index:998;
-            opacity:0;
-            visibility:hidden;
-            transition:all 0.3s;
-        }
-        .mobile-overlay.active{opacity:1;visibility:visible}
+    /* Nav */
+    nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+    }
+    .nav-wrap { min-height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .logo { text-decoration: none; font-weight: 800; font-size: 1.28rem; letter-spacing: -0.02em; }
+    .menu-btn {
+      width: 42px;
+      height: 42px;
+      border: 0;
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      cursor: pointer;
+      z-index: 1002;
+    }
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: min(320px, 90vw);
+      height: 100vh;
+      background: var(--white);
+      box-shadow: -16px 0 30px rgba(2, 8, 23, .2);
+      list-style: none;
+      padding: 5rem 1.4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+      transition: right var(--tr);
+      z-index: 1001;
+    }
+    .nav-links.open { right: 0; }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--ink);
+      border-bottom: 1px solid rgba(15, 23, 42, .08);
+      padding: .82rem 0;
+    }
+    .nav-cta {
+      border: 0;
+      margin-top: .6rem;
+      color: var(--white) !important;
+      background: linear-gradient(135deg, var(--blue), #1f3776);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      padding: .8rem .9rem !important;
+    }
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 8, 23, .58);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--tr);
+      z-index: 1000;
+    }
+    .overlay.open { opacity: 1; visibility: visible; }
 
-        /* HERO - CORREGIDO PARA MOBILE */
-        .hero{
-            background:linear-gradient(135deg,#0a0a1a 0%,#0f172a 50%,#1e1b4b 100%);
-            color:var(--white);
-            padding:5rem 0 3rem;
-            margin-top:60px;
-            position:relative;
-            overflow:hidden;
-            min-height:auto;
-        }
-        
-        .stars-container{position:absolute;inset:0;pointer-events:none}
-        .star{
-            position:absolute;
-            background:white;
-            border-radius:50%;
-            animation:twinkle 3s infinite;
-        }
-        @keyframes twinkle{0%,100%{opacity:0.3}50%{opacity:1}}
-        
-        .nebula{
-            position:absolute;
-            width:600px;
-            height:600px;
-            border-radius:50%;
-            filter:blur(80px);
-            opacity:0.2;
-        }
-        .nebula-1{top:-10%;right:-20%;background:radial-gradient(circle,rgba(99,102,241,0.5),transparent 70%)}
-        .nebula-2{bottom:-20%;left:-30%;background:radial-gradient(circle,rgba(139,92,246,0.4),transparent 70%)}
-        
-        .hero-content{position:relative;z-index:1;padding:0 0.5rem}
-        .hero-badge{
-            display:inline-flex;
-            align-items:center;
-            gap:0.5rem;
-            background:rgba(255,255,255,0.1);
-            padding:0.5rem 1rem;
-            border-radius:var(--radius-full);
-            font-size:0.8rem;
-            margin-bottom:1rem;
-            color:var(--gray-light);
-            border:1px solid rgba(255,255,255,0.1);
-        }
-        .hero-badge span{width:6px;height:6px;background:var(--success);border-radius:50%;animation:pulse 2s infinite}
-        @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
-        
-        .hero h1{
-            font-size:1.75rem;
-            font-weight:800;
-            line-height:1.2;
-            margin-bottom:1rem;
-            letter-spacing:-0.02em;
-        }
-        .hero h1 .highlight{
-            background:linear-gradient(135deg,#6366f1,#8b5cf6);
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
-            display:inline;
-        }
-        
-        .hero-description{
-            font-size:1rem;
-            color:var(--gray-light);
-            margin-bottom:1.5rem;
-            line-height:1.6;
-        }
-        
-        .hero-buttons{
-            display:flex;
-            flex-direction:column;
-            gap:0.75rem;
-            margin-bottom:2rem;
-        }
-        .btn-primary, .btn-secondary{
-            padding:0.875rem 1.5rem;
-            border-radius:var(--radius-sm);
-            text-decoration:none;
-            font-weight:700;
-            font-size:0.95rem;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            gap:0.5rem;
-            width:100%;
-        }
-        .btn-primary{
-            background:linear-gradient(135deg,#6366f1,#8b5cf6);
-            color:var(--white);
-            border:none;
-        }
-        .btn-secondary{
-            background:rgba(255,255,255,0.08);
-            color:var(--white);
-            border:1px solid rgba(255,255,255,0.2);
-        }
-        
-        .hero-stats{
-            display:grid;
-            grid-template-columns:repeat(3,1fr);
-            gap:1rem;
-            padding-top:1.5rem;
-            border-top:1px solid rgba(255,255,255,0.1);
-        }
-        .hero-stat{text-align:center}
-        .hero-stat-number{
-            font-size:1.5rem;
-            font-weight:800;
-            background:linear-gradient(135deg,#6366f1,#8b5cf6);
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
-        }
-        .hero-stat-label{font-size:0.75rem;color:var(--gray-light);margin-top:0.25rem}
+    section { padding: 3.4rem 0; }
+    .section-head { margin-bottom: 1.4rem; }
+    .kicker {
+      display: inline-block;
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 800;
+      color: var(--blue);
+      background: rgba(42, 75, 159, .1);
+      border-radius: 999px;
+      padding: .42rem .78rem;
+      margin-bottom: .72rem;
+    }
+    h2 { font-size: clamp(1.45rem, 2.7vw, 2.2rem); line-height: 1.2; letter-spacing: -0.02em; }
+    .lead { color: var(--ink-soft); margin-top: .5rem; max-width: 64ch; }
 
-        /* APROBACIONES */
-        .approval-system{
-            padding:3rem 0;
-            background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);
-            color:var(--white);
-        }
-        .approval-content h2{
-            font-size:1.5rem;
-            font-weight:800;
-            margin-bottom:1rem;
-            line-height:1.2;
-        }
-        .approval-description{font-size:0.95rem;opacity:0.9;margin-bottom:1.5rem;line-height:1.6}
-        .approval-list{list-style:none;margin-bottom:1.5rem}
-        .approval-list li{
-            display:flex;
-            align-items:center;
-            gap:0.75rem;
-            margin-bottom:0.75rem;
-            font-size:0.9rem;
-        }
-        .approval-list li::before{
-            content:'✓';
-            width:20px;
-            height:20px;
-            background:linear-gradient(135deg,#6366f1,#8b5cf6);
-            border-radius:50%;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:0.8rem;
-            font-weight:700;
-            flex-shrink:0;
-        }
-        .approval-visual{
-            background:rgba(255,255,255,0.05);
-            border-radius:var(--radius-lg);
-            padding:1.5rem;
-            margin-top:2rem;
-            text-align:center;
-        }
-        .dashboard-icon{
-            width:60px;
-            height:60px;
-            background:linear-gradient(135deg,#6366f1,#8b5cf6);
-            border-radius:var(--radius-md);
-            margin:0 auto 1rem;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:2rem;
-        }
-        .dashboard-stats{
-            display:grid;
-            grid-template-columns:1fr 1fr;
-            gap:1rem;
-            margin-top:1.5rem;
-        }
-        .dashboard-stat-value{font-size:2rem;font-weight:800;color:#6366f1}
-        .dashboard-stat-label{font-size:0.8rem;opacity:0.9}
+    /* Hero */
+    .hero {
+      margin-top: 66px;
+      background: linear-gradient(140deg, var(--navy-900) 0%, var(--navy-800) 50%, #1a315f 100%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      padding: 4.3rem 0 3.4rem;
+    }
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(84px);
+      opacity: .34;
+      pointer-events: none;
+    }
+    .hero::before { width: 420px; height: 420px; top: -170px; right: -120px; background: radial-gradient(circle, rgba(96, 165, 250, .6), transparent 70%); }
+    .hero::after { width: 480px; height: 480px; left: -160px; bottom: -220px; background: radial-gradient(circle, rgba(37, 99, 235, .45), transparent 72%); }
+    .stars { position: absolute; inset: 0; pointer-events: none; }
+    .star { position: absolute; background: rgba(255, 255, 255, .9); border-radius: 50%; animation: twinkle 3.2s infinite; }
+    @keyframes twinkle { 0%,100% { opacity: .2; } 50% { opacity: .9; } }
 
-        /* SERVICIOS */
-        .services{padding:3rem 0}
-        .section-header{text-align:center;margin-bottom:2rem;padding:0 0.5rem}
-        .section-tag{
-            color:var(--blue);
-            font-weight:700;
-            font-size:0.75rem;
-            text-transform:uppercase;
-            letter-spacing:0.1em;
-            display:inline-block;
-            padding:0.5rem 1rem;
-            background:rgba(59,130,246,0.1);
-            border-radius:var(--radius-full);
-            margin-bottom:0.75rem;
-        }
-        .section-title{font-size:1.5rem;font-weight:800;margin-bottom:0.5rem;line-height:1.2}
-        .section-subtitle{color:var(--gray);font-size:0.95rem;line-height:1.6}
-        
-        .services-grid{display:grid;gap:1rem}
-        .service-card{
-            background:var(--white);
-            border:1px solid rgba(0,0,0,0.06);
-            border-radius:var(--radius-lg);
-            padding:1.5rem;
-        }
-        .service-icon{
-            width:50px;
-            height:50px;
-            background:linear-gradient(135deg,#6366f1,#8b5cf6);
-            border-radius:var(--radius-md);
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            margin-bottom:1rem;
-            color:var(--white);
-        }
-        .service-card h3{font-size:1.1rem;font-weight:700;margin-bottom:0.5rem}
-        .service-card p{color:var(--gray);font-size:0.9rem;line-height:1.6}
+    .hero-grid { position: relative; z-index: 1; display: grid; gap: 1.3rem; }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      border: 1px solid rgba(148, 163, 184, .35);
+      border-radius: 999px;
+      padding: .45rem .85rem;
+      font-size: .78rem;
+      color: #dbeafe;
+      margin-bottom: .9rem;
+    }
+    .hero-tag::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--ok);
+      box-shadow: 0 0 0 8px rgba(34, 197, 94, .15);
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      max-width: 16ch;
+      margin-bottom: .8rem;
+    }
+    .hero p { color: #cbd5e1; max-width: 58ch; }
+    .hero-actions { margin: 1.2rem 0 1.1rem; display: flex; flex-direction: column; gap: .7rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      padding: .9rem 1.1rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      border: 1px solid transparent;
+      min-height: 48px;
+      transition: var(--tr);
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: var(--white); background: linear-gradient(135deg, #355fc7, #1f3776); }
+    .btn-secondary { color: var(--white); border-color: rgba(148, 163, 184, .35); background: rgba(148, 163, 184, .12); }
+    .btn-ghost { color: #dbeafe; border-color: rgba(203, 213, 225, .35); }
 
-        /* PROCESO */
-        .process{padding:3rem 0;background:#f8fafc}
-        .process-grid{display:grid;gap:1.5rem;margin-top:1.5rem}
-        .process-card{text-align:center}
-        .process-number{
-            width:50px;
-            height:50px;
-            background:var(--navy);
-            color:var(--white);
-            border-radius:50%;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:1rem;
-            font-weight:800;
-            margin:0 auto 0.75rem;
-        }
-        .process-card h3{font-size:1rem;font-weight:700;margin-bottom:0.5rem}
-        .process-card p{color:var(--gray);font-size:0.85rem;line-height:1.5}
+    .hero-metrics {
+      border-top: 1px solid rgba(148, 163, 184, .25);
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .7rem;
+    }
+    .hero-metrics strong { display: block; font-size: 1.28rem; color: #dbeafe; letter-spacing: -0.02em; }
+    .hero-metrics span { font-size: .78rem; color: #93c5fd; }
 
-        /* PORTFOLIO */
-        .portfolio{padding:3rem 0}
-        .portfolio-grid{
-            display:flex;
-            overflow-x:auto;
-            scroll-snap-type:x mandatory;
-            gap:1rem;
-            padding:0 1rem 1rem;
-            margin:0 -1rem;
-            scrollbar-width:none;
-        }
-        .portfolio-grid::-webkit-scrollbar{display:none}
-        
-        .portfolio-card{
-            flex:0 0 85%;
-            scroll-snap-align:center;
-            background:var(--white);
-            border-radius:var(--radius-xl);
-            overflow:hidden;
-            border:1px solid rgba(0,0,0,0.06);
-        }
-        .portfolio-image{height:180px;position:relative;overflow:hidden}
-        .portfolio-image img{width:100%;height:100%;object-fit:cover}
-        .portfolio-tags{position:absolute;top:0.75rem;left:0.75rem;display:flex;gap:0.5rem}
-        .portfolio-tag{
-            background:rgba(255,255,255,0.95);
-            color:var(--navy);
-            padding:0.25rem 0.75rem;
-            border-radius:var(--radius-full);
-            font-size:0.7rem;
-            font-weight:700;
-        }
-        .portfolio-content{padding:1.25rem}
-        .portfolio-content h3{font-size:1.1rem;font-weight:800;margin-bottom:0.5rem}
-        .portfolio-content>p{color:var(--gray);font-size:0.85rem;line-height:1.6;margin-bottom:1rem}
-        .tech-stack{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem}
-        .tech-item{background:rgba(99,102,241,0.1);color:#6366f1;padding:0.25rem 0.6rem;border-radius:var(--radius-sm);font-size:0.75rem;font-weight:600}
-        .portfolio-link{color:#6366f1;text-decoration:none;font-weight:700;font-size:0.9rem;display:flex;align-items:center;gap:0.5rem}
+    .hero-panel {
+      border: 1px solid rgba(148, 163, 184, .35);
+      border-radius: var(--radius-lg);
+      background: rgba(15, 23, 42, .55);
+      padding: 1.15rem;
+      box-shadow: var(--shadow-strong);
+    }
+    .hero-panel h3 { margin-bottom: .6rem; font-size: 1rem; }
+    .hero-panel ul { list-style: none; display: grid; gap: .5rem; }
+    .hero-panel li { color: #e2e8f0; font-size: .88rem; padding-left: 1rem; position: relative; }
+    .hero-panel li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #93c5fd; position: absolute; left: 0; top: .5rem; }
 
-        /* STATS */
-        .stats{padding:2rem 0;background:var(--navy);color:var(--white)}
-        .stats-grid{
-            display:grid;
-            grid-template-columns:repeat(2,1fr);
-            gap:1.5rem 1rem;
-            text-align:center;
-        }
-        .stat-number{
-            font-size:2rem;
-            font-weight:800;
-            background:linear-gradient(135deg,#6366f1,#8b5cf6);
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
-        }
-        .stat-label{color:var(--gray-light);font-size:0.8rem;margin-top:0.25rem}
+    /* Diferencial */
+    .diferencial-grid { display: grid; gap: 1rem; }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem;
+      box-shadow: var(--shadow-soft);
+    }
+    .card h3 { font-size: 1rem; margin-bottom: .45rem; }
+    .card p { color: var(--ink-soft); font-size: .9rem; margin-bottom: .55rem; }
+    .card ul { list-style: none; display: grid; gap: .42rem; }
+    .card li { font-size: .85rem; color: var(--ink); padding-left: .95rem; position: relative; }
+    .card li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #64748b; position: absolute; left: 0; top: .5rem; }
+    .card-eq {
+      color: #e2e8f0;
+      border-color: rgba(147, 197, 253, .35);
+      background: linear-gradient(160deg, var(--navy-800), var(--navy-700));
+    }
+    .card-eq p { color: #cbd5e1; }
+    .card-eq li { color: #e2e8f0; }
+    .card-eq li::before { background: #93c5fd; }
 
-        /* CONTACTO */
-        .contact{padding:3rem 0;background:#f8fafc}
-        .contact-info h2{font-size:1.5rem;font-weight:800;margin-bottom:0.5rem;line-height:1.2}
-        .contact-info>p{color:var(--gray);margin-bottom:1.5rem;font-size:0.95rem;line-height:1.6}
-        .contact-item{
-            display:flex;
-            align-items:center;
-            gap:1rem;
-            margin-bottom:1rem;
-            padding:1rem;
-            background:var(--white);
-            border-radius:var(--radius-md);
-            border:1px solid rgba(0,0,0,0.06);
-        }
-        .contact-icon{
-            width:45px;
-            height:45px;
-            background:linear-gradient(135deg,var(--navy),var(--navy-light));
-            border-radius:var(--radius-md);
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            color:var(--white);
-            flex-shrink:0;
-        }
-        .contact-item div h4{font-size:0.95rem;font-weight:700;margin-bottom:0.2rem}
-        .contact-item div p{color:var(--gray);font-size:0.85rem}
-        
-        .contact-form{
-            background:var(--white);
-            padding:1.5rem;
-            border-radius:var(--radius-xl);
-            box-shadow:var(--shadow-xl);
-            margin-top:2rem;
-        }
-        .form-group{margin-bottom:1rem}
-        .form-group label{display:block;margin-bottom:0.5rem;font-weight:700;font-size:0.85rem}
-        .input-wrapper{position:relative}
-        .form-group input,.form-group textarea{
-            width:100%;
-            padding:0.75rem 1rem 0.75rem 2.75rem;
-            border:2px solid rgba(0,0,0,0.08);
-            border-radius:var(--radius-md);
-            font-family:inherit;
-            font-size:0.95rem;
-        }
-        .form-group textarea{padding-left:1rem;min-height:100px;resize:vertical}
-        .input-icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--gray)}
-        .btn-submit{
-            width:100%;
-            background:linear-gradient(135deg,#6366f1,#8b5cf6);
-            color:var(--white);
-            padding:1rem;
-            border-radius:var(--radius-md);
-            font-weight:700;
-            font-size:1rem;
-            border:none;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            gap:0.5rem;
-        }
+    /* Autoridad */
+    .authority {
+      background: linear-gradient(160deg, #091124 0%, #0f1b35 100%);
+      color: var(--white);
+    }
+    .authority .lead { color: #cbd5e1; }
+    .auth-grid { display: grid; gap: 1rem; }
+    .auth-item {
+      border: 1px solid rgba(148, 163, 184, .35);
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, .45);
+      padding: 1.05rem;
+    }
+    .auth-item strong { display: block; font-size: 1.55rem; color: #dbeafe; letter-spacing: -0.02em; }
+    .auth-item p { color: #cbd5e1; font-size: .88rem; margin-top: .2rem; }
+    .quote { color: #e2e8f0; font-size: .9rem; margin-bottom: .42rem; }
+    .quote-by { font-size: .8rem; color: #93c5fd; }
 
-        /* FOOTER */
-        footer{padding:1.5rem 0;background:var(--navy);color:var(--white)}
-        .footer-content{
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            gap:1rem;
-            text-align:center;
-        }
-        .footer-logo {
-            font-size: 1.25rem;
-            font-weight: 900;
-            color: var(--white);
-            text-decoration: none;
-        }
-        .footer-socials{display:flex;gap:1.5rem}
-        .footer-socials a{color:var(--gray-light);text-decoration:none;font-size:0.9rem;display:flex;align-items:center;gap:0.5rem}
-        .footer-copy{color:var(--gray);font-size:0.8rem}
+    /* Capacidades */
+    .caps-grid { display: grid; gap: 1rem; }
+    .cap {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem;
+      box-shadow: var(--shadow-soft);
+    }
+    .cap-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(145deg, var(--navy-800), #1b3c7f);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: .7rem;
+    }
+    .cap h3 { font-size: 1.03rem; margin-bottom: .42rem; }
+    .cap p { color: var(--ink-soft); font-size: .88rem; }
 
-        /* WHATSAPP - CORREGIDO */
-        .whatsapp-container{position:fixed;bottom:1rem;right:1rem;z-index:9999}
-        .whatsapp-button{
-            width:50px;
-            height:50px;
-            background:linear-gradient(135deg,var(--whatsapp),#128c7e);
-            border-radius:50%;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            box-shadow:0 4px 15px rgba(37,211,102,0.4);
-            cursor:pointer;
-            border:none;
-            position:relative;
-        }
-        .whatsapp-button svg{width:24px;height:24px;fill:white}
-        .whatsapp-badge{
-            position:absolute;
-            top:-2px;
-            right:-2px;
-            width:18px;
-            height:18px;
-            background:#ef4444;
-            color:white;
-            border-radius:50%;
-            font-size:0.7rem;
-            font-weight:800;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-        }
-        
-        /* TOOLTIP OCULTO EN MOBILE */
-        .whatsapp-tooltip{display:none}
-        
-        .whatsapp-chat{
-            position:absolute;
-            bottom:60px;
-            right:0;
-            width:calc(100vw - 2rem);
-            max-width:320px;
-            background:white;
-            border-radius:var(--radius-xl);
-            box-shadow:0 20px 50px rgba(0,0,0,0.3);
-            opacity:0;
-            visibility:hidden;
-            transform:translateY(20px) scale(0.95);
-            transition:all 0.3s;
-        }
-        .whatsapp-chat.active{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
-        
-        .chat-header{
-            background:linear-gradient(135deg,var(--whatsapp),#128c7e);
-            padding:1rem;
-            color:white;
-            display:flex;
-            align-items:center;
-            gap:0.75rem;
-            border-radius:var(--radius-xl) var(--radius-xl) 0 0;
-        }
-        .chat-header-avatar{
-            width:40px;
-            height:40px;
-            background:rgba(255,255,255,0.2);
-            border-radius:50%;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-        }
-        .chat-header-info{flex:1}
-        .chat-header-info h4{font-size:0.95rem;font-weight:700}
-        .chat-header-status{font-size:0.8rem;opacity:0.9;display:flex;align-items:center;gap:0.4rem}
-        .status-dot{width:8px;height:8px;background:#86efac;border-radius:50%}
-        .chat-close{background:none;border:none;color:white;padding:0.25rem}
-        
-        .chat-body{
-            padding:1rem;
-            background:#f8fafc;
-            min-height:200px;
-            max-height:300px;
-            overflow-y:auto;
-        }
-        .message-bubble{
-            max-width:85%;
-            padding:0.75rem 1rem;
-            border-radius:var(--radius-md);
-            font-size:0.9rem;
-            margin-bottom:0.75rem;
-        }
-        .message-bubble.received{background:white;border-bottom-left-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,0.1)}
-        .message-bubble.sent{background:var(--whatsapp);color:white;margin-left:auto;border-bottom-right-radius:4px}
-        
-        .chat-quick-options{padding:1rem;background:white;border-top:1px solid rgba(0,0,0,0.05)}
-        .quick-options-title{font-size:0.7rem;color:var(--gray);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;font-weight:700}
-        .quick-options-grid{display:flex;flex-wrap:wrap;gap:0.5rem}
-        .quick-option{
-            background:rgba(37,211,102,0.1);
-            color:#128c7e;
-            border:1px solid rgba(37,211,102,0.3);
-            padding:0.5rem 0.75rem;
-            border-radius:var(--radius-full);
-            font-size:0.8rem;
-            font-weight:600;
-            cursor:pointer;
-        }
-        
-        .chat-input-area{
-            padding:1rem;
-            background:white;
-            border-top:1px solid rgba(0,0,0,0.05);
-            display:flex;
-            gap:0.5rem;
-            border-radius:0 0 var(--radius-xl) var(--radius-xl);
-        }
-        .chat-input{
-            flex:1;
-            border:1px solid rgba(0,0,0,0.1);
-            border-radius:var(--radius-full);
-            padding:0.75rem 1rem;
-            font-family:inherit;
-            font-size:0.9rem;
-        }
-        .chat-send{
-            width:40px;
-            height:40px;
-            background:var(--whatsapp);
-            border:none;
-            border-radius:50%;
-            color:white;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-        }
-        .chat-send svg{width:18px;height:18px;fill:white}
+    /* Solución destacada */
+    .featured {
+      color: var(--white);
+      background: linear-gradient(145deg, #091327 0%, #102249 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .featured::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      right: -180px;
+      top: -160px;
+      background: radial-gradient(circle, rgba(59, 130, 246, .26), transparent 72%);
+      filter: blur(26px);
+      pointer-events: none;
+    }
+    .featured-wrap { position: relative; z-index: 1; display: grid; gap: 1rem; }
+    .featured-box {
+      border: 1px solid rgba(148, 163, 184, .35);
+      border-radius: var(--radius-lg);
+      background: rgba(15, 23, 42, .45);
+      padding: 1.15rem;
+    }
+    .featured-box h3 { margin-bottom: .5rem; font-size: 1rem; }
+    .featured-box p { color: #dbeafe; font-size: .9rem; }
+    .featured-box ul { list-style: none; display: grid; gap: .45rem; margin-top: .65rem; }
+    .featured-box li { padding-left: .95rem; font-size: .84rem; color: #cbd5e1; position: relative; }
+    .featured-box li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #93c5fd; position: absolute; left: 0; top: .5rem; }
+    .case {
+      border: 1px solid rgba(148, 163, 184, .35);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(160deg, rgba(20, 39, 76, .9), rgba(18, 54, 120, .56));
+      padding: 1.2rem;
+      box-shadow: var(--shadow-strong);
+    }
+    .case h4 { margin-bottom: .35rem; }
+    .case p { color: #cbd5e1; font-size: .88rem; margin-bottom: .7rem; }
+    .case-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .62rem; }
+    .case-metrics strong { display: block; color: #e2e8f0; font-size: 1.42rem; }
+    .case-metrics span { color: #93c5fd; font-size: .74rem; }
 
-        /* TABLET Y DESKTOP */
-        @media(min-width:640px){
-            .container{padding:0 1.5rem}
-            .logo-text{font-size:1.5rem}
-            .hero h1{font-size:2.5rem}
-            .hero-buttons{flex-direction:row}
-            .hero-buttons a{width:auto}
-            .services-grid{grid-template-columns:repeat(2,1fr)}
-            .stats-grid{grid-template-columns:repeat(4,1fr)}
-            .portfolio-card{flex:0 0 45%}
-        }
-        
-        @media(min-width:1024px){
-            .container{padding:0 2rem}
-            .nav-links{
-                position:static;
-                flex-direction:row;
-                width:auto;
-                height:auto;
-                padding:0;
-                box-shadow:none;
-                background:transparent;
-            }
-            .nav-links a{border:none;padding:0;font-size:0.95rem}
-            .nav-cta{margin-top:0;padding:0.6rem 1.25rem;width:auto}
-            .mobile-menu-toggle{display:none}
-            .mobile-overlay{display:none !important}
-            
-            .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-            .hero-visual{display:block}
-            .services-grid{grid-template-columns:repeat(3,1fr)}
-            .process-grid{grid-template-columns:repeat(4,1fr)}
-            .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;padding:0;margin:0}
-            .portfolio-card{flex:none}
-            .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:3rem}
-            .contact-form{margin-top:0}
-            .footer-content{flex-direction:row;justify-content:space-between}
-            .whatsapp-tooltip{
-                display:block;
-                position:absolute;
-                bottom:60px;
-                right:0;
-                background:var(--navy);
-                color:white;
-                padding:0.75rem 1rem;
-                border-radius:var(--radius-md);
-                font-size:0.85rem;
-                font-weight:600;
-                white-space:nowrap;
-                opacity:0;
-                visibility:hidden;
-                transform:translateY(10px);
-                transition:all 0.3s;
-            }
-            .whatsapp-tooltip::after{
-                content:'';
-                position:absolute;
-                bottom:-6px;
-                right:20px;
-                border-left:6px solid transparent;
-                border-right:6px solid transparent;
-                border-top:6px solid var(--navy);
-            }
-            .whatsapp-container:hover .whatsapp-tooltip{opacity:1;visibility:visible;transform:translateY(0)}
-        }
-    </style>
+    /* Portafolio */
+    .portfolio-grid {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: .8rem;
+      scrollbar-width: none;
+    }
+    .portfolio-grid::-webkit-scrollbar { display: none; }
+    .project {
+      flex: 0 0 86%;
+      scroll-snap-align: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow-soft);
+    }
+    .project-media { height: 188px; position: relative; overflow: hidden; }
+    .project-media img { width: 100%; height: 100%; object-fit: cover; }
+    .chip {
+      position: absolute;
+      top: .7rem;
+      left: .7rem;
+      background: rgba(255, 255, 255, .95);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: .28rem .55rem;
+      font-size: .67rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .project-body { padding: 1.05rem; }
+    .project-type { color: var(--blue); font-size: .74rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .35rem; }
+    .project-body p { color: var(--ink-soft); font-size: .88rem; margin: .5rem 0 .7rem; }
+    .stack { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .stack span { background: #e8eefc; color: #1f3776; border-radius: 999px; padding: .2rem .5rem; font-size: .72rem; font-weight: 600; }
+
+    /* Contacto */
+    .contact { background: var(--white); }
+    .contact-grid { display: grid; gap: 1.2rem; }
+    .trust { list-style: none; display: grid; gap: .5rem; margin: .95rem 0 1.05rem; }
+    .trust li { color: var(--ink-soft); font-size: .9rem; padding-left: .95rem; position: relative; }
+    .trust li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); position: absolute; left: 0; top: .56rem; }
+    .contact-item {
+      display: flex;
+      gap: .75rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: #f8fbff;
+      padding: .8rem;
+      margin-bottom: .6rem;
+    }
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: linear-gradient(145deg, var(--navy-800), #1f3f86);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-item h4 { font-size: .9rem; }
+    .contact-item p { color: var(--ink-soft); font-size: .84rem; }
+
+    .form {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: #f8fbff;
+      box-shadow: var(--shadow-soft);
+      padding: 1.2rem;
+    }
+    .form h3 { font-size: 1rem; margin-bottom: .2rem; }
+    .form small { color: var(--ink-muted); display: block; margin-bottom: .8rem; }
+    .group { margin-bottom: .8rem; }
+    label { display: block; font-size: .83rem; font-weight: 700; margin-bottom: .38rem; }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid rgba(100, 116, 139, .45);
+      border-radius: 12px;
+      background: var(--white);
+      font: inherit;
+      font-size: .92rem;
+      color: var(--ink);
+      padding: .72rem .82rem;
+    }
+    textarea { min-height: 118px; resize: vertical; }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, .15);
+    }
+
+    /* Footer */
+    footer { background: #070e20; color: #dbeafe; padding: 2.2rem 0 1rem; }
+    .footer-grid { display: grid; gap: 1.25rem; margin-bottom: 1.2rem; }
+    .footer-logo { text-decoration: none; font-size: 1.22rem; font-weight: 800; }
+    .footer-brand p { color: #93a4c8; font-size: .86rem; margin-top: .45rem; max-width: 30ch; }
+    .f-col h4 { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: #93c5fd; margin-bottom: .45rem; }
+    .f-col ul { list-style: none; display: grid; gap: .36rem; }
+    .f-col a { text-decoration: none; color: #dbeafe; font-size: .84rem; }
+    .copy { border-top: 1px solid rgba(148, 163, 184, .2); text-align: center; padding-top: .9rem; color: #93a4c8; font-size: .76rem; }
+
+    /* WhatsApp */
+    .wa-wrap { position: fixed; right: 1rem; bottom: 1rem; z-index: 1100; }
+    .wa-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 1px solid rgba(148, 163, 184, .28);
+      background: linear-gradient(150deg, #0b2333, #0f6d65);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 14px 26px rgba(15, 23, 42, .35);
+      position: relative;
+    }
+    .wa-btn svg { width: 24px; height: 24px; fill: currentColor; }
+    .wa-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #2563eb;
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      font-size: .65rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+    }
+    .wa-chat {
+      position: absolute;
+      right: 0;
+      bottom: 64px;
+      width: min(340px, calc(100vw - 2rem));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow-strong);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(14px) scale(.97);
+      transition: var(--tr);
+    }
+    .wa-chat.open { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+    .wa-head { background: linear-gradient(145deg, var(--navy-800), #1f3f86); color: var(--white); padding: .85rem; display: flex; align-items: center; gap: .65rem; }
+    .wa-head button { margin-left: auto; border: 0; background: none; color: inherit; cursor: pointer; }
+    .wa-body { padding: .85rem; background: #f8fbff; }
+    .bubble { background: var(--white); border-radius: 12px; box-shadow: 0 2px 4px rgba(15, 23, 42, .08); padding: .62rem .72rem; font-size: .84rem; color: var(--ink); }
+    .wa-quick { border-top: 1px solid var(--line); padding: .8rem; }
+    .wa-quick p { font-size: .66rem; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-muted); font-weight: 700; margin-bottom: .4rem; }
+    .wa-options { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .wa-options button {
+      border: 1px solid rgba(30, 64, 175, .28);
+      border-radius: 999px;
+      background: rgba(219, 234, 254, .6);
+      color: #1e3a8a;
+      font-size: .73rem;
+      padding: .36rem .62rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .wa-input { border-top: 1px solid var(--line); padding: .72rem .8rem; display: flex; gap: .45rem; }
+    .wa-input input { border-radius: 999px; font-size: .84rem; }
+    .wa-send { width: 38px; height: 38px; border: 0; border-radius: 50%; background: linear-gradient(145deg, #1e3a8a, #1e40af); color: var(--white); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+
+    @media (min-width: 700px) {
+      .container { width: min(1180px, 100% - 3rem); }
+      .hero-actions { flex-direction: row; flex-wrap: wrap; }
+      .diferencial-grid,
+      .auth-grid,
+      .caps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .project { flex-basis: 47%; }
+      .footer-grid { grid-template-columns: 1.2fr 1fr 1fr 1fr; }
+    }
+    @media (min-width: 1024px) {
+      .nav-links {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+        box-shadow: none;
+        background: transparent;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.3rem;
+      }
+      .nav-links a { border: 0; padding: 0; font-size: .92rem; }
+      .nav-cta { margin-top: 0; padding: .55rem .92rem !important; }
+      .menu-btn, .overlay { display: none !important; }
+
+      .hero { padding: 5rem 0 4rem; }
+      .hero-grid { grid-template-columns: 1.1fr .9fr; gap: 2rem; align-items: end; }
+      .hero-metrics strong { font-size: 1.55rem; }
+
+      .featured-wrap { grid-template-columns: 1.2fr .8fr; }
+      .caps-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        overflow: visible;
+      }
+      .project { flex-basis: auto; }
+      .contact-grid { grid-template-columns: 1fr 1.08fr; }
+    }
+  </style>
 </head>
 <body>
-    <nav id="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <a href="#" class="logo-text">eQuantum</a>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#proceso">Proceso</a></li>
-                    <li><a href="#portafolio">Portafolio</a></li>
-                    <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
-                </ul>
-                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menú">
-                    <i data-lucide="menu" style="width:24px;height:24px"></i>
-                </button>
-            </div>
-        </div>
-        <div class="mobile-overlay" id="mobileOverlay"></div>
-    </nav>
-
-    <section class="hero">
-        <div class="stars-container" id="starsContainer"></div>
-        <div class="nebula nebula-1"></div>
-        <div class="nebula nebula-2"></div>
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <div class="hero-badge"><span></span>Disponible para proyectos</div>
-                    <h1>Transformamos tu negocio con <span class="highlight">soluciones digitales</span></h1>
-                    <p class="hero-description">Diseñamos e implementamos experiencias digitales que generan resultados reales.</p>
-                    <div class="hero-buttons">
-                        <a href="#contacto" class="btn-primary">Iniciar proyecto <i data-lucide="arrow-right" style="width:18px;height:18px"></i></a>
-                        <a href="#portafolio" class="btn-secondary">Ver portafolio</a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="hero-stat"><div class="hero-stat-number" data-count="150">0</div><div class="hero-stat-label">Proyectos</div></div>
-                        <div class="hero-stat"><div class="hero-stat-number">5 años</div><div class="hero-stat-label">Experiencia</div></div>
-                        <div class="hero-stat"><div class="hero-stat-number" data-count="98" data-suffix="%">0%</div><div class="hero-stat-label">Satisfacción</div></div>
-                    </div>
-                </div>
-                <div class="hero-visual" style="display:none">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80" alt="Desarrollo web" style="border-radius:1rem;width:100%">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="approval-system">
-        <div class="container">
-            <div class="approval-content">
-                <h2>Sistema de Aprobaciones y Gestión de Solicitudes Internas</h2>
-                <p class="approval-description">Control y trazabilidad de procesos internos. Digitaliza el flujo de trabajo de tu empresa.</p>
-                
-                <h4 style="font-size:0.9rem;margin-bottom:0.75rem;opacity:0.9">El problema actual:</h4>
-                <ul class="approval-list">
-                    <li>Emails perdidos</li>
-                    <li>Excels desactualizados</li>
-                    <li>WhatsApp sin control</li>
-                    <li>Aprobaciones informales</li>
-                </ul>
-                
-                <h4 style="font-size:0.9rem;margin-bottom:0.75rem;opacity:0.9">Nuestra solución:</h4>
-                <ul class="approval-list">
-                    <li>Dashboard centralizado</li>
-                    <li>Flujos automáticos</li>
-                    <li>Notificaciones en tiempo real</li>
-                    <li>Historial completo</li>
-                </ul>
-            </div>
-            <div class="approval-visual">
-                <div class="dashboard-icon">📊</div>
-                <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.25rem">RMI S.R.L</h3>
-                <p style="font-size:0.8rem;opacity:0.8">Caso de éxito implementado</p>
-                <div class="dashboard-stats">
-                    <div class="dashboard-stat">
-                        <div class="dashboard-stat-value">85%</div>
-                        <div class="dashboard-stat-label">reducción tiempos</div>
-                    </div>
-                    <div class="dashboard-stat">
-                        <div class="dashboard-stat-value">100%</div>
-                        <div class="dashboard-stat-label">trazabilidad</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="services" id="servicios">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Nuestros Servicios</span>
-                <h2 class="section-title">Soluciones integrales para tu negocio</h2>
-                <p class="section-subtitle">Combinamos estrategia, diseño y tecnología.</p>
-            </div>
-            <div class="services-grid">
-                <article class="service-card">
-                    <div class="service-icon"><i data-lucide="globe" style="width:24px;height:24px"></i></div>
-                    <h3>Desarrollo Web</h3>
-                    <p>Sitios web profesionales y aplicaciones a medida.</p>
-                </article>
-                <article class="service-card">
-                    <div class="service-icon"><i data-lucide="shopping-cart" style="width:24px;height:24px"></i></div>
-                    <h3>E-commerce</h3>
-                    <p>Tiendas online en Shopify y plataformas personalizadas.</p>
-                </article>
-                <article class="service-card">
-                    <div class="service-icon"><i data-lucide="smartphone" style="width:24px;height:24px"></i></div>
-                    <h3>WhatsApp Business</h3>
-                    <p>Automatización de ventas y atención al cliente.</p>
-                </article>
-                <article class="service-card">
-                    <div class="service-icon"><i data-lucide="palette" style="width:24px;height:24px"></i></div>
-                    <h3>Diseño UI/UX</h3>
-                    <p>Interfaces intuitivas que convierten visitantes.</p>
-                </article>
-                <article class="service-card">
-                    <div class="service-icon"><i data-lucide="trending-up" style="width:24px;height:24px"></i></div>
-                    <h3>Marketing Digital</h3>
-                    <p>Estrategias de crecimiento y publicidad.</p>
-                </article>
-                <article class="service-card">
-                    <div class="service-icon"><i data-lucide="settings" style="width:24px;height:24px"></i></div>
-                    <h3>Sistemas Internos</h3>
-                    <p>Software de gestión y herramientas internas.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="process" id="proceso">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Nuestro Proceso</span>
-                <h2 class="section-title">Cómo trabajamos</h2>
-                <p class="section-subtitle">Un enfoque estructurado que garantiza resultados.</p>
-            </div>
-            <div class="process-grid">
-                <article class="process-card"><div class="process-number">01</div><h3>Descubrimiento</h3><p>Analizamos tu negocio y objetivos.</p></article>
-                <article class="process-card"><div class="process-number">02</div><h3>Diseño</h3><p>Creamos prototipos y diseños.</p></article>
-                <article class="process-card"><div class="process-number">03</div><h3>Desarrollo</h3><p>Construimos tu solución.</p></article>
-                <article class="process-card"><div class="process-number">04</div><h3>Escalado</h3><p>Lanzamos y optimizamos.</p></article>
-            </div>
-        </div>
-    </section>
-
-    <section class="portfolio" id="portafolio">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Portafolio</span>
-                <h2 class="section-title">Proyectos destacados</h2>
-                <p class="section-subtitle">Negocios que hemos transformado.</p>
-            </div>
-            <div class="portfolio-grid" id="portfolioGrid">
-                <article class="portfolio-card">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80" alt="Marmolería">
-                        <div class="portfolio-tags"><span class="portfolio-tag">Web</span></div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Marmolería Pietra</h3>
-                        <p>Sitio corporativo para empresa de mármol.</p>
-                        <div class="tech-stack"><span class="tech-item">React</span><span class="tech-item">Node</span></div>
-                        <a href="#" class="portfolio-link">Ver más <i data-lucide="arrow-right" style="width:14px;height:14px"></i></a>
-                    </div>
-                </article>
-                <article class="portfolio-card">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Corpi">
-                        <div class="portfolio-tags"><span class="portfolio-tag" style="background:var(--success);color:white">Shopify</span></div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Corpi & Cía</h3>
-                        <p>E-commerce de jardinería con +300% ventas.</p>
-                        <div class="tech-stack"><span class="tech-item">Shopify</span><span class="tech-item">Liquid</span></div>
-                        <a href="#" class="portfolio-link">Ver más <i data-lucide="arrow-right" style="width:14px;height:14px"></i></a>
-                    </div>
-                </article>
-                <article class="portfolio-card">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&q=80" alt="Basket">
-                        <div class="portfolio-tags"><span class="portfolio-tag">Landing</span></div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Federico Cabañas</h3>
-                        <p>Academia de básquetbol profesional.</p>
-                        <div class="tech-stack"><span class="tech-item">HTML</span><span class="tech-item">CSS</span></div>
-                        <a href="#" class="portfolio-link">Ver más <i data-lucide="arrow-right" style="width:14px;height:14px"></i></a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item"><div class="stat-number" data-count="150">0</div><div class="stat-label">Proyectos</div></div>
-                <div class="stat-item"><div class="stat-number">5</div><div class="stat-label">Años exp.</div></div>
-                <div class="stat-item"><div class="stat-number" data-count="98" data-suffix="%">0%</div><div class="stat-label">Satisfacción</div></div>
-                <div class="stat-item"><div class="stat-number" data-count="300" data-suffix="%">0%</div><div class="stat-label">Crecimiento</div></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="contacto">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>¿Listo para transformar tu negocio?</h2>
-                    <p>Contanos sobre tu proyecto. Respondemos en menos de 24 horas.</p>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i data-lucide="mail" style="width:20px;height:20px"></i></div>
-                        <div><h4>Email</h4><p>hola@equantum.com.py</p></div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i data-lucide="phone" style="width:20px;height:20px"></i></div>
-                        <div><h4>Teléfono</h4><p>0985 194 953</p></div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i data-lucide="map-pin" style="width:20px;height:20px"></i></div>
-                        <div><h4>Ubicación</h4><p>Asunción, Paraguay</p></div>
-                    </div>
-                </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <div class="input-wrapper">
-                            <i data-lucide="user" class="input-icon" style="width:18px;height:18px"></i>
-                            <input type="text" id="nombre" placeholder="Tu nombre" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <div class="input-wrapper">
-                            <i data-lucide="mail" class="input-icon" style="width:18px;height:18px"></i>
-                            <input type="email" id="email" placeholder="tu@email.com" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="empresa">Empresa</label>
-                        <div class="input-wrapper">
-                            <i data-lucide="building-2" class="input-icon" style="width:18px;height:18px"></i>
-                            <input type="text" id="empresa" placeholder="Tu empresa">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" placeholder="Contanos tu proyecto..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Enviar mensaje <i data-lucide="send" style="width:18px;height:18px"></i></button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <a href="#" class="footer-logo">eQuantum</a>
-                <div class="footer-socials">
-                    <a href="#"><i data-lucide="instagram" style="width:18px;height:18px"></i> IG</a>
-                    <a href="#"><i data-lucide="linkedin" style="width:18px;height:18px"></i> LinkedIn</a>
-                </div>
-                <div class="footer-copy">© 2024 eQuantum. Todos los derechos reservados.</div>
-            </div>
-        </div>
-    </footer>
-
-    <div class="whatsapp-container">
-        <div class="whatsapp-tooltip">¿Necesitás ayuda?</div>
-        <button class="whatsapp-button" id="whatsappBtn">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            <span class="whatsapp-badge">1</span>
-        </button>
-        <div class="whatsapp-chat" id="whatsappChat">
-            <div class="chat-header">
-                <div class="chat-header-avatar"><i data-lucide="user" style="width:20px;height:20px"></i></div>
-                <div class="chat-header-info">
-                    <h4>eQuantum</h4>
-                    <div class="chat-header-status"><span class="status-dot"></span>En línea</div>
-                </div>
-                <button class="chat-close" id="chatClose"><i data-lucide="x" style="width:20px;height:20px"></i></button>
-            </div>
-            <div class="chat-body">
-                <div class="message-bubble received">👋 ¡Hola! ¿En qué podemos ayudarte?</div>
-            </div>
-            <div class="chat-quick-options">
-                <div class="quick-options-title">Opciones rápidas</div>
-                <div class="quick-options-grid">
-                    <button class="quick-option" onclick="sendWhatsApp('Cotizar web')">Cotizar web</button>
-                    <button class="quick-option" onclick="sendWhatsApp('Tienda online')">Tienda online</button>
-                    <button class="quick-option" onclick="sendWhatsApp('WhatsApp Business')">WhatsApp</button>
-                </div>
-            </div>
-            <div class="chat-input-area">
-                <input type="text" class="chat-input" placeholder="Escribe...">
-                <button class="chat-send"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
-            </div>
-        </div>
+  <nav aria-label="Navegación principal">
+    <div class="container nav-wrap">
+      <a href="#inicio" class="logo" aria-label="Inicio eQuantum">eQuantum</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#diferencial">Diferencial</a></li>
+        <li><a href="#capacidades">Capacidades</a></li>
+        <li><a href="#solucion-estrella">Solución estrella</a></li>
+        <li><a href="#portafolio">Casos</a></li>
+        <li><a href="#contacto" class="nav-cta">Solicitar propuesta</a></li>
+      </ul>
+      <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">
+        <i data-lucide="menu" style="width:24px;height:24px"></i>
+      </button>
     </div>
+    <div class="overlay" id="overlay"></div>
+  </nav>
 
-    <script>
-        // Generar estrellas
-        function generateStars() {
-            const container = document.getElementById('starsContainer');
-            for(let i = 0; i < 50; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.width = Math.random() > 0.8 ? '2px' : '1px';
-                star.style.height = star.style.width;
-                star.style.animationDelay = Math.random() * 3 + 's';
-                container.appendChild(star);
-            }
+  <header class="hero" id="inicio">
+    <div class="stars" id="stars" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-tag">Consultoría + ejecución + desarrollo propio</div>
+        <h1>Construimos la infraestructura digital que hace crecer tu negocio.</h1>
+        <p>Integramos estrategia, desarrollo propio y ejecución para escalar tu negocio con control.</p>
+        <div class="hero-actions">
+          <a href="#contacto" class="btn btn-primary">Solicitar propuesta <i data-lucide="arrow-right" style="width:16px;height:16px" aria-hidden="true"></i></a>
+          <a href="#contacto" class="btn btn-secondary">Agendar reunión</a>
+          <a href="#portafolio" class="btn btn-ghost">Ver casos</a>
+        </div>
+        <div class="hero-metrics" aria-label="Métricas de referencia">
+          <div><strong data-count="150">0</strong><span>Implementaciones</span></div>
+          <div><strong data-count="98" data-suffix="%">0%</strong><span>Continuidad clientes</span></div>
+          <div><strong>24h</strong><span>Respuesta ejecutiva</span></div>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="Diferenciales estratégicos">
+        <h3>¿Qué nos diferencia de una agencia común?</h3>
+        <ul>
+          <li>Diseñamos arquitectura digital, no piezas sueltas.</li>
+          <li>Un solo equipo para estrategia, desarrollo e implementación.</li>
+          <li>Integramos e-commerce, operación interna y canales comerciales.</li>
+          <li>Desarrollo a medida cuando la operación requiere control total.</li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <section id="diferencial" aria-labelledby="diferencial-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Diferencial competitivo</span>
+        <h2 id="diferencial-title">Infraestructura digital integrada vs. servicios aislados</h2>
+        <p class="lead">La mayoría del mercado entrega tareas por separado. eQuantum diseña un sistema digital coherente para crecimiento con estructura y trazabilidad.</p>
+      </div>
+      <div class="diferencial-grid">
+        <article class="card">
+          <h3>Modelo tradicional</h3>
+          <p>Varios proveedores, herramientas desconectadas y dependencia operativa.</p>
+          <ul>
+            <li>Web, campañas y automatizaciones sin integración real.</li>
+            <li>Poca visibilidad sobre el impacto de cada área.</li>
+            <li>Escalabilidad limitada por falta de arquitectura.</li>
+          </ul>
+        </article>
+        <article class="card card-eq">
+          <h3>Modelo eQuantum</h3>
+          <p>Un partner tecnológico que conecta estrategia, sistema digital y ejecución continua.</p>
+          <ul>
+            <li>Infraestructura digital pensada para negocio y operación.</li>
+            <li>Trazabilidad end-to-end entre captación, ventas y backoffice.</li>
+            <li>Escalado por etapas con control técnico y operativo.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="authority" id="autoridad" aria-labelledby="autoridad-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Autoridad</span>
+        <h2 id="autoridad-title">Capacidad real de ejecución para transformación digital aplicada</h2>
+        <p class="lead">Nuestra propuesta combina diagnóstico ejecutivo, implementación técnica y mejora continua para convertir estrategia en operación medible.</p>
+      </div>
+      <div class="auth-grid">
+        <article class="auth-item">
+          <strong>+35%</strong>
+          <p>Incremento promedio en oportunidades comerciales luego de ordenar front, oferta y flujo de captación.</p>
+        </article>
+        <article class="auth-item">
+          <strong>-42%</strong>
+          <p>Reducción de fricción operativa al digitalizar aprobaciones y tareas críticas con reglas y trazabilidad.</p>
+        </article>
+        <article class="auth-item">
+          <p class="quote">“Pasamos de acciones sueltas a un sistema digital conectado. Mejoró visibilidad y velocidad de respuesta comercial.”</p>
+          <span class="quote-by">Gerencia Comercial · Empresa B2B (referencial editable)</span>
+        </article>
+        <article class="auth-item">
+          <p class="quote">“eQuantum no solo recomendó: construyó con nuestro equipo y dejó una base escalable para operar con control.”</p>
+          <span class="quote-by">Dirección Operativa · Empresa de servicios (referencial editable)</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="capacidades" aria-labelledby="capacidades-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Capacidades clave</span>
+        <h2 id="capacidades-title">Componentes de un sistema digital preparado para crecer</h2>
+        <p class="lead">Cada capacidad está diseñada para integrarse con las demás y sostener crecimiento con estructura, no como iniciativa aislada.</p>
+      </div>
+      <div class="caps-grid">
+        <article class="cap">
+          <div class="cap-icon"><i data-lucide="globe" style="width:21px;height:21px" aria-hidden="true"></i></div>
+          <h3>Front institucional y comercial</h3>
+          <p>Experiencias digitales que posicionan propuesta de valor y convierten tráfico en oportunidades cualificadas.</p>
+        </article>
+        <article class="cap">
+          <div class="cap-icon"><i data-lucide="shopping-cart" style="width:21px;height:21px" aria-hidden="true"></i></div>
+          <h3>E-commerce híbrido (Shopify, WordPress y desarrollo propio)</h3>
+          <p>Diseñamos la arquitectura ideal para tu negocio: desde plataformas líderes hasta desarrollo a medida cuando necesitás control total.</p>
+        </article>
+        <article class="cap">
+          <div class="cap-icon"><i data-lucide="bot" style="width:21px;height:21px" aria-hidden="true"></i></div>
+          <h3>Automatización e IA aplicada</h3>
+          <p>Flujos automatizados para reducir tareas manuales, acelerar tiempos de respuesta y mejorar productividad transversal.</p>
+        </article>
+        <article class="cap">
+          <div class="cap-icon"><i data-lucide="message-circle" style="width:21px;height:21px" aria-hidden="true"></i></div>
+          <h3>Operación conversacional en WhatsApp</h3>
+          <p>Canal estructurado de captura y seguimiento conectado con procesos comerciales y reportes de operación.</p>
+        </article>
+        <article class="cap">
+          <div class="cap-icon"><i data-lucide="line-chart" style="width:21px;height:21px" aria-hidden="true"></i></div>
+          <h3>Optimización de demanda y conversión</h3>
+          <p>Adquisición con foco en rentabilidad y capacidad operativa, para escalar con equilibrio entre crecimiento y control.</p>
+        </article>
+        <article class="cap">
+          <div class="cap-icon"><i data-lucide="settings" style="width:21px;height:21px" aria-hidden="true"></i></div>
+          <h3>Sistemas internos a medida</h3>
+          <p>Desarrollo propio para circuitos críticos donde control, trazabilidad y eficiencia operativa son ventaja competitiva.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured" id="solucion-estrella" aria-labelledby="solucion-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Solución destacada</span>
+        <h2 id="solucion-title">Sistema de Aprobaciones y Solicitudes Internas</h2>
+        <p class="lead">Ejemplo concreto de cómo transformamos operación digital: menos fricción, más control y visibilidad ejecutiva en tiempo real.</p>
+      </div>
+      <div class="featured-wrap">
+        <div class="featured-box">
+          <h3>Problema que resolvemos</h3>
+          <p>Cuando aprobaciones dependen de correos, planillas y chats, se pierde trazabilidad, se alargan tiempos y baja la capacidad de gestión.</p>
+          <ul>
+            <li>Solicitudes sin responsables ni tiempos definidos.</li>
+            <li>Cuellos de botella entre áreas clave.</li>
+            <li>Historial disperso que dificulta auditoría.</li>
+          </ul>
+        </div>
+        <div class="featured-box">
+          <h3>Implementación eQuantum</h3>
+          <p>Sistema digital centralizado con reglas, estados, alertas y métricas por proceso para dirección y operación.</p>
+          <ul>
+            <li>Dashboard único con trazabilidad total.</li>
+            <li>Alertas automáticas por prioridad y bloqueo.</li>
+            <li>Indicadores por área, etapa y aprobador.</li>
+          </ul>
+        </div>
+        <aside class="case" aria-label="Caso de negocio">
+          <h4>Caso aplicado: RMI S.R.L.</h4>
+          <p>Se digitalizó su circuito de aprobaciones para compras y operaciones, mejorando gobernanza, visibilidad y velocidad de ejecución.</p>
+          <div class="case-metrics">
+            <div><strong>85%</strong><span>Reducción de ciclo</span></div>
+            <div><strong>100%</strong><span>Trazabilidad de solicitudes</span></div>
+            <div><strong>1</strong><span>Fuente única de operación</span></div>
+            <div><strong>24/7</strong><span>Seguimiento en tiempo real</span></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="portafolio" aria-labelledby="portfolio-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Casos</span>
+        <h2 id="portfolio-title">Resultados orientados a negocio, no solo entregables visuales</h2>
+        <p class="lead">Cada implementación responde a un problema real de ventas, operación o escalabilidad.</p>
+      </div>
+      <div class="portfolio-grid">
+        <article class="project">
+          <div class="project-media">
+            <img loading="lazy" src="imagenes/marmoleriapietra.jpg" alt="Sitio corporativo de Marmolería Pietra">
+            <span class="chip">Sitio corporativo</span>
+          </div>
+          <div class="project-body">
+            <h3>Marmolería Pietra</h3>
+            <p class="project-type">Industria y servicios</p>
+            <p>Se ordenó su presencia digital y flujo comercial para transformar consultas dispersas en oportunidades más calificadas.</p>
+            <div class="stack"><span>React</span><span>Node.js</span><span>SEO técnico</span></div>
+          </div>
+        </article>
+        <article class="project">
+          <div class="project-media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80" alt="Tienda e-commerce para Corpi y Cía">
+            <span class="chip">E-commerce</span>
+          </div>
+          <div class="project-body">
+            <h3>Corpi &amp; Cía</h3>
+            <p class="project-type">Retail digital</p>
+            <p>Se optimizó catálogo, navegación y postventa para escalar la operación online con mejor control de conversión.</p>
+            <div class="stack"><span>Shopify</span><span>Liquid</span><span>Automatización</span></div>
+          </div>
+        </article>
+        <article class="project">
+          <div class="project-media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=900&q=80" alt="Landing para academia deportiva">
+            <span class="chip">Landing de conversión</span>
+          </div>
+          <div class="project-body">
+            <h3>Federico Cabañas Academy</h3>
+            <p class="project-type">Educación deportiva</p>
+            <p>Se implementó una landing con seguimiento automatizado para convertir campañas en entrevistas comerciales.</p>
+            <div class="stack"><span>HTML</span><span>CRO</span><span>Analytics</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contacto" aria-labelledby="contacto-title">
+    <div class="container contact-grid">
+      <div>
+        <div class="section-head">
+          <span class="kicker">Contacto estratégico</span>
+          <h2 id="contacto-title">Iniciemos un diagnóstico de infraestructura digital</h2>
+          <p class="lead">Evaluamos tu contexto actual y definimos un plan ejecutable para crecimiento con estructura, control y trazabilidad.</p>
+        </div>
+        <ul class="trust">
+          <li>Diagnóstico ejecutivo inicial en menos de 24 horas hábiles.</li>
+          <li>Propuesta estratégica con alcance técnico y prioridades de negocio.</li>
+          <li>Un equipo único para diseñar, construir e implementar.</li>
+        </ul>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i data-lucide="mail" style="width:18px;height:18px" aria-hidden="true"></i></div>
+          <div><h4>Email comercial</h4><p>hola@equantum.com.py</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i data-lucide="phone" style="width:18px;height:18px" aria-hidden="true"></i></div>
+          <div><h4>Línea directa</h4><p>+595 985 194 953</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i data-lucide="map-pin" style="width:18px;height:18px" aria-hidden="true"></i></div>
+          <div><h4>Base operativa</h4><p>Asunción, Paraguay · Proyectos regionales</p></div>
+        </div>
+      </div>
+
+      <form class="form" aria-label="Formulario de contacto">
+        <h3>Solicitar propuesta estratégica</h3>
+        <small>Compartí tu objetivo y te proponemos una ruta de implementación.</small>
+
+        <div class="group">
+          <label for="name">Nombre y apellido</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Ej: Ana Pérez" required>
+        </div>
+        <div class="group">
+          <label for="email">Email corporativo</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="ana@empresa.com" required>
+        </div>
+        <div class="group">
+          <label for="company">Empresa</label>
+          <input id="company" name="company" type="text" autocomplete="organization" placeholder="Nombre de tu empresa">
+        </div>
+        <div class="group">
+          <label for="service">Frente principal</label>
+          <select id="service" name="service" required>
+            <option value="" selected disabled>Seleccioná una opción</option>
+            <option value="infraestructura">Infraestructura digital integral</option>
+            <option value="ecommerce">E-commerce híbrido</option>
+            <option value="automatizacion">Automatización y sistemas internos</option>
+            <option value="web">Front institucional/comercial</option>
+          </select>
+        </div>
+        <div class="group">
+          <label for="message">Objetivo de negocio</label>
+          <textarea id="message" name="message" placeholder="¿Qué necesitás resolver en los próximos 3 a 6 meses?" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;">Agendar diagnóstico inicial <i data-lucide="send" style="width:16px;height:16px" aria-hidden="true"></i></button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#inicio" class="footer-logo">eQuantum</a>
+          <p>Infraestructura digital para empresas que quieren crecer con control, eficiencia y escalabilidad.</p>
+        </div>
+        <div class="f-col">
+          <h4>Institucional</h4>
+          <ul>
+            <li><a href="#diferencial">Diferencial</a></li>
+            <li><a href="#capacidades">Capacidades</a></li>
+            <li><a href="#solucion-estrella">Solución estrella</a></li>
+            <li><a href="#portafolio">Casos</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h4>Enfoques</h4>
+          <ul>
+            <li><a href="#capacidades">E-commerce híbrido</a></li>
+            <li><a href="#capacidades">Desarrollo propio</a></li>
+            <li><a href="#capacidades">Automatización</a></li>
+            <li><a href="#capacidades">Sistemas internos</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="mailto:hola@equantum.com.py">hola@equantum.com.py</a></li>
+            <li><a href="tel:+595985194953">+595 985 194 953</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copy">© 2026 eQuantum. Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <div class="wa-wrap" aria-live="polite">
+    <button class="wa-btn" id="waBtn" aria-label="Abrir chat de WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span class="wa-dot">1</span>
+    </button>
+
+    <div class="wa-chat" id="waChat" role="dialog" aria-label="Chat rápido de WhatsApp">
+      <div class="wa-head">
+        <i data-lucide="message-square" style="width:18px;height:18px" aria-hidden="true"></i>
+        <div>
+          <strong style="font-size:.86rem;display:block;">Asesoría eQuantum</strong>
+          <small style="font-size:.72rem;color:#bfdbfe;">Disponible ahora</small>
+        </div>
+        <button id="waClose" aria-label="Cerrar chat"><i data-lucide="x" style="width:18px;height:18px" aria-hidden="true"></i></button>
+      </div>
+      <div class="wa-body">
+        <div class="bubble">Hola 👋 ¿Querés que evaluemos tu infraestructura digital y te propongamos un plan inicial?</div>
+      </div>
+      <div class="wa-quick">
+        <p>Accesos rápidos</p>
+        <div class="wa-options">
+          <button onclick="sendWA('Quiero solicitar una propuesta estratégica para mi empresa')">Solicitar propuesta</button>
+          <button onclick="sendWA('Quiero agendar una reunión de diagnóstico')">Agendar reunión</button>
+          <button onclick="sendWA('Quiero información del sistema de aprobaciones internas')">Sistema interno</button>
+        </div>
+      </div>
+      <div class="wa-input">
+        <label for="waInput" class="sr-only">Escribir consulta</label>
+        <input id="waInput" type="text" placeholder="Escribí tu consulta inicial">
+        <button class="wa-send" id="waSend" aria-label="Enviar mensaje"><i data-lucide="send" style="width:14px;height:14px" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function createStars() {
+      const box = document.getElementById('stars');
+      if (!box) return;
+      for (let i = 0; i < 48; i++) {
+        const s = document.createElement('span');
+        s.className = 'star';
+        s.style.left = Math.random() * 100 + '%';
+        s.style.top = Math.random() * 100 + '%';
+        s.style.width = Math.random() > .86 ? '2px' : '1px';
+        s.style.height = s.style.width;
+        s.style.animationDelay = Math.random() * 3 + 's';
+        box.appendChild(s);
+      }
+    }
+
+    function initMenu() {
+      const btn = document.getElementById('menuBtn');
+      const links = document.getElementById('navLinks');
+      const overlay = document.getElementById('overlay');
+      if (!btn || !links || !overlay) return;
+
+      const close = () => {
+        links.classList.remove('open');
+        overlay.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Abrir menú');
+        btn.innerHTML = '<i data-lucide="menu" style="width:24px;height:24px"></i>';
+        lucide.createIcons();
+      };
+      const open = () => {
+        links.classList.add('open');
+        overlay.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-label', 'Cerrar menú');
+        btn.innerHTML = '<i data-lucide="x" style="width:24px;height:24px"></i>';
+        lucide.createIcons();
+      };
+
+      btn.addEventListener('click', () => links.classList.contains('open') ? close() : open());
+      overlay.addEventListener('click', close);
+      links.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+    }
+
+    function animateCounters() {
+      document.querySelectorAll('[data-count]').forEach((el) => {
+        const target = Number(el.dataset.count);
+        const suffix = el.dataset.suffix || '';
+        if (!target) return;
+        let current = 0;
+        const step = Math.max(1, target / 34);
+        const t = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            el.textContent = target + suffix;
+            clearInterval(t);
+          } else {
+            el.textContent = Math.floor(current) + suffix;
+          }
+        }, 40);
+      });
+    }
+
+    function sendWA(msg) {
+      const text = msg && msg.trim() ? msg.trim() : 'Hola, quiero más información sobre eQuantum.';
+      window.open(`https://wa.me/595985194953?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+    }
+
+    function initWA() {
+      const btn = document.getElementById('waBtn');
+      const chat = document.getElementById('waChat');
+      const close = document.getElementById('waClose');
+      const send = document.getElementById('waSend');
+      const input = document.getElementById('waInput');
+      if (!btn || !chat || !close || !send || !input) return;
+
+      btn.addEventListener('click', () => chat.classList.toggle('open'));
+      close.addEventListener('click', () => chat.classList.remove('open'));
+      send.addEventListener('click', () => sendWA(input.value));
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          sendWA(input.value);
         }
+      });
+    }
 
-        // Menú móvil
-        function initMobileMenu() {
-            const toggle = document.getElementById('mobileMenuToggle');
-            const navLinks = document.getElementById('navLinks');
-            const overlay = document.getElementById('mobileOverlay');
-            
-            toggle.addEventListener('click', () => {
-                const isOpen = navLinks.classList.contains('active');
-                if (isOpen) {
-                    navLinks.classList.remove('active');
-                    overlay.classList.remove('active');
-                    toggle.innerHTML = '<i data-lucide="menu" style="width:24px;height:24px"></i>';
-                } else {
-                    navLinks.classList.add('active');
-                    overlay.classList.add('active');
-                    toggle.innerHTML = '<i data-lucide="x" style="width:24px;height:24px"></i>';
-                }
-                lucide.createIcons();
-            });
-            
-            overlay.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                overlay.classList.remove('active');
-                toggle.innerHTML = '<i data-lucide="menu" style="width:24px;height:24px"></i>';
-                lucide.createIcons();
-            });
-            
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    overlay.classList.remove('active');
-                    toggle.innerHTML = '<i data-lucide="menu" style="width:24px;height:24px"></i>';
-                    lucide.createIcons();
-                });
-            });
-        }
-
-        // WhatsApp
-        function initWhatsApp() {
-            const btn = document.getElementById('whatsappBtn');
-            const chat = document.getElementById('whatsappChat');
-            const close = document.getElementById('chatClose');
-            
-            btn.addEventListener('click', () => chat.classList.toggle('active'));
-            close.addEventListener('click', () => chat.classList.remove('active'));
-        }
-
-        function sendWhatsApp(text) {
-            window.open(`https://wa.me/595985194953?text=${encodeURIComponent(text)}`, '_blank');
-        }
-
-        // Contadores
-        function initCounters() {
-            const counters = document.querySelectorAll('[data-count]');
-            counters.forEach(counter => {
-                const target = parseInt(counter.dataset.count);
-                const suffix = counter.dataset.suffix || '';
-                let current = 0;
-                const increment = target / 30;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        counter.textContent = target + suffix;
-                        clearInterval(timer);
-                    } else {
-                        counter.textContent = Math.floor(current) + suffix;
-                    }
-                }, 50);
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            generateStars();
-            lucide.createIcons();
-            initMobileMenu();
-            initWhatsApp();
-            initCounters();
-        });
-    </script>
+    document.addEventListener('DOMContentLoaded', () => {
+      createStars();
+      lucide.createIcons();
+      initMenu();
+      initWA();
+      animateCounters();
+    });
+  </script>
 </body>
 </html>
