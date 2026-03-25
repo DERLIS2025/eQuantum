@@ -1,0 +1,53 @@
+<footer class="site-footer">
+  <div class="page-width site-footer__inner">
+    <div class="site-footer__brand">
+      <h2 class="site-footer__title">{{ shop.name }}</h2>
+      {% if section.settings.footer_text != blank %}
+        <p class="site-footer__text">{{ section.settings.footer_text }}</p>
+      {% endif %}
+    </div>
+
+    <div class="site-footer__actions">
+      <a
+        class="button button--whatsapp"
+        href="https://wa.me/{{ section.settings.whatsapp_number | remove: '+' | remove: ' ' | remove: '-' }}?text={{ section.settings.whatsapp_message | url_encode }}"
+        target="_blank"
+        rel="noopener"
+      >
+        {{ section.settings.whatsapp_label }}
+      </a>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer limpio",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "footer_text",
+      "label": "Texto de footer",
+      "default": "Te asesoramos por WhatsApp para elegir el producto ideal para tu proyecto."
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "label": "Número WhatsApp",
+      "default": "5491112345678"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_label",
+      "label": "Texto botón",
+      "default": "Hablar por WhatsApp"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_message",
+      "label": "Mensaje precargado",
+      "default": "Hola, quiero asesoramiento para realizar un pedido."
+    }
+  ]
+}
+{% endschema %}
