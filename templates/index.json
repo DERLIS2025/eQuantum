@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-banner",
+      "settings": {
+        "show_text_box": true,
+        "desktop_content_position": "middle-left",
+        "image_overlay_opacity": 20,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "intro": {
+      "type": "rich-text",
+      "settings": {
+        "content": "<p>Te ayudamos a elegir el producto correcto para tu proyecto. Atención rápida por WhatsApp.</p>",
+        "full_width": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "featured": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Productos destacados",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "show_view_all": true
+      }
+    },
+    "whatsapp_cta": {
+      "type": "rich-text",
+      "settings": {
+        "content": "<h2>¿Necesitas asesoría para comprar?</h2><p>Escríbenos y te ayudamos con cantidades, m2 y cotización.</p>",
+        "button_label": "Hablar por WhatsApp",
+        "button_link": "https://wa.me/5491112345678",
+        "color_scheme": "scheme-2"
+      }
+    }
+  },
+  "order": ["hero", "intro", "featured", "whatsapp_cta"]
+}

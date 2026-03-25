@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-whatsapp-cart-redirect",
+      "settings": {
+        "title": "Tu pedido se gestiona por WhatsApp",
+        "text": "Para cotizar y confirmar stock, te atendemos directo por WhatsApp.",
+        "whatsapp_number": "5491112345678",
+        "whatsapp_message": "Hola, quiero continuar mi pedido por WhatsApp."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
