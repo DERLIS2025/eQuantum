@@ -1,0 +1,86 @@
+<header class="site-header" role="banner">
+  <div class="page-width site-header__inner">
+    <div class="site-header__left">
+      {% if section.settings.main_menu != blank %}
+        <nav class="site-nav" aria-label="{{ 'sections.header.menu' | t }}">
+          <ul class="site-nav__list" role="list">
+            {% for link in section.settings.main_menu.links %}
+              <li class="site-nav__item">
+                <a href="{{ link.url }}" class="site-nav__link{% if link.current %} is-active{% endif %}">
+                  {{ link.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      {% endif %}
+    </div>
+
+    <div class="site-header__center">
+      <a href="{{ routes.root_url }}" class="site-header__logo-link" aria-label="{{ shop.name }}">
+        {% if section.settings.logo != blank %}
+          {{ section.settings.logo | image_url: width: section.settings.logo_width | image_tag: class: 'site-header__logo', alt: shop.name }}
+        {% else %}
+          <span class="site-header__logo-text">{{ shop.name }}</span>
+        {% endif %}
+      </a>
+    </div>
+
+    <div class="site-header__right">
+      <a
+        class="button button--whatsapp button--small"
+        href="https://wa.me/{{ section.settings.whatsapp_number | remove: '+' | remove: ' ' | remove: '-' }}?text={{ section.settings.whatsapp_header_message | url_encode }}"
+        target="_blank"
+        rel="noopener"
+      >
+        {{ section.settings.whatsapp_label }}
+      </a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header limpio",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "main_menu",
+      "label": "Menú principal"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Ancho de logo",
+      "min": 80,
+      "max": 280,
+      "step": 10,
+      "unit": "px",
+      "default": 160
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "label": "Número de WhatsApp (con código país)",
+      "default": "5491112345678"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_label",
+      "label": "Texto botón WhatsApp",
+      "default": "Asesoría por WhatsApp"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_header_message",
+      "label": "Mensaje precargado",
+      "default": "Hola, quiero asesoría sobre sus productos."
+    }
+  ]
+}
+{% endschema %}
