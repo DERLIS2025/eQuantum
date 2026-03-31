@@ -10,30 +10,27 @@
     :root {
       --bg-main: #070b14;
       --bg-panel: #0f172a;
-      --bg-card: #111827;
-      --bg-card-soft: #172034;
-      --bg-featured: #10254d;
-      --bg-light: #f8fafc;
-      --text-primary: #f8fafc;
-      --text-secondary: #d1deef;
-      --text-muted: #afc3de;
-      --text-dark: #0f172a;
-      --text-dark-secondary: #334155;
-      --line: #30425f;
-      --line-strong: #455c80;
-      --brand: #6b8cff;
-      --brand-strong: #1e3a8a;
-      --radius: 14px;
-      --shadow: 0 10px 30px rgba(2, 8, 23, 0.32);
+      --bg-card: #ffffff;
+      --bg-card-dark: #111827;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+      --line: #e2e8f0;
+      --line-dark: #1e293b;
+      --brand: #1e40af;
+      --brand-light: #3b82f6;
+      --radius: 12px;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { overflow-x: hidden; }
 
     body {
-      margin: 0;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background: var(--bg-main);
+      background: #ffffff;
       color: var(--text-primary);
       line-height: 1.6;
     }
@@ -41,7 +38,7 @@
     a { color: inherit; text-decoration: none; }
 
     .container {
-      width: min(92%, 1120px);
+      width: min(92%, 1000px);
       margin: 0 auto;
     }
 
@@ -49,400 +46,467 @@
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(7, 11, 20, 0.82);
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(203, 213, 225, 0.08);
+      border-bottom: 1px solid var(--line);
     }
 
     .nav {
-      min-height: 72px;
+      min-height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
     }
 
     .brand {
-      font-size: 1.08rem;
+      font-size: 1.1rem;
       font-weight: 800;
-      letter-spacing: 0.02em;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
     }
 
+    /* Menu Desktop */
     .nav-links {
       display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
+      gap: 32px;
     }
 
     .nav-links a {
-      text-decoration: none;
       color: var(--text-secondary);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 500;
       transition: color 0.2s ease;
     }
 
-    .nav-links a:hover { color: var(--text-primary); }
+    .nav-links a:hover { color: var(--brand); }
 
-    /* HERO - OSCURO */
+    /* Menu Mobile */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .menu-toggle svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--text-primary);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .nav-links.mobile-open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      padding: 24px;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* HERO */
     .hero {
-      padding: 96px 0 78px;
-      background: var(--bg-main);
+      padding: 80px 0 60px;
+      text-align: center;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 48px;
-      align-items: start;
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
     }
-
-    h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 12px; }
-    h1 { font-size: clamp(2rem, 4vw, 3rem); }
-    h2 { font-size: clamp(1.55rem, 2.3vw, 2.15rem); }
 
     .highlight { color: var(--brand); }
 
-    .hero p {
+    .hero > .container > p {
+      font-size: 1.1rem;
       color: var(--text-secondary);
-      max-width: 68ch;
-      margin: 0 0 24px;
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.5;
     }
 
     .hero-points {
-      background: linear-gradient(180deg, #111d34 0%, #0d172a 100%);
-      border: 1px solid #294264;
-      border-radius: var(--radius);
-      padding: 24px;
-      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin: 40px 0;
+      flex-wrap: wrap;
     }
 
-    .hero-points h3 {
-      font-size: 1rem;
-      color: var(--text-primary);
-      margin-bottom: 16px;
+    .hero-point {
+      text-align: center;
     }
 
-    .hero-points ul {
-      margin: 0;
-      padding-left: 18px;
+    .hero-point-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--brand);
+      line-height: 1;
+    }
+
+    .hero-point-label {
+      font-size: 0.85rem;
       color: var(--text-secondary);
-    }
-
-    .hero-points li {
-      margin-bottom: 8px;
-      font-size: 0.95rem;
+      margin-top: 4px;
     }
 
     .buttons {
-      margin-top: 28px;
       display: flex;
-      gap: 12px;
+      gap: 16px;
+      justify-content: center;
       flex-wrap: wrap;
     }
 
     .btn {
-      text-decoration: none;
-      padding: 12px 22px;
-      border-radius: 10px;
-      font-weight: 700;
-      min-height: 46px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: transform .2s ease, filter .2s ease, border-color .2s ease;
+      transition: all 0.2s ease;
       cursor: pointer;
       border: none;
       font-family: inherit;
-      font-size: 0.95rem;
     }
-
-    .btn:hover { transform: translateY(-1px); }
 
     .btn-primary {
-      background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,.2);
+      background: var(--brand);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(30, 64, 175, 0.3);
     }
 
-    .btn-primary:hover { filter: brightness(1.06); }
+    .btn-primary:hover {
+      background: #1e3a8a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
+    }
 
     .btn-secondary {
-      border: 1px solid var(--line-strong);
-      color: #f5f9ff;
-      background: rgba(17, 24, 39, .55);
+      background: transparent;
+      color: var(--text-primary);
+      border: 1.5px solid var(--line);
     }
 
-    .btn-secondary:hover { border-color: #6a7f9f; }
-
-    .btn-large {
-      padding: 16px 32px;
-      font-size: 1rem;
+    .btn-secondary:hover {
+      border-color: var(--brand);
+      color: var(--brand);
     }
 
-    /* SECCIONES CLARAS/OSCURAS */
+    /* SECTIONS */
     .section {
-      padding: 78px 0;
+      padding: 80px 0;
+      text-align: center;
     }
 
     .section-dark {
-      background: var(--bg-panel);
-      border-top: 1px solid rgba(255,255,255,.05);
-      border-bottom: 1px solid rgba(255,255,255,.05);
+      background: var(--bg-main);
+      color: var(--text-light);
     }
 
-    .section-light {
-      background: var(--bg-light);
-      color: var(--text-dark);
+    .section-dark h2,
+    .section-dark h3 {
+      color: var(--text-light);
     }
 
-    .section-light h2,
-    .section-light h3,
-    .section-light h4 {
-      color: var(--text-dark);
-    }
-
-    .section-light .section-intro,
-    .section-light .card p {
-      color: var(--text-dark-secondary);
+    .section-dark .section-intro {
+      color: var(--text-muted);
     }
 
     .section-title {
-      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      font-weight: 700;
       margin-bottom: 16px;
+      letter-spacing: -0.01em;
     }
 
     .section-intro {
       color: var(--text-secondary);
-      margin: 0 0 28px;
-      max-width: 70ch;
+      max-width: 600px;
+      margin: 0 auto 48px;
+      font-size: 1.05rem;
+      line-height: 1.5;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-    }
-
+    /* CARDS */
     .grid-3 {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    /* DIFERENCIAL - CARD ÚNICA */
-    .single-card-layout {
-      grid-template-columns: minmax(0, 720px);
-      justify-content: center;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
     .card {
       background: var(--bg-card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow);
+      padding: 32px 24px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .section-light .card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
     }
 
-    .card ul {
-      margin: 0;
-      padding-left: 18px;
+    .section-dark .card {
+      background: var(--bg-card-dark);
+      border-color: var(--line-dark);
     }
 
-    .card li {
-      margin-bottom: 8px;
-    }
-
-    /* CAPACIDADES - CLARO */
-    .capability-icon {
-      width: 40px;
-      height: 40px;
-      display: inline-grid;
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 16px;
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      border-radius: 12px;
+      display: grid;
       place-items: center;
-      border-radius: 10px;
-      margin-bottom: 14px;
-      border: 1px solid rgba(107, 140, 255, .5);
-      background: linear-gradient(135deg, rgba(107, 140, 255, .28), rgba(29, 78, 216, .4));
     }
 
-    .section-light .capability-icon {
-      border: 1px solid #1e40af;
-      background: linear-gradient(135deg, rgba(30, 64, 175, 0.15), rgba(29, 78, 216, 0.25));
+    .section-dark .card-icon {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(30, 64, 175, 0.3) 100%);
     }
 
-    .capability-icon svg {
-      width: 21px;
-      height: 21px;
-      stroke: #eaf2ff;
+    .card-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--brand);
       stroke-width: 2;
       fill: none;
     }
 
-    .section-light .capability-icon svg {
-      stroke: #1e40af;
+    .section-dark .card-icon svg {
+      stroke: var(--brand-light);
     }
 
-    /* SOLUCION DESTACADA - OSCURO */
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .section-dark .card p {
+      color: var(--text-muted);
+    }
+
+    /* FEATURED */
     .featured {
-      background: linear-gradient(155deg, var(--bg-featured), #0b1b3a 70%);
-      border: 1px solid #425d88;
-      border-radius: 18px;
-      padding: 32px;
-      box-shadow: var(--shadow);
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border-radius: 20px;
+      padding: 48px;
+      color: var(--text-light);
+      text-align: center;
     }
 
-    .featured p { color: #e0ebfc; }
+    .featured h2 {
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
 
-    .chips { display: flex; gap: 10px; flex-wrap: wrap; }
+    .featured p {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+
+    .chips {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
     .chip {
-      border: 1px solid rgba(221, 234, 255, .5);
-      color: #f6faff;
-      background: rgba(16, 43, 89, .48);
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: .85rem;
-      font-weight: 600;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-light);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
     }
 
-    /* CASOS - CLARO */
+    /* CASES */
     .case-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .case-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      text-align: left;
     }
 
     .case-tag {
       display: inline-block;
-      margin-bottom: 10px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #1e40af;
-      border: 1px solid #1e40af;
-      border-radius: 999px;
-      padding: 5px 11px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--brand);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
     }
 
-    /* CREDIBILIDAD - OSCURO */
+    /* CREDIBILITY */
     .credibility-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+      margin-top: 48px;
+      flex-wrap: wrap;
     }
 
     .cred-item {
       text-align: center;
-      padding: 24px;
+      max-width: 200px;
     }
 
-    .cred-number {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--brand);
-      line-height: 1;
-      margin-bottom: 8px;
+    .cred-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+    }
+
+    .cred-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--brand);
+      stroke-width: 2;
+      fill: none;
     }
 
     .cred-label {
       font-size: 0.9rem;
       color: var(--text-secondary);
+      line-height: 1.4;
     }
 
-    /* CONTACTO - CLARO */
-    .contact-wrap {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-    }
-
-    .contact-cta {
-      text-align: center;
-      padding: 48px 32px;
-    }
-
-    .contact-cta h3 {
-      font-size: 1.5rem;
-      margin-bottom: 16px;
-    }
-
-    .contact-cta p {
-      color: var(--text-dark-secondary);
-      margin-bottom: 24px;
-      max-width: 50ch;
-      margin-left: auto;
-      margin-right: auto;
+    /* CONTACT */
+    .contact-card {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 48px;
     }
 
     .contact-email {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: #1e40af;
+      margin-top: 24px;
+      color: var(--brand);
       font-weight: 600;
-      margin-top: 16px;
     }
 
-    /* CIERRE COMERCIAL - OSCURO */
+    /* CLOSING */
     .closing {
+      background: var(--bg-main);
+      color: var(--text-light);
+      padding: 80px 0;
       text-align: center;
-      padding: 64px 0;
     }
 
     .closing h2 {
-      font-size: clamp(1.4rem, 3vw, 1.8rem);
-      margin-bottom: 24px;
-      max-width: 60ch;
-      margin-left: auto;
-      margin-right: auto;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto 32px;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
     }
 
     /* FOOTER */
     footer {
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding: 30px 0 36px;
+      background: #ffffff;
+      border-top: 1px solid var(--line);
+      padding: 32px 0;
+      text-align: center;
       color: var(--text-muted);
-      font-size: .92rem;
-      background: var(--bg-main);
+      font-size: 0.9rem;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .credibility-grid { grid-template-columns: 1fr; }
-    }
-
+    /* MOBILE */
     @media (max-width: 768px) {
-      .hero { padding: 62px 0 54px; }
-      .section { padding: 62px 0; }
-      .grid-2,
-      .grid-3 { grid-template-columns: 1fr; }
-      .card,
-      .featured { padding: 20px; }
-      .btn { flex: 1; min-width: 160px; }
-      .hero-points { margin-top: 24px; }
-    }
+      .nav-links {
+        display: none;
+      }
 
-    @media (max-width: 480px) {
-      .container { width: min(94%, 1120px); }
-      .hero p,
-      .section-intro,
-      .card p { font-size: .96rem; }
-      .btn { width: 100%; }
-      .closing { padding: 48px 0; }
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero {
+        padding: 60px 0 40px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero > .container > p {
+        font-size: 1rem;
+      }
+
+      .hero-points {
+        gap: 24px;
+        margin: 32px 0;
+      }
+
+      .hero-point-number {
+        font-size: 1.5rem;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .featured {
+        padding: 32px 24px;
+      }
+
+      .chips {
+        gap: 8px;
+      }
+
+      .chip {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
+
+      .credibility-grid {
+        gap: 32px;
+      }
+
+      .contact-card {
+        padding: 32px 24px;
+      }
     }
   </style>
 <base target="_blank">
@@ -453,123 +517,147 @@
 <header class="site-header">
   <div class="container nav">
     <div class="brand">eQuantum</div>
-    <nav class="nav-links" aria-label="Navegación principal">
+    <nav class="nav-links" id="navLinks">
       <a href="#diferencial">Diferencial</a>
       <a href="#capacidades">Capacidades</a>
-      <a href="#solucion">Solución destacada</a>
+      <a href="#solucion">Solución</a>
       <a href="#casos">Casos</a>
       <a href="#contacto">Contacto</a>
     </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
   </div>
 </header>
 
-<!-- HERO - OSCURO -->
+<!-- HERO -->
 <section class="hero" id="inicio">
-  <div class="container hero-grid">
-    <div>
-      <h1>Diseñamos & evolucionamos la <span class="highlight">arquitectura digital</span> de tu negocio.</h1>
-      <p>Integramos estrategia, tecnología & datos para transformar canales digitales en un sistema comercial más claro, más medible & preparado para crecer con consistencia.</p>
-      <div class="buttons">
-        <a href="#contacto" class="btn btn-primary">Solicitar propuesta</a>
-        <a href="#casos" class="btn btn-secondary">Ver casos</a>
-      </div>
-    </div>
+  <div class="container">
+    <h1>Diseñamos & evolucionamos la <span class="highlight">arquitectura digital</span> de tu negocio.</h1>
+    <p>Unimos estrategia, tecnología & datos para hacer crecer tu negocio con estructura.</p>
 
     <div class="hero-points">
-      <h3>Enfoque eQuantum</h3>
-      <ul>
-        <li>Estrategia digital alineada a negocio</li>
-        <li>Arquitectura tecnológica escalable</li>
-        <li>Decisiones basadas en datos</li>
-        <li>Ejecución con foco en resultados</li>
-      </ul>
+      <div class="hero-point">
+        <div class="hero-point-number">01</div>
+        <div class="hero-point-label">Estrategia alineada</div>
+      </div>
+      <div class="hero-point">
+        <div class="hero-point-number">02</div>
+        <div class="hero-point-label">Arquitectura escalable</div>
+      </div>
+      <div class="hero-point">
+        <div class="hero-point-number">03</div>
+        <div class="hero-point-label">Decisiones con datos</div>
+      </div>
+      <div class="hero-point">
+        <div class="hero-point-number">04</div>
+        <div class="hero-point-label">Foco en resultados</div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <a href="#contacto" class="btn btn-primary">Solicitar propuesta</a>
+      <a href="#casos" class="btn btn-secondary">Ver casos</a>
     </div>
   </div>
 </section>
 
-<!-- DIFERENCIAL - OSCURO -->
+<!-- DIFERENCIAL -->
 <section class="section section-dark" id="diferencial">
   <div class="container">
-    <h2 class="section-title">Arquitectura digital con enfoque estratégico & ejecución consistente.</h2>
-    <p class="section-intro">Diseñamos estructuras digitales pensadas para crecimiento, control operativo & evolución sostenible. Conectamos estrategia, tecnología & procesos para que cada inversión tenga impacto real en el negocio.</p>
-    <div class="grid-2 single-card-layout">
+    <h2 class="section-title">Un partner técnico para crecer con control.</h2>
+    <p class="section-intro">Diseñamos ecosistemas digitales integrados. Conectamos estrategia, tecnología & procesos.</p>
+
+    <div class="grid-3" style="max-width: 800px; margin: 0 auto;">
       <div class="card">
-        <h3>Modelo consultivo eQuantum</h3>
-        <ul>
-          <li>Diseño integral del ecosistema digital.</li>
-          <li>Métricas accionables para dirección & operación.</li>
-          <li>Procesos conectados con trazabilidad de punta a punta.</li>
-          <li>Un partner estratégico para evolucionar con consistencia.</li>
-        </ul>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+        </div>
+        <h3>Diseño integral</h3>
+        <p>Ecosistemas digitales completos & alineados a negocio.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 20v-6M6 20V10M18 20V4"></path></svg>
+        </div>
+        <h3>Métricas claras</h3>
+        <p>Datos accionables para dirección & operación.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </div>
+        <h3>Partner estratégico</h3>
+        <p>Evolución continua con trazabilidad de punta a punta.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CAPACIDADES - CLARO -->
-<section class="section section-light" id="capacidades">
+<!-- CAPACIDADES -->
+<section class="section" id="capacidades">
   <div class="container">
-    <h2 class="section-title">Componentes de un sistema digital preparado para crecer</h2>
-    <p class="section-intro">Capacidades integradas para sostener una operación digital sólida, eficiente & orientada a resultados.</p>
+    <h2 class="section-title">Capacidades para escalar tu operación digital.</h2>
+    <p class="section-intro">Soluciones integradas que fortalecen tu presencia online & optimizan procesos internos.</p>
 
     <div class="grid-3">
       <article class="card">
-        <span class="capability-icon" aria-hidden="true">
+        <div class="card-icon">
           <svg viewBox="0 0 24 24"><path d="M4 10l8-6 8 6v10H4z"></path><path d="M9 20v-6h6v6"></path></svg>
-        </span>
-        <h3>Páginas corporativas & sitios institucionales</h3>
-        <p>Desarrollamos páginas corporativas orientadas a posicionamiento, credibilidad de marca, generación de consultas & presencia digital profesional.</p>
+        </div>
+        <h3>Sitios corporativos</h3>
+        <p>Presencia digital profesional orientada a posicionamiento & consultas.</p>
       </article>
 
       <article class="card">
-        <span class="capability-icon" aria-hidden="true">
+        <div class="card-icon">
           <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"></rect><path d="M8 9h8M8 13h5"></path></svg>
-        </span>
-        <h3>E-commerce & canales de venta digital</h3>
-        <p>Tiendas online diseñadas para crecer con control comercial, integración tecnológica, experiencia de compra clara & foco en conversión.</p>
+        </div>
+        <h3>E-commerce</h3>
+        <p>Tiendas online diseñadas para conversión & crecimiento sostenible.</p>
       </article>
 
       <article class="card">
-        <span class="capability-icon" aria-hidden="true">
+        <div class="card-icon">
           <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"></path><path d="M8 9h8M8 13h8"></path></svg>
-        </span>
-        <h3>Sistemas internos & procesos digitales</h3>
-        <p>Digitalizamos procesos críticos para ganar trazabilidad, velocidad de gestión, orden operativo & mejor control transversal.</p>
+        </div>
+        <h3>Sistemas internos</h3>
+        <p>Digitalización de procesos para mayor control & velocidad.</p>
       </article>
 
       <article class="card">
-        <span class="capability-icon" aria-hidden="true">
+        <div class="card-icon">
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-3.5-3.5"></path><path d="M11 8v3l2 2"></path></svg>
-        </span>
-        <h3>SEO & Posicionamiento Estratégico</h3>
-        <p>Analizamos tu negocio, competencia & comportamiento de búsqueda para posicionarte en Google con foco en ventas & oportunidades reales.</p>
+        </div>
+        <h3>SEO & Posicionamiento</h3>
+        <p>Estrategia de búsqueda enfocada en ventas & oportunidades reales.</p>
       </article>
 
       <article class="card">
-        <span class="capability-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="M8 15l3-3 3 2 4-5"></path><circle cx="8" cy="15" r="1"></circle><circle cx="11" cy="12" r="1"></circle><circle cx="14" cy="14" r="1"></circle><circle cx="18" cy="9" r="1"></circle></svg>
-        </span>
-        <h3>Analítica, Data & Performance</h3>
-        <p>Transformamos datos en decisiones. Implementamos medición, dashboards & análisis de comportamiento para optimizar conversiones, detectar oportunidades & mejorar rentabilidad.</p>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="M8 15l3-3 3 2 4-5"></path></svg>
+        </div>
+        <h3>Analítica & Data</h3>
+        <p>Medición, dashboards & insights para decisiones comerciales.</p>
       </article>
 
       <article class="card">
-        <span class="capability-icon" aria-hidden="true">
+        <div class="card-icon">
           <svg viewBox="0 0 24 24"><path d="M6 4h12v16H6z"></path><path d="M9 8h6M9 12h6M9 16h4"></path></svg>
-        </span>
-        <h3>Automatización de procesos críticos</h3>
-        <p>Orquestamos flujos clave entre equipos & sistemas para reducir fricción operativa, mejorar productividad & sostener escalabilidad.</p>
+        </div>
+        <h3>Automatización</h3>
+        <p>Flujos automatizados entre equipos & sistemas.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- SOLUCION DESTACADA - OSCURO -->
-<section class="section section-dark" id="solucion">
+<!-- SOLUCION DESTACADA -->
+<section class="section" id="solucion" style="background: #f8fafc;">
   <div class="container">
     <div class="featured">
       <h2>Sistema de Aprobaciones & Solicitudes Internas</h2>
-      <p>Centralizamos solicitudes, niveles de aprobación & trazabilidad en una única solución digital para acelerar decisiones, reducir errores operativos & mantener gobierno interno.</p>
+      <p>Centralizá solicitudes, aprobaciones & trazabilidad en una sola plataforma. Acelerá decisiones & mantené gobierno corporativo.</p>
       <div class="chips">
         <span class="chip">Visibilidad en tiempo real</span>
         <span class="chip">Aprobaciones configurables</span>
@@ -580,59 +668,69 @@
   </div>
 </section>
 
-<!-- CASOS - CLARO -->
-<section class="section section-light" id="casos">
+<!-- CASOS -->
+<section class="section" id="casos">
   <div class="container">
-    <h2 class="section-title">Casos de evolución digital</h2>
-    <p class="section-intro">Implementaciones orientadas a resultados de negocio, con decisiones respaldadas por datos & ejecución técnica consistente.</p>
+    <h2 class="section-title">Casos de transformación digital.</h2>
+    <p class="section-intro">Implementaciones con resultados medibles en diferentes industrias.</p>
+
     <div class="grid-3">
       <article class="card case-card">
-        <span class="case-tag">E-commerce - Desarrollo </span>
+        <span class="case-tag">E-commerce + Web</span>
         <h3>Marmolería Pietra</h3>
-        <p>Desarrollo de pagina, estructura digital orientada a posicionamiento, catálogo de productos & generación de consultas comerciales.</p>
+        <p>Desarrollo de sitio corporativo & estructura digital orientada a posicionamiento & generación de consultas.</p>
       </article>
+
       <article class="card case-card">
-        <span class="case-tag">E-commerce en Shopify</span>
+        <span class="case-tag">Shopify</span>
         <h3>Corpicia</h3>
-        <p>Implementación & optimización de e-commerce sobre Shopify, con foco en experiencia de usuario, estructura de catálogo & conversión mediante canal WhatsApp.</p>
+        <p>E-commerce optimizado con foco en experiencia de usuario, catálogo & conversión vía WhatsApp.</p>
       </article>
+
       <article class="card case-card">
-        <span class="case-tag">Industria & Manufactura</span>
-        <h3>Sector Industrial</h3>
-        <p>Enfoque en medición, control de performance & decisiones basadas en datos para optimizar procesos & elevar rentabilidad operativa.</p>
+        <span class="case-tag">Industria</span>
+        <h3>Sector Manufactura</h3>
+        <p>Medición, control de performance & decisiones basadas en datos para optimizar operaciones.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- CREDIBILIDAD - OSCURO -->
+<!-- CREDIBILIDAD -->
 <section class="section section-dark" id="credibilidad">
-  <div class="container" style="text-align: center;">
-    <h2 class="section-title">Trabajamos con empresas que buscan crecer con estructura</h2>
+  <div class="container">
+    <h2 class="section-title">Trabajamos con empresas que buscan crecer con estructura.</h2>
+
     <div class="credibility-grid">
       <div class="cred-item">
-        <div class="cred-number">+50</div>
+        <div class="cred-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+        </div>
         <div class="cred-label">Proyectos en e-commerce, sitios corporativos & sistemas internos</div>
       </div>
       <div class="cred-item">
-        <div class="cred-number">3</div>
-        <div class="cred-label">Sectores: retail, servicios & modelos B2B</div>
+        <div class="cred-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </div>
+        <div class="cred-label">Experiencia en retail, servicios & modelos B2B</div>
       </div>
       <div class="cred-item">
-        <div class="cred-number">100%</div>
+        <div class="cred-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"></path></svg>
+        </div>
         <div class="cred-label">Enfoque en crecimiento, control & escalabilidad</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACTO - CLARO -->
-<section class="section section-light" id="contacto">
+<!-- CONTACTO -->
+<section class="section" id="contacto">
   <div class="container">
-    <div class="card contact-wrap contact-cta">
-      <h2>Conversemos sobre tu siguiente etapa digital</h2>
-      <p>Agendá una reunión estratégica & evaluamos tu estructura digital actual. Diseñamos una hoja de ruta realista & accionable para tu negocio.</p>
-      <a href="mailto:contacto@equantum.com" class="btn btn-primary btn-large">Solicitar diagnóstico</a>
+    <div class="card contact-card">
+      <h2 class="section-title">Conversemos sobre tu siguiente etapa digital.</h2>
+      <p class="section-intro">Evaluamos tu estructura actual & diseñamos una hoja de ruta estratégica.</p>
+      <a href="#contacto" class="btn btn-primary">Solicitar propuesta</a>
       <div class="contact-email">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
         contacto@equantum.com
@@ -641,11 +739,11 @@
   </div>
 </section>
 
-<!-- CIERRE COMERCIAL - OSCURO -->
-<section class="section section-dark closing">
+<!-- CIERRE -->
+<section class="closing">
   <div class="container">
     <h2>No desarrollamos páginas aisladas. Diseñamos sistemas digitales preparados para crecer.</h2>
-    <a href="#contacto" class="btn btn-primary btn-large">Solicitar propuesta</a>
+    <a href="#contacto" class="btn btn-primary">Solicitar propuesta</a>
   </div>
 </section>
 
@@ -653,6 +751,28 @@
 <footer>
   <div class="container">eQuantum © 2026 · Consultoría & arquitectura digital para empresas.</div>
 </footer>
+
+<script>
+  // Menu hamburguesa
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('mobile-open');
+    const isOpen = navLinks.classList.contains('mobile-open');
+    menuToggle.innerHTML = isOpen 
+      ? '<svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>'
+      : '<svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+  });
+
+  // Cerrar menu al hacer click en un link
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('mobile-open');
+      menuToggle.innerHTML = '<svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+    });
+  });
+</script>
 
 </body>
 </html>
