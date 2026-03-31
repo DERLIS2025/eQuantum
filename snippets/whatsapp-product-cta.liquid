@@ -1,0 +1,32 @@
+{%- liquid
+  assign wa_number = section.settings.whatsapp_number | remove: '+' | remove: ' ' | remove: '-'
+  assign product_title = product.title | strip_html | strip
+  assign selected_variant = product.selected_or_first_available_variant
+  assign product_price = selected_variant.price | money_without_trailing_zeros
+  assign product_url = request.origin | append: product.url
+  capture wa_message
+    echo section.settings.whatsapp_message_prefix
+    echo ': '
+    echo product_title
+    echo ' | Precio: '
+    echo product_price
+    if product.metafields.custom.m2 != blank
+      echo ' | m2: '
+      echo product.metafields.custom.m2
+    endif
+    echo ' | Link: '
+    echo product_url
+  endcapture
+-%}
+
+<div class="whatsapp-cta">
+  <a
+    class="button button--whatsapp button--full"
+    href="https://wa.me/{{ wa_number }}?text={{ wa_message | url_encode }}"
+    target="_blank"
+    rel="noopener"
+  >
+    {{ section.settings.whatsapp_cta }}
+  </a>
+  <p class="whatsapp-cta__hint">Respuesta rápida por asesor comercial.</p>
+</div>

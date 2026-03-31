@@ -1,0 +1,74 @@
+<section class="product-page section-{{ section.id }}" data-section-id="{{ section.id }}">
+  <div class="page-width product-page__grid">
+    <div class="product-page__media">
+      {% if product.featured_media %}
+        {{ product.featured_media | image_url: width: 1200 | image_tag: class: 'product-page__image', loading: 'lazy', alt: product.title }}
+      {% endif %}
+    </div>
+
+    <div class="product-page__content">
+      <p class="product-page__eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1 class="product-page__title">{{ product.title }}</h1>
+
+      <div class="product-page__price">
+        {% render 'price', product: product, use_variant: true, show_badges: true %}
+      </div>
+
+      {% if product.description != blank %}
+        <div class="product-page__description rte">{{ product.description }}</div>
+      {% endif %}
+
+      {% render 'whatsapp-product-cta', product: product, section: section %}
+
+      {% if section.settings.show_meta and product.metafields.custom.m2 != blank %}
+        <p class="product-page__meta">
+          {{ section.settings.m2_label }}: <strong>{{ product.metafields.custom.m2 }}</strong>
+        </p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Producto WhatsApp",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Texto superior",
+      "default": "Asesoría personalizada"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_meta",
+      "label": "Mostrar dato m2 (metafield custom.m2)",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "m2_label",
+      "label": "Etiqueta m2",
+      "default": "Cobertura por caja"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "label": "Número WhatsApp",
+      "default": "5491112345678"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_cta",
+      "label": "Texto botón",
+      "default": "Consultar este producto"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_message_prefix",
+      "label": "Prefijo mensaje",
+      "default": "Hola, me interesa este producto"
+    }
+  ]
+}
+{% endschema %}

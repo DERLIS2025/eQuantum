@@ -1,0 +1,52 @@
+<section class="cart-redirect">
+  <div class="page-width cart-redirect__inner">
+    <h1 class="cart-redirect__title">{{ section.settings.title }}</h1>
+    <p class="cart-redirect__text">{{ section.settings.text }}</p>
+    <a
+      class="button button--whatsapp"
+      href="https://wa.me/{{ section.settings.whatsapp_number | remove: '+' | remove: ' ' | remove: '-' }}?text={{ section.settings.whatsapp_message | url_encode }}"
+      target="_blank"
+      rel="noopener"
+    >
+      {{ section.settings.button_label }}
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cart redirigido a WhatsApp",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Tu pedido se gestiona por WhatsApp"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texto",
+      "default": "Para cotizar y confirmar stock, te atendemos directo por WhatsApp."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texto botón",
+      "default": "Continuar por WhatsApp"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "label": "Número WhatsApp",
+      "default": "5491112345678"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_message",
+      "label": "Mensaje precargado",
+      "default": "Hola, quiero continuar mi pedido por WhatsApp."
+    }
+  ]
+}
+{% endschema %}
