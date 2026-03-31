@@ -1,723 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>eQuantum | Infraestructura digital para empresas</title>
-<meta name="description" content="Diseñamos y evolucionamos la infraestructura digital de tu negocio con estrategia, datos y ejecución para crecer con control.">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg-main: #070b14;
-  --bg-panel: #0f172a;
-  --bg-card: #111827;
-  --bg-featured: #10254d;
-  --text-primary: #f8fafc;
-  --text-secondary: #d1deef;
-  --text-muted: #afc3de;
-  --line: #30425f;
-  --line-strong: #455c80;
-  --brand: #6b8cff;
-  --brand-strong: #1e3a8a;
-  --radius: 14px;
-  --shadow: 0 10px 30px rgba(2, 8, 23, 0.32);
-}
-
-* { box-sizing: border-box; }
-html, body { overflow-x: hidden; }
-
-
-<meta name="description" content="Diseñamos y evolucionamos la infraestructura digital de tu negocio: estrategia, web, e-commerce, analítica y sistemas internos para crecer con control.">
-
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --bg-main: #070b14;
-  --bg-section: #0f172a;
-  --bg-card: #111827;
-  --bg-card-soft: #172034;
-  --bg-accent: #112247;
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #a9bbd4;
-  --line: #2c3a53;
-  --line-soft: #334155;
-  --brand: #6b8cff;
-  --brand-strong: #1d4ed8;
-  --shadow: 0 8px 30px rgba(2, 8, 23, 0.32);
-  --radius: 14px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  overflow-x: hidden;
-}
-
- codex/redesign-equantum-institutional-website
-body {
-  margin: 0;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background: var(--bg-main);
-  color: var(--text-primary);
-  line-height: 1.6;
-}
-
-.container {
-  width: min(92%, 1120px);
-  margin: 0 auto;
-
-  background: linear-gradient(180deg, #070b14 0%, #0b1427 52%, #070b14 100%);
-  color: var(--text-primary);
-  line-height: 1.6;
-}
-
-a {
-  color: inherit;
-}
-
-.container {
-  width: min(92%, 1140px);
-  margin: auto;
- codex/redesign-equantum-institutional-website
-}
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgba(7, 11, 20, 0.82);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(203, 213, 225, 0.08);
-}
-
-.nav {
-  min-height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-}
-
-.brand {
-  font-size: 1.08rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-}
-
-.nav-links {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.nav-links a:hover {
-  color: var(--text-primary);
-}
-
-.hero {
-  padding: 96px 0 78px;
-}
-
-h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 12px; }
-h1 { font-size: clamp(2rem, 4vw, 3rem); }
-h2 { font-size: clamp(1.55rem, 2.3vw, 2.15rem); }
-
-.highlight { color: var(--brand); }
-
-.hero p,
-.section-intro,
-.card p,
-.card li {
-  color: var(--text-secondary);
-
-  padding: 92px 0 76px;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 34px;
-  align-items: center;
-}
-
-.label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid var(--line-soft);
-  background: rgba(17, 24, 39, 0.65);
-  color: var(--text-secondary);
-  border-radius: 999px;
-  padding: 8px 14px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  margin-top: 0;
-  margin-bottom: 12px;
-  line-height: 1.2;
-}
-
-h1 {
-  font-size: clamp(2rem, 4vw, 3.05rem);
-  margin-top: 20px;
-}
-
-.highlight {
-  color: var(--brand);
-}
-
-.hero p {
-  margin-top: 18px;
-  color: var(--text-secondary);
-  max-width: 62ch;
- codex/redesign-equantum-institutional-website
-}
-
-.hero p,
-.section-intro { max-width: 68ch; }
-
-.buttons {
-  margin-top: 28px;
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  text-decoration: none;
-  padding: 12px 22px;
-  border-radius: 10px;
-  font-weight: 700;
-  min-height: 46px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform .2s ease, filter .2s ease, border-color .2s ease;
-}
-
-.btn:hover { transform: translateY(-1px); }
-
-.btn-primary {
-  background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,.2);
-}
-
-.btn-primary:hover { filter: brightness(1.06); }
-
-.btn-secondary {
-  border: 1px solid var(--line-strong);
-  color: #f5f9ff;
-  background: rgba(17, 24, 39, .55);
-
-  margin-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 46px;
-  padding: 12px 20px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: transform 0.2s ease, filter 0.2s ease, border-color 0.2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-}
-
-.primary {
-  background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.primary:hover {
-  filter: brightness(1.08);
-}
-
-.secondary {
-  border: 1px solid #44546f;
-  color: var(--text-primary);
-  background: rgba(14, 23, 38, 0.7);
-}
-
-.secondary:hover {
-  border-color: #5f7291;
-}
-
-.hero-aside {
-  background: linear-gradient(180deg, #111d34 0%, #0d172a 100%);
-  border: 1px solid #294264;
-  border-radius: var(--radius);
-  padding: 24px;
-  box-shadow: var(--shadow);
-}
-
-.hero-aside p {
-  margin: 0;
-  color: var(--text-muted);
-}
-
-.hero-points {
-  margin-top: 16px;
-  padding-left: 18px;
-  color: var(--text-secondary);
- codex/redesign-equantum-institutional-website
-}
-
-.btn-secondary:hover { border-color: #6a7f9f; }
-
-.section {
-  padding: 78px 0;
-}
-
-codex/update-equantum-site-for-premium-branding-q0o3t2
-.panel {
-  background: var(--bg-panel);
-  border-top: 1px solid rgba(255,255,255,.05);
-  border-bottom: 1px solid rgba(255,255,255,.05);
-}
-
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.single-card-layout {
-  grid-template-columns: minmax(0, 760px);
-  justify-content: center;
-}
-
-.grid-3 {
-  display: grid;
-
-.section-panel {
-  background: var(--bg-section);
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.section-title {
-  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-}
-
-.section-intro {
-  color: var(--text-secondary);
-  margin: 0 0 28px;
-  max-width: 70ch;
-}
-
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.grid-3 {
-  display: grid;
- codex/redesign-equantum-institutional-website
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.card {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 24px;
-  box-shadow: var(--shadow);
-}
-
-
-  padding: 24px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.card h3,
-.card h4 {
-  margin-bottom: 10px;
-}
-
-.card p,
-.card li {
-  color: var(--text-secondary);
-}
-
- codex/redesign-equantum-institutional-website
-.card ul {
-  margin: 0;
-  padding-left: 18px;
-}
-
-.capability-icon {
-  width: 40px;
-  height: 40px;
-  display: inline-grid;
-  place-items: center;
-  border-radius: 10px;
-  margin-bottom: 14px;
-  border: 1px solid rgba(107, 140, 255, .5);
-  background: linear-gradient(135deg, rgba(107, 140, 255, .28), rgba(29, 78, 216, .4));
-}
-
-.capability-icon svg {
-  width: 21px;
-  height: 21px;
-  stroke: #eaf2ff;
-  stroke-width: 2;
-  fill: none;
-
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  display: inline-grid;
-  place-content: center;
-  background: linear-gradient(135deg, rgba(107, 140, 255, 0.26), rgba(29, 78, 216, 0.4));
-  border: 1px solid rgba(107, 140, 255, 0.42);
-  margin-bottom: 14px;
-}
-
-.capability-icon svg {
-  width: 22px;
-  height: 22px;
-  stroke: #dbeafe;
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.featured {
-  background: linear-gradient(155deg, var(--bg-featured), #0b1b3a 70%);
-  border: 1px solid #425d88;
-  border-radius: 18px;
-  padding: 32px;
-  box-shadow: var(--shadow);
-}
-
-.featured p { color: #e0ebfc; }
-
-.chips { display: flex; gap: 10px; flex-wrap: wrap; }
-
-.chip {
-  border: 1px solid rgba(221, 234, 255, .5);
-  color: #f6faff;
-  background: rgba(16, 43, 89, .48);
-  border-radius: 999px;
-  padding: 8px 12px;
-  font-size: .85rem;
-  font-weight: 600;
-}
-
-.contact-wrap {
-  background: #111c31;
-}
-
-footer {
-  border-top: 1px solid rgba(255,255,255,.08);
-  padding: 30px 0 36px;
-  color: var(--text-muted);
-  font-size: .92rem;
-}
-
-@media (max-width: 1024px) {
-  .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
-@media (max-width: 768px) {
-  .hero { padding: 62px 0 54px; }
-  .section { padding: 62px 0; }
-  .grid-2,
-  .grid-3 { grid-template-columns: 1fr; }
-  .card,
-  .featured { padding: 20px; }
-  .btn { flex: 1; min-width: 160px; }
-}
-
-@media (max-width: 480px) {
-  .container { width: min(94%, 1120px); }
-  .hero p,
-  .section-intro,
-  .card p { font-size: .96rem; }
-  .btn { width: 100%; }
-}
-</style>
-</head>
-<body>
-
-<!-- HERO -->
-<section class="hero" id="inicio">
-  <div class="container">
-    <h1>Diseñamos y evolucionamos la <span class="highlight">arquitectura digital</span> de tu negocio.</h1>
-    <p>Integramos estrategia, tecnología y datos para transformar canales digitales en un sistema comercial más claro, más medible y preparado para crecer con consistencia.</p>
-    <div class="buttons">
-      <a href="#contacto" class="btn btn-primary">Solicitar propuesta</a>
-      <a href="#casos" class="btn btn-secondary">Ver casos</a>
-    </div>
-
-  background: linear-gradient(160deg, #10254d 0%, #0b1b3a 65%, #0a1631 100%);
-  border: 1px solid #39507a;
-  border-radius: 18px;
-  padding: 34px;
-  box-shadow: var(--shadow);
-}
-
-.featured h3 {
-  font-size: clamp(1.4rem, 2.1vw, 1.9rem);
-  margin-bottom: 12px;
-}
-
-.featured p {
-  color: #d9e6fb;
-  margin-bottom: 22px;
-}
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.chip {
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(217, 230, 251, 0.48);
-  background: rgba(15, 40, 84, 0.52);
-  color: #f8fbff;
-  font-size: 0.86rem;
-  font-weight: 600;
-}
-
-.case-card {
-  background: var(--bg-card-soft);
-}
-
-.case-tag {
-  display: inline-block;
-  margin-bottom: 10px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #dbeafe;
-  border: 1px solid #445b7f;
-  border-radius: 999px;
-  padding: 5px 11px;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 22px;
-}
-
-.info-list {
-  margin: 18px 0 0;
-  padding-left: 18px;
-}
-
-.form-card {
-  background: #111c31;
-}
-
-.form-placeholder {
-  border: 1px dashed #4f6788;
-  border-radius: 12px;
-  padding: 20px;
-  color: var(--text-secondary);
-  background: rgba(11, 23, 43, 0.55);
-}
-
-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 30px 0 36px;
-  color: var(--text-muted);
-  font-size: 0.92rem;
-}
-
-@media (max-width: 1024px) {
-  .hero {
-    padding-top: 76px;
-  }
-
-  .hero-grid,
-  .contact-grid,
-  .grid-3 {
-    grid-template-columns: 1fr;
-  }
-
-  .grid-2 {
-    gap: 16px;
-  }
-
-  .card,
-  .featured,
-  .hero-aside {
-    padding: 22px;
-  }
-}
-
-@media (max-width: 768px) {
-  .site-header {
-    position: static;
-  }
-
-  .nav {
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 16px 0;
-  }
-
-  .nav-links {
-    gap: 12px;
-  }
-
-  .section {
-    padding: 62px 0;
-  }
-
-  .hero {
-    padding: 56px 0 54px;
-  }
-
-  .buttons {
-    width: 100%;
-  }
-
-  .btn {
-    flex: 1;
-    min-width: 170px;
-  }
-
-  .grid-2 {
-    grid-template-columns: 1fr;
-  }
-
-  .section-intro {
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    width: min(94%, 1140px);
-  }
-
-  h1 {
-    margin-top: 16px;
-  }
-
-  .hero p,
-  .section-intro,
-  .card p {
-    font-size: 0.96rem;
-  }
-
-  .card,
-  .featured,
-  .hero-aside,
-  .form-placeholder {
-    padding: 18px;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .chips {
-    gap: 8px;
-  }
-}
-</style>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- main
   <title>eQuantum | Infraestructura digital para empresas</title>
-  <meta
-    name="description"
-    content="Diseñamos y evolucionamos la infraestructura digital de tu negocio: estrategia, web, e-commerce, analítica y sistemas internos para crecer con control."
-  />
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-
+  <meta name="description" content="Diseñamos y evolucionamos la infraestructura digital de tu negocio con estrategia, datos y ejecución para crecer con control.">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-main: #070b14;
-      --bg-section: #0f172a;
+      --bg-panel: #0f172a;
       --bg-card: #111827;
       --bg-card-soft: #172034;
-      --bg-accent: #112247;
+      --bg-featured: #10254d;
+      --bg-light: #f8fafc;
       --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --text-muted: #a9bbd4;
-      --line: #2c3a53;
-      --line-soft: #334155;
+      --text-secondary: #d1deef;
+      --text-muted: #afc3de;
+      --text-dark: #0f172a;
+      --text-dark-secondary: #334155;
+      --line: #30425f;
+      --line-strong: #455c80;
       --brand: #6b8cff;
-      --brand-strong: #1d4ed8;
-      --shadow: 0 8px 30px rgba(2, 8, 23, 0.32);
+      --brand-strong: #1e3a8a;
       --radius: 14px;
+      --shadow: 0 10px 30px rgba(2, 8, 23, 0.32);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
+    html, body { overflow-x: hidden; }
 
-    html,
     body {
-      overflow-x: hidden;
       margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Plus Jakarta Sans", sans-serif;
-      background: linear-gradient(180deg, #070b14 0%, #0b1427 52%, #070b14 100%);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg-main);
       color: var(--text-primary);
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .container {
-      width: min(92%, 1140px);
-      margin: auto;
+      width: min(92%, 1120px);
+      margin: 0 auto;
     }
 
+    /* HEADER */
     .site-header {
       position: sticky;
       top: 0;
@@ -755,133 +83,134 @@ footer {
       transition: color 0.2s ease;
     }
 
-    .nav-links a:hover {
-      color: var(--text-primary);
-    }
+    .nav-links a:hover { color: var(--text-primary); }
 
+    /* HERO - OSCURO */
     .hero {
-      padding: 92px 0 76px;
+      padding: 96px 0 78px;
+      background: var(--bg-main);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 34px;
-      align-items: center;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: start;
     }
 
-    .label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid var(--line-soft);
-      background: rgba(17, 24, 39, 0.65);
-      color: var(--text-secondary);
-      border-radius: 999px;
-      padding: 8px 14px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-    }
+    h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 12px; }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); }
+    h2 { font-size: clamp(1.55rem, 2.3vw, 2.15rem); }
 
-    h1,
-    h2,
-    h3,
-    h4 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      line-height: 1.2;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 4vw, 3.05rem);
-      margin-top: 20px;
-    }
-
-    .highlight {
-      color: var(--brand);
-    }
+    .highlight { color: var(--brand); }
 
     .hero p {
-      margin-top: 18px;
       color: var(--text-secondary);
-      max-width: 62ch;
+      max-width: 68ch;
+      margin: 0 0 24px;
     }
 
-    .buttons {
-      margin-top: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 12px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: transform 0.2s ease, filter 0.2s ease, border-color 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .primary {
-      background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .primary:hover {
-      filter: brightness(1.08);
-    }
-
-    .secondary {
-      border: 1px solid #44546f;
-      color: var(--text-primary);
-      background: rgba(14, 23, 38, 0.7);
-    }
-
-    .secondary:hover {
-      border-color: #5f7291;
-    }
-
-    .hero-aside {
+    .hero-points {
       background: linear-gradient(180deg, #111d34 0%, #0d172a 100%);
       border: 1px solid #294264;
       border-radius: var(--radius);
       padding: 24px;
-      box-shadow: var(--shadow);
+      margin-top: 32px;
     }
 
-    .hero-aside p {
+    .hero-points h3 {
+      font-size: 1rem;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .hero-points ul {
       margin: 0;
-      color: var(--text-muted);
-    }
-
-    .hero-points {
-      margin-top: 16px;
       padding-left: 18px;
       color: var(--text-secondary);
     }
 
+    .hero-points li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .buttons {
+      margin-top: 28px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .2s ease, filter .2s ease, border-color .2s ease;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.2);
+    }
+
+    .btn-primary:hover { filter: brightness(1.06); }
+
+    .btn-secondary {
+      border: 1px solid var(--line-strong);
+      color: #f5f9ff;
+      background: rgba(17, 24, 39, .55);
+    }
+
+    .btn-secondary:hover { border-color: #6a7f9f; }
+
+    .btn-large {
+      padding: 16px 32px;
+      font-size: 1rem;
+    }
+
+    /* SECCIONES CLARAS/OSCURAS */
     .section {
       padding: 78px 0;
     }
 
-    .section-panel {
-      background: var(--bg-section);
-      border-top: 1px solid rgba(255, 255, 255, 0.04);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    .section-dark {
+      background: var(--bg-panel);
+      border-top: 1px solid rgba(255,255,255,.05);
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+
+    .section-light {
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    .section-light h2,
+    .section-light h3,
+    .section-light h4 {
+      color: var(--text-dark);
+    }
+
+    .section-light .section-intro,
+    .section-light .card p {
+      color: var(--text-dark-secondary);
     }
 
     .section-title {
       font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      margin-bottom: 16px;
     }
 
     .section-intro {
@@ -902,22 +231,24 @@ footer {
       gap: 22px;
     }
 
+    /* DIFERENCIAL - CARD ÚNICA */
+    .single-card-layout {
+      grid-template-columns: minmax(0, 720px);
+      justify-content: center;
+    }
+
     .card {
       background: var(--bg-card);
       border: 1px solid var(--line);
-      padding: 24px;
       border-radius: var(--radius);
+      padding: 24px;
       box-shadow: var(--shadow);
     }
 
-    .card h3,
-    .card h4 {
-      margin-bottom: 10px;
-    }
-
-    .card p,
-    .card li {
-      color: var(--text-secondary);
+    .section-light .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .card ul {
@@ -925,63 +256,73 @@ footer {
       padding-left: 18px;
     }
 
+    .card li {
+      margin-bottom: 8px;
+    }
+
+    /* CAPACIDADES - CLARO */
     .capability-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
+      width: 40px;
+      height: 40px;
       display: inline-grid;
-      place-content: center;
-      background: linear-gradient(135deg, rgba(107, 140, 255, 0.26), rgba(29, 78, 216, 0.4));
-      border: 1px solid rgba(107, 140, 255, 0.42);
+      place-items: center;
+      border-radius: 10px;
       margin-bottom: 14px;
+      border: 1px solid rgba(107, 140, 255, .5);
+      background: linear-gradient(135deg, rgba(107, 140, 255, .28), rgba(29, 78, 216, .4));
+    }
+
+    .section-light .capability-icon {
+      border: 1px solid #1e40af;
+      background: linear-gradient(135deg, rgba(30, 64, 175, 0.15), rgba(29, 78, 216, 0.25));
     }
 
     .capability-icon svg {
-      width: 22px;
-      height: 22px;
-      stroke: #dbeafe;
-      fill: none;
+      width: 21px;
+      height: 21px;
+      stroke: #eaf2ff;
       stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      fill: none;
     }
 
+    .section-light .capability-icon svg {
+      stroke: #1e40af;
+    }
+
+    /* SOLUCION DESTACADA - OSCURO */
     .featured {
-      background: linear-gradient(160deg, #10254d 0%, #0b1b3a 65%, #0a1631 100%);
-      border: 1px solid #39507a;
+      background: linear-gradient(155deg, var(--bg-featured), #0b1b3a 70%);
+      border: 1px solid #425d88;
       border-radius: 18px;
-      padding: 34px;
+      padding: 32px;
       box-shadow: var(--shadow);
     }
 
-    .featured h3 {
-      font-size: clamp(1.4rem, 2.1vw, 1.9rem);
-      margin-bottom: 12px;
-    }
+    .featured p { color: #e0ebfc; }
 
-    .featured p {
-      color: #d9e6fb;
-      margin-bottom: 22px;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+    .chips { display: flex; gap: 10px; flex-wrap: wrap; }
 
     .chip {
-      padding: 8px 12px;
+      border: 1px solid rgba(221, 234, 255, .5);
+      color: #f6faff;
+      background: rgba(16, 43, 89, .48);
       border-radius: 999px;
-      border: 1px solid rgba(217, 230, 251, 0.48);
-      background: rgba(15, 40, 84, 0.52);
-      color: #f8fbff;
-      font-size: 0.86rem;
+      padding: 8px 12px;
+      font-size: .85rem;
       font-weight: 600;
     }
 
+    /* CASOS - CLARO */
     .case-card {
-      background: var(--bg-card-soft);
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .case-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
     }
 
     .case-tag {
@@ -989,135 +330,174 @@ footer {
       margin-bottom: 10px;
       font-size: 0.78rem;
       font-weight: 700;
-      color: #dbeafe;
-      border: 1px solid #445b7f;
+      color: #1e40af;
+      border: 1px solid #1e40af;
       border-radius: 999px;
       padding: 5px 11px;
     }
 
-    .contact-grid {
+    /* CREDIBILIDAD - OSCURO */
+    .credibility-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 22px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 32px;
     }
 
-    .info-list {
-      margin: 18px 0 0;
-      padding-left: 18px;
+    .cred-item {
+      text-align: center;
+      padding: 24px;
     }
 
-    .form-card {
-      background: #111c31;
+    .cred-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--brand);
+      line-height: 1;
+      margin-bottom: 8px;
     }
 
-    .form-placeholder {
-      border: 1px dashed #4f6788;
-      border-radius: 12px;
-      padding: 20px;
+    .cred-label {
+      font-size: 0.9rem;
       color: var(--text-secondary);
-      background: rgba(11, 23, 43, 0.55);
     }
 
+    /* CONTACTO - CLARO */
+    .contact-wrap {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+    }
+
+    .contact-cta {
+      text-align: center;
+      padding: 48px 32px;
+    }
+
+    .contact-cta h3 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .contact-cta p {
+      color: var(--text-dark-secondary);
+      margin-bottom: 24px;
+      max-width: 50ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #1e40af;
+      font-weight: 600;
+      margin-top: 16px;
+    }
+
+    /* CIERRE COMERCIAL - OSCURO */
+    .closing {
+      text-align: center;
+      padding: 64px 0;
+    }
+
+    .closing h2 {
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      margin-bottom: 24px;
+      max-width: 60ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* FOOTER */
     footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 1px solid rgba(255,255,255,.08);
       padding: 30px 0 36px;
       color: var(--text-muted);
-      font-size: 0.92rem;
+      font-size: .92rem;
+      background: var(--bg-main);
     }
 
+    /* RESPONSIVE */
     @media (max-width: 1024px) {
-      .hero {
-        padding-top: 76px;
-      }
-
-      .hero-grid,
-      .contact-grid,
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-
-      .grid-2 {
-        gap: 16px;
-      }
-
-      .card,
-      .featured,
-      .hero-aside {
-        padding: 22px;
-      }
+      .hero-grid { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .credibility-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 768px) {
-      .site-header {
-        position: static;
-      }
-
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 16px 0;
-      }
-
-      .nav-links {
-        gap: 12px;
-      }
-
-      .section {
-        padding: 62px 0;
-      }
-
-      .hero {
-        padding: 56px 0 54px;
-      }
-
-      .buttons {
-        width: 100%;
-      }
-
-      .btn {
-        flex: 1;
-        min-width: 170px;
-      }
-
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
-
-      .section-intro {
-        margin-bottom: 20px;
-      }
+      .hero { padding: 62px 0 54px; }
+      .section { padding: 62px 0; }
+      .grid-2,
+      .grid-3 { grid-template-columns: 1fr; }
+      .card,
+      .featured { padding: 20px; }
+      .btn { flex: 1; min-width: 160px; }
+      .hero-points { margin-top: 24px; }
     }
 
     @media (max-width: 480px) {
-      .container {
-        width: min(94%, 1140px);
-      }
+      .container { width: min(94%, 1120px); }
+      .hero p,
+      .section-intro,
+      .card p { font-size: .96rem; }
+      .btn { width: 100%; }
+      .closing { padding: 48px 0; }
+    }
+  </style>
+<base target="_blank">
+</head>
+<body>
 
- codex/redesign-equantum-institutional-website
-    <aside class="hero-aside">
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="brand">eQuantum</div>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="#diferencial">Diferencial</a>
+      <a href="#capacidades">Capacidades</a>
+      <a href="#solucion">Solución destacada</a>
+      <a href="#casos">Casos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO - OSCURO -->
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div>
+      <h1>Diseñamos & evolucionamos la <span class="highlight">arquitectura digital</span> de tu negocio.</h1>
+      <p>Integramos estrategia, tecnología & datos para transformar canales digitales en un sistema comercial más claro, más medible & preparado para crecer con consistencia.</p>
+      <div class="buttons">
+        <a href="#contacto" class="btn btn-primary">Solicitar propuesta</a>
+        <a href="#casos" class="btn btn-secondary">Ver casos</a>
+      </div>
+    </div>
+
+    <div class="hero-points">
       <h3>Enfoque eQuantum</h3>
-      <p>De la visión estratégica a la implementación: conectamos prioridades de negocio con capacidades digitales medibles.</p>
-      <ul class="hero-points">
-        <li>Estrategia digital alineada a objetivos comerciales.</li>
-        <li>Arquitectura tecnológica preparada para escalar.</li>
-        <li>Gestión de performance con foco en eficiencia y crecimiento.</li>
+      <ul>
+        <li>Estrategia digital alineada a negocio</li>
+        <li>Arquitectura tecnológica escalable</li>
+        <li>Decisiones basadas en datos</li>
+        <li>Ejecución con foco en resultados</li>
       </ul>
-    </aside>
- codex/redesign-equantum-institutional-website
+    </div>
   </div>
 </section>
 
-<!-- DIFERENCIAL -->
-<section class="section panel" id="diferencial">
+<!-- DIFERENCIAL - OSCURO -->
+<section class="section section-dark" id="diferencial">
   <div class="container">
-    <h2>Arquitectura digital con enfoque estratégico &amp; ejecución consistente.</h2>
-    <p class="section-intro">Diseñamos estructuras digitales pensadas para crecimiento, control operativo &amp; evolución sostenible. Conectamos estrategia, tecnología &amp; procesos para que cada inversión tenga impacto real en el negocio.</p>
+    <h2 class="section-title">Arquitectura digital con enfoque estratégico & ejecución consistente.</h2>
+    <p class="section-intro">Diseñamos estructuras digitales pensadas para crecimiento, control operativo & evolución sostenible. Conectamos estrategia, tecnología & procesos para que cada inversión tenga impacto real en el negocio.</p>
     <div class="grid-2 single-card-layout">
       <div class="card">
         <h3>Modelo consultivo eQuantum</h3>
         <ul>
           <li>Diseño integral del ecosistema digital.</li>
-          <li>Métricas accionables para dirección &amp; operación.</li>
+          <li>Métricas accionables para dirección & operación.</li>
           <li>Procesos conectados con trazabilidad de punta a punta.</li>
           <li>Un partner estratégico para evolucionar con consistencia.</li>
         </ul>
@@ -1126,51 +506,51 @@ footer {
   </div>
 </section>
 
-<!-- CAPACIDADES -->
-<section class="section" id="capacidades">
+<!-- CAPACIDADES - CLARO -->
+<section class="section section-light" id="capacidades">
   <div class="container">
-    <h2>Componentes de un sistema digital preparado para crecer</h2>
-    <p class="section-intro">Capacidades integradas para sostener una operación digital sólida, eficiente y orientada a resultados.</p>
+    <h2 class="section-title">Componentes de un sistema digital preparado para crecer</h2>
+    <p class="section-intro">Capacidades integradas para sostener una operación digital sólida, eficiente & orientada a resultados.</p>
 
     <div class="grid-3">
       <article class="card">
         <span class="capability-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M4 10l8-6 8 6v10H4z"></path><path d="M9 20v-6h6v6"></path></svg>
         </span>
-        <h3>Páginas corporativas &amp; sitios institucionales</h3>
-        <p>Desarrollamos páginas corporativas orientadas a posicionamiento, credibilidad de marca, generación de consultas &amp; presencia digital profesional.</p>
+        <h3>Páginas corporativas & sitios institucionales</h3>
+        <p>Desarrollamos páginas corporativas orientadas a posicionamiento, credibilidad de marca, generación de consultas & presencia digital profesional.</p>
       </article>
 
       <article class="card">
         <span class="capability-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"></rect><path d="M8 9h8M8 13h5"></path></svg>
         </span>
-        <h3>E-commerce &amp; canales de venta digital</h3>
-        <p>Tiendas online diseñadas para crecer con control comercial, integración tecnológica, experiencia de compra clara &amp; foco en conversión.</p>
+        <h3>E-commerce & canales de venta digital</h3>
+        <p>Tiendas online diseñadas para crecer con control comercial, integración tecnológica, experiencia de compra clara & foco en conversión.</p>
       </article>
 
       <article class="card">
         <span class="capability-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"></path><path d="M8 9h8M8 13h8"></path></svg>
         </span>
-        <h3>Sistemas internos &amp; procesos digitales</h3>
-        <p>Digitalizamos procesos críticos para ganar trazabilidad, velocidad de gestión, orden operativo &amp; mejor control transversal.</p>
+        <h3>Sistemas internos & procesos digitales</h3>
+        <p>Digitalizamos procesos críticos para ganar trazabilidad, velocidad de gestión, orden operativo & mejor control transversal.</p>
       </article>
 
       <article class="card">
         <span class="capability-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-3.5-3.5"></path><path d="M11 8v3l2 2"></path></svg>
         </span>
-        <h3>SEO &amp; Posicionamiento Estratégico</h3>
-        <p>Analizamos tu negocio, competencia &amp; comportamiento de búsqueda para posicionarte en Google con foco en ventas &amp; oportunidades reales.</p>
+        <h3>SEO & Posicionamiento Estratégico</h3>
+        <p>Analizamos tu negocio, competencia & comportamiento de búsqueda para posicionarte en Google con foco en ventas & oportunidades reales.</p>
       </article>
 
       <article class="card">
         <span class="capability-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="M8 15l3-3 3 2 4-5"></path><circle cx="8" cy="15" r="1"></circle><circle cx="11" cy="12" r="1"></circle><circle cx="14" cy="14" r="1"></circle><circle cx="18" cy="9" r="1"></circle></svg>
         </span>
-        <h3>Analítica, Data &amp; Performance</h3>
-        <p>Transformamos datos en decisiones. Implementamos medición, dashboards &amp; análisis de comportamiento para optimizar conversiones, detectar oportunidades &amp; mejorar rentabilidad.</p>
+        <h3>Analítica, Data & Performance</h3>
+        <p>Transformamos datos en decisiones. Implementamos medición, dashboards & análisis de comportamiento para optimizar conversiones, detectar oportunidades & mejorar rentabilidad.</p>
       </article>
 
       <article class="card">
@@ -1178,18 +558,18 @@ footer {
           <svg viewBox="0 0 24 24"><path d="M6 4h12v16H6z"></path><path d="M9 8h6M9 12h6M9 16h4"></path></svg>
         </span>
         <h3>Automatización de procesos críticos</h3>
-        <p>Orquestamos flujos clave entre equipos &amp; sistemas para reducir fricción operativa, mejorar productividad &amp; sostener escalabilidad.</p>
+        <p>Orquestamos flujos clave entre equipos & sistemas para reducir fricción operativa, mejorar productividad & sostener escalabilidad.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- SOLUCIÓN DESTACADA -->
-<section class="section panel" id="solucion">
+<!-- SOLUCION DESTACADA - OSCURO -->
+<section class="section section-dark" id="solucion">
   <div class="container">
     <div class="featured">
-      <h2>Sistema de Aprobaciones y Solicitudes Internas</h2>
-      <p>Centralizamos solicitudes, niveles de aprobación y trazabilidad en una única solución digital para acelerar decisiones, reducir errores operativos y mantener gobierno interno.</p>
+      <h2>Sistema de Aprobaciones & Solicitudes Internas</h2>
+      <p>Centralizamos solicitudes, niveles de aprobación & trazabilidad en una única solución digital para acelerar decisiones, reducir errores operativos & mantener gobierno interno.</p>
       <div class="chips">
         <span class="chip">Visibilidad en tiempo real</span>
         <span class="chip">Aprobaciones configurables</span>
@@ -1200,424 +580,79 @@ footer {
   </div>
 </section>
 
-<!-- CASOS -->
-<section class="section" id="casos">
+<!-- CASOS - CLARO -->
+<section class="section section-light" id="casos">
   <div class="container">
-    <h2>Casos de evolución digital</h2>
-    <p class="section-intro">Implementaciones orientadas a resultados de negocio, con decisiones respaldadas por datos y ejecución técnica consistente.</p>
+    <h2 class="section-title">Casos de evolución digital</h2>
+    <p class="section-intro">Implementaciones orientadas a resultados de negocio, con decisiones respaldadas por datos & ejecución técnica consistente.</p>
     <div class="grid-3">
-      <article class="card">
-        <h3>Retail</h3>
-        <p>Integración de e-commerce, operación y reporting para mejorar control comercial y capacidad de crecimiento.</p>
+      <article class="card case-card">
+        <span class="case-tag">E-commerce + Web corporativa</span>
+        <h3>Marmolería Pietra</h3>
+        <p>Desarrollo de sitio institucional & estructura digital orientada a posicionamiento, catálogo de productos & generación de consultas comerciales.</p>
       </article>
-      <article class="card">
-        <h3>Servicios B2B</h3>
-        <p>Rediseño del embudo digital para mejorar calidad de oportunidad y seguimiento comercial.</p>
+      <article class="card case-card">
+        <span class="case-tag">E-commerce en Shopify</span>
+        <h3>Corpicia</h3>
+        <p>Implementación & optimización de e-commerce sobre Shopify, con foco en experiencia de usuario, estructura de catálogo & conversión mediante canal WhatsApp.</p>
       </article>
-      <article class="card">
-        <h3>Industria</h3>
-        <p>Modelo de medición y performance para priorizar inversiones y elevar rentabilidad digital.</p>
+      <article class="card case-card">
+        <span class="case-tag">Industria & Manufactura</span>
+        <h3>Sector Industrial</h3>
+        <p>Enfoque en medición, control de performance & decisiones basadas en datos para optimizar procesos & elevar rentabilidad operativa.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- CONTACTO -->
-<section class="section panel" id="contacto">
-  <div class="container grid-2">
-    <div>
-      <h2>Conversemos sobre tu siguiente etapa digital</h2>
-      <p class="section-intro">Evaluamos contexto, prioridades y oportunidades para definir una hoja de ruta estratégica, realista y accionable.</p>
-    </div>
-    <div class="card contact-wrap">
-      <h3>Contacto</h3>
-      <p>Tu formulario y flujo funcional actual se mantienen, con mejora visual de contraste y espaciado para mobile.</p>
-
-<section class="section section-panel" id="diferencial">
-  <div class="container">
-    <h2 class="section-title">No operamos por tareas: construimos sistemas digitales de negocio.</h2>
-    <p class="section-intro">
-      Integramos consultoría, implementación y mejora continua para que cada canal, proceso y tecnología aporte valor real a tus objetivos.
-    </p>
-
-    <div class="grid-2">
-      <div class="card">
-        <h3>Modelo operativo tradicional</h3>
-        <ul>
-          <li>Acciones aisladas sin visión de arquitectura.</li>
-          <li>KPIs tácticos desconectados del negocio.</li>
-          <li>Herramientas y proveedores fragmentados.</li>
-          <li>Escalabilidad limitada por retrabajo constante.</li>
-        </ul>
+<!-- CREDIBILIDAD - OSCURO -->
+<section class="section section-dark" id="credibilidad">
+  <div class="container" style="text-align: center;">
+    <h2 class="section-title">Trabajamos con empresas que buscan crecer con estructura</h2>
+    <div class="credibility-grid">
+      <div class="cred-item">
+        <div class="cred-number">+50</div>
+        <div class="cred-label">Proyectos en e-commerce, sitios corporativos & sistemas internos</div>
       </div>
-
-      h1 {
-        margin-top: 16px;
-      }
- main
-
-      .hero p,
-      .section-intro,
-      .card p {
-        font-size: 0.96rem;
-      }
-
-      .card,
-      .featured,
-      .hero-aside,
-      .form-placeholder {
-        padding: 18px;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .chips {
-        gap: 8px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <header class="site-header">
-    <div class="container nav">
-      <div class="brand">eQuantum</div>
-      <nav class="nav-links" aria-label="Navegación principal">
-        <a href="#diferencial">Diferencial</a>
-        <a href="#capacidades">Capacidades</a>
-        <a href="#solucion">Solución destacada</a>
-        <a href="#casos">Casos</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero" id="inicio">
-    <div class="container hero-grid">
-      <div>
-        <span class="label">Consultoría digital orientada a resultados</span>
-        <h1>Diseñamos y evolucionamos la <span class="highlight">arquitectura digital</span> de tu negocio.</h1>
-        <p>
-          Combinamos estrategia, datos y desarrollo para convertir tu ecosistema digital en una plataforma de crecimiento sostenible, con decisiones claras y ejecución de alto impacto.
-        </p>
-        <div class="buttons">
-          <a href="#contacto" class="btn primary">Solicitar propuesta</a>
-          <a href="#casos" class="btn secondary">Ver casos</a>
-        </div>
+      <div class="cred-item">
+        <div class="cred-number">3</div>
+        <div class="cred-label">Sectores: retail, servicios & modelos B2B</div>
       </div>
-
-      <aside class="hero-aside">
-        <h3>Enfoque eQuantum</h3>
-        <p>De la visión estratégica a la implementación: conectamos prioridades de negocio con capacidades digitales medibles.</p>
-        <ul class="hero-points">
-          <li>Estrategia digital alineada a objetivos comerciales.</li>
-          <li>Arquitectura tecnológica preparada para escalar.</li>
-          <li>Gestión de performance con foco en eficiencia y crecimiento.</li>
-        </ul>
-      </aside>
-    </div>
-  </section>
-
-  <section class="section section-panel" id="diferencial">
-    <div class="container">
-      <h2 class="section-title">No operamos por tareas: construimos sistemas digitales de negocio.</h2>
-      <p class="section-intro">
-        Integramos consultoría, implementación y mejora continua para que cada canal, proceso y tecnología aporte valor real a tus objetivos.
-      </p>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3>Modelo operativo tradicional</h3>
-          <ul>
-            <li>Acciones aisladas sin visión de arquitectura.</li>
-            <li>KPIs tácticos desconectados del negocio.</li>
-            <li>Herramientas y proveedores fragmentados.</li>
-            <li>Escalabilidad limitada por retrabajo constante.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Modelo consultivo eQuantum</h3>
-          <ul>
-            <li>Diseño integral de ecosistema digital.</li>
-            <li>Métricas accionables para dirección y operación.</li>
-            <li>Procesos conectados con trazabilidad de punta a punta.</li>
-            <li>Un partner estratégico para evolucionar con consistencia.</li>
-          </ul>
-        </div>
+      <div class="cred-item">
+        <div class="cred-number">100%</div>
+        <div class="cred-label">Enfoque en crecimiento, control & escalabilidad</div>
       </div>
-    </div>
-  </section>
-
-  <section class="section" id="capacidades">
-    <div class="container">
-      <h2 class="section-title">Componentes de un sistema digital preparado para crecer</h2>
-      <p class="section-intro">
-        Cada capacidad se diseña para reforzar la estrategia comercial, mejorar la experiencia del cliente y sostener decisiones basadas en evidencia.
-      </p>
-
-      <div class="grid-3">
-        <article class="card">
-          <span class="capability-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 10l8-6 8 6v10H4z"></path><path d="M9 20v-6h6v6"></path></svg>
-          </span>
-          <h3>Infraestructura Web</h3>
-          <p>Plataformas institucionales orientadas a posicionamiento, conversión y escalabilidad operativa.</p>
-        </article>
-
-        <article class="card">
-          <span class="capability-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"></rect><path d="M8 9h8M8 13h5"></path></svg>
-          </span>
-          <h3>E-commerce estratégico</h3>
-          <p>Tiendas diseñadas para crecer con control comercial, integración tecnológica y foco en rentabilidad.</p>
-        </article>
-
-        <article class="card">
-          <span class="capability-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"></path><path d="M8 9h8M8 13h8"></path></svg>
-          </span>
-          <h3>Sistemas internos</h3>
-          <p>Digitalizamos procesos críticos para ganar trazabilidad, velocidad de gestión y control transversal.</p>
-        </article>
-
-        <article class="card">
-          <span class="capability-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-3.5-3.5"></path><path d="M11 8v3l2 2"></path></svg>
-          </span>
-          <h3>SEO &amp; Posicionamiento Estratégico</h3>
-          <p>Analizamos tu negocio, competencia y comportamiento de búsqueda para posicionarte en Google con foco en ventas. Diseñamos una estrategia SEO clara que convierte tráfico en oportunidades reales.</p>
-        </article>
-
-        <article class="card">
-          <span class="capability-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="M8 15l3-3 3 2 4-5"></path><circle cx="8" cy="15" r="1"></circle><circle cx="11" cy="12" r="1"></circle><circle cx="14" cy="14" r="1"></circle><circle cx="18" cy="9" r="1"></circle></svg>
-          </span>
-          <h3>Analítica, Data &amp; Performance</h3>
-          <p>Transformamos datos en decisiones. Implementamos medición, dashboards y análisis de comportamiento para optimizar conversiones, detectar oportunidades y mejorar la rentabilidad digital.</p>
-        </article>
-
-        <article class="card">
-          <span class="capability-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M6 4h12v16H6z"></path><path d="M9 8h6M9 12h6M9 16h4"></path></svg>
-          </span>
-          <h3>Automatización de procesos críticos</h3>
-          <p>Orquestamos flujos clave entre equipos y sistemas para reducir fricción operativa y elevar productividad.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-panel" id="solucion">
-    <div class="container">
-      <div class="featured">
-        <h3>Sistema de Aprobaciones y Solicitudes Internas</h3>
-        <p>
-          Centralizamos solicitudes, niveles de aprobación y trazabilidad en una única solución digital para acelerar decisiones, reducir errores operativos y sostener estándares de gobierno interno.
-        </p>
-        <div class="chips" aria-label="Beneficios del sistema">
-          <span class="chip">Visibilidad en tiempo real</span>
-          <span class="chip">Reglas de aprobación configurables</span>
-          <span class="chip">Historial auditable por área</span>
-          <span class="chip">Integración con sistemas existentes</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="casos">
-    <div class="container">
-      <h2 class="section-title">Casos de evolución digital</h2>
-      <p class="section-intro">Proyectos donde combinamos visión consultiva y ejecución técnica para resolver desafíos reales de negocio.</p>
-
-      <div class="grid-3">
-        <article class="card case-card">
-          <span class="case-tag">Retail</span>
-          <h4>Unificación comercial y operativa</h4>
-          <p>Diseño de arquitectura digital integrada para conectar e-commerce, reporting y procesos internos.</p>
-        </article>
-
-        <article class="card case-card">
-          <span class="case-tag">B2B Servicios</span>
-          <h4>Rediseño de embudo digital</h4>
-          <p>Optimización del journey de adquisición con foco en calidad de oportunidad y seguimiento comercial.</p>
-        </article>
-
-        <article class="card case-card">
-          <span class="case-tag">Industria</span>
-          <h4>Gobierno de datos y performance</h4>
-          <p>Implementación de medición ejecutiva para priorizar decisiones y elevar rentabilidad por canal.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-panel" id="contacto">
-    <div class="container contact-grid">
-      <div>
-        <h2 class="section-title">Conversemos sobre tu siguiente etapa digital</h2>
-        <p class="section-intro">Evaluamos contexto, oportunidades y prioridades para diseñar una hoja de ruta estratégica, realista y accionable.</p>
-        <ul class="info-list">
-          <li>Diagnóstico inicial y objetivos de negocio.</li>
-          <li>Priorización de iniciativas y capacidades críticas.</li>
-          <li>Plan de ejecución con métricas de seguimiento.</li>
-        </ul>
-      </div>
-
-      <div class="card form-card">
-        <h3>Contacto</h3>
-        <p class="section-intro">Tu formulario actual se mantiene intacto. Esta área respeta la estructura funcional existente.</p>
-        <div class="form-placeholder">Espacio reservado para el formulario activo de eQuantum.</div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      eQuantum © 2026 · Consultoría y arquitectura digital para empresas en crecimiento.
-    </div>
-  </footer>
- codex/redesign-equantum-institutional-website
-
-  <div class="wa-wrap" aria-live="polite">
-    <button class="wa-btn" id="waBtn" aria-label="Abrir chat de WhatsApp">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      <span class="wa-dot">1</span>
-    </button>
-
-    <div class="wa-chat" id="waChat" role="dialog" aria-label="Chat rápido de WhatsApp">
-      <div class="wa-head">
-        <i data-lucide="message-square" style="width:18px;height:18px" aria-hidden="true"></i>
-        <div>
-          <strong style="font-size:.86rem;display:block;">Asesoría eQuantum</strong>
-          <small style="font-size:.72rem;color:#bfdbfe;">Disponible ahora</small>
-        </div>
-        <button id="waClose" aria-label="Cerrar chat"><i data-lucide="x" style="width:18px;height:18px" aria-hidden="true"></i></button>
-      </div>
-      <div class="wa-body">
-        <div class="bubble">Hola 👋 ¿Querés que evaluemos tu infraestructura digital y te propongamos un plan inicial?</div>
-      </div>
-      <div class="wa-quick">
-        <p>Accesos rápidos</p>
-        <div class="wa-options">
-          <button onclick="sendWA('Quiero solicitar una propuesta estratégica para mi empresa')">Solicitar propuesta</button>
-          <button onclick="sendWA('Quiero agendar una reunión de diagnóstico')">Agendar reunión</button>
-          <button onclick="sendWA('Quiero información del sistema de aprobaciones internas')">Sistema interno</button>
-        </div>
-      </div>
-      <div class="wa-input">
-        <label for="waInput" class="sr-only">Escribir consulta</label>
-        <input id="waInput" type="text" placeholder="Escribí tu consulta inicial">
-        <button class="wa-send" id="waSend" aria-label="Enviar mensaje"><i data-lucide="send" style="width:14px;height:14px" aria-hidden="true"></i></button>
-      </div>
- codex/redesign-equantum-institutional-website
     </div>
   </div>
+</section>
 
+<!-- CONTACTO - CLARO -->
+<section class="section section-light" id="contacto">
+  <div class="container">
+    <div class="card contact-wrap contact-cta">
+      <h2>Conversemos sobre tu siguiente etapa digital</h2>
+      <p>Agendá una reunión estratégica & evaluamos tu estructura digital actual. Diseñamos una hoja de ruta realista & accionable para tu negocio.</p>
+      <a href="mailto:contacto@equantum.com" class="btn btn-primary btn-large">Solicitar diagnóstico</a>
+      <div class="contact-email">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        contacto@equantum.com
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CIERRE COMERCIAL - OSCURO -->
+<section class="section section-dark closing">
+  <div class="container">
+    <h2>No desarrollamos páginas aisladas. Diseñamos sistemas digitales preparados para crecer.</h2>
+    <a href="#contacto" class="btn btn-primary btn-large">Solicitar propuesta</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <div class="container">eQuantum © 2026 · Consultoría y arquitectura digital para empresas.</div>
+  <div class="container">eQuantum © 2026 · Consultoría & arquitectura digital para empresas.</div>
 </footer>
 
-  <script>
-    function createStars() {
-      const box = document.getElementById('stars');
-      if (!box) return;
-      for (let i = 0; i < 48; i++) {
-        const s = document.createElement('span');
-        s.className = 'star';
-        s.style.left = Math.random() * 100 + '%';
-        s.style.top = Math.random() * 100 + '%';
-        s.style.width = Math.random() > .86 ? '2px' : '1px';
-        s.style.height = s.style.width;
-        s.style.animationDelay = Math.random() * 3 + 's';
-        box.appendChild(s);
-      }
-    }
-
-    function initMenu() {
-      const btn = document.getElementById('menuBtn');
-      const links = document.getElementById('navLinks');
-      const overlay = document.getElementById('overlay');
-      if (!btn || !links || !overlay) return;
-
-      const close = () => {
-        links.classList.remove('open');
-        overlay.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-        btn.setAttribute('aria-label', 'Abrir menú');
-        btn.innerHTML = '<i data-lucide="menu" style="width:24px;height:24px"></i>';
-        lucide.createIcons();
-      };
-      const open = () => {
-        links.classList.add('open');
-        overlay.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
-        btn.setAttribute('aria-label', 'Cerrar menú');
-        btn.innerHTML = '<i data-lucide="x" style="width:24px;height:24px"></i>';
-        lucide.createIcons();
-      };
-
-      btn.addEventListener('click', () => links.classList.contains('open') ? close() : open());
-      overlay.addEventListener('click', close);
-      links.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
-    }
-
-    function animateCounters() {
-      document.querySelectorAll('[data-count]').forEach((el) => {
-        const target = Number(el.dataset.count);
-        const suffix = el.dataset.suffix || '';
-        if (!target) return;
-        let current = 0;
-        const step = Math.max(1, target / 34);
-        const t = setInterval(() => {
-          current += step;
-          if (current >= target) {
-            el.textContent = target + suffix;
-            clearInterval(t);
-          } else {
-            el.textContent = Math.floor(current) + suffix;
-          }
-        }, 40);
-      });
-    }
-
-    function sendWA(msg) {
-      const text = msg && msg.trim() ? msg.trim() : 'Hola, quiero más información sobre eQuantum.';
-      window.open(`https://wa.me/595985194953?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
-    }
-
-    function initWA() {
-      const btn = document.getElementById('waBtn');
-      const chat = document.getElementById('waChat');
-      const close = document.getElementById('waClose');
-      const send = document.getElementById('waSend');
-      const input = document.getElementById('waInput');
-      if (!btn || !chat || !close || !send || !input) return;
-
-      btn.addEventListener('click', () => chat.classList.toggle('open'));
-      close.addEventListener('click', () => chat.classList.remove('open'));
-      send.addEventListener('click', () => sendWA(input.value));
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          sendWA(input.value);
-        }
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      createStars();
-      lucide.createIcons();
-      initMenu();
-      initWA();
-      animateCounters();
-    });
-  </script>
- main
- codex/redesign-equantum-institutional-website
-
- main
 </body>
 </html>
