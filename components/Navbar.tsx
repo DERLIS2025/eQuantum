@@ -28,6 +28,9 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
+          <a href="#contacto" className="rounded-md bg-brand-night px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-navy">
+            Agendar llamada
+          </a>
         </div>
       </nav>
 
@@ -44,6 +47,13 @@ export default function Navbar() {
                 {item.label}
               </a>
             ))}
+            <a
+              href="#contacto"
+              className="rounded-md bg-brand-night px-4 py-2 text-center text-sm font-semibold text-white"
+              onClick={() => setOpen(false)}
+            >
+              Agendar llamada
+            </a>
           </div>
         </div>
       )}
